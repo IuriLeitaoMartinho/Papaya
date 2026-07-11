@@ -1,0 +1,17 @@
+{
+  "_ajuda": "Lista ordenada dos capítulos do guia. Para adicionar um capítulo: cria o ficheiro .md em conteudo/ (tem de começar com '# Título') e acrescenta o nome do ficheiro aqui. Depois faz bump da versão em sw.js para a app atualizada chegar a quem já a instalou.",
+  "capitulos": [
+    "01-como-usar.md",
+    "02-emergencias.md",
+    "03-mala-maternidade.md",
+    "04-recem-nascido.md",
+    "05-alimentacao.md",
+    "06-sono.md",
+    "07-sintomas-az.md",
+    "08-desenvolvimento.md",
+    "09-vacinas-consultas.md",
+    "10-seguranca.md",
+    "11-ser-pai.md",
+    "12-fontes.md"
+  ]
+}

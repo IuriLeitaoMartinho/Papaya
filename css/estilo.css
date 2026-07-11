@@ -1,0 +1,256 @@
+/* Papaya — estilos globais.
+   Paleta quente inspirada em papaia; dark mode automático via prefers-color-scheme. */
+
+:root {
+  --fundo: #FAF5EF;
+  --cartao: #FFFFFF;
+  --tinta: #2E2A33;
+  --suave: #8B8393;
+  --linha: #ECE4D9;
+  --acento: #D96E34;        /* laranja papaia — ação principal */
+  --acento-suave: #F8E3D4;
+
+  /* cores por categoria de dica (ecrã Hoje) */
+  --c-desenvolvimento: #6C63B5;
+  --c-estimulacao: #4E9B6F;
+  --c-saude: #4788B8;
+  --c-consulta: #C9922A;
+  --c-vacina: #3FA0A0;
+  --c-alerta: #C75450;
+
+  --raio: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #201C26; --cartao: #2B2734; --tinta: #EDEAF2; --suave: #9A93A8;
+    --linha: #3A3547; --acento: #E58A50; --acento-suave: #45332A;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fundo); color: var(--tinta);
+  padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+}
+button { font-family: inherit; }
+a { color: var(--acento); }
+
+/* ---------- cabeçalho ---------- */
+header {
+  padding: 18px 20px 6px;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+header h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
+header .idade { color: var(--suave); font-size: 14px; }
+header button {
+  background: none; border: none; color: var(--suave);
+  font-size: 22px; cursor: pointer; padding: 4px;
+}
+
+main { padding: 8px 16px; max-width: 720px; margin: 0 auto; }
+
+/* ---------- barra de navegação inferior ---------- */
+.barra-fundo {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
+  display: flex;
+  background: var(--cartao); border-top: 1px solid var(--linha);
+  padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+}
+.barra-fundo a {
+  flex: 1; text-align: center; text-decoration: none;
+  color: var(--suave); font-size: 12px; font-weight: 600;
+  padding: 4px 0; border-radius: 12px;
+  display: flex; flex-direction: column; align-items: center; gap: 1px;
+}
+.barra-fundo a .icone { font-size: 20px; }
+.barra-fundo a.ativo { color: var(--acento); background: var(--acento-suave); }
+
+/* ---------- cartões genéricos ---------- */
+.cartao {
+  background: var(--cartao); border-radius: var(--raio);
+  padding: 14px 16px; margin-bottom: 10px;
+}
+.vazio { color: var(--suave); text-align: center; padding: 40px 20px; font-size: 15px; }
+.subtitulo {
+  color: var(--suave); font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.08em; margin: 18px 4px 8px; font-weight: 700;
+}
+
+/* ---------- ecrã Hoje ---------- */
+.dica { border-left: 4px solid var(--cor, var(--linha)); }
+.dica h3 { font-size: 15px; margin-bottom: 4px; }
+.dica .etiqueta {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--cor); margin-bottom: 4px;
+}
+.dica p { font-size: 14px; color: var(--tinta); }
+.dica .ler-mais { font-size: 13px; font-weight: 600; display: inline-block; margin-top: 6px; text-decoration: none; }
+.dica.pontual .quando { font-weight: 700; }
+
+/* ---------- Guia ---------- */
+.lista-capitulos a {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--cartao); border-radius: var(--raio);
+  padding: 14px 16px; margin-bottom: 8px;
+  text-decoration: none; color: var(--tinta); font-weight: 600; font-size: 15px;
+}
+.lista-capitulos a .num {
+  color: var(--acento); font-weight: 700; font-variant-numeric: tabular-nums;
+  font-size: 13px; min-width: 22px;
+}
+.voltar {
+  background: none; border: none; color: var(--acento);
+  font-size: 15px; font-weight: 600; cursor: pointer; padding: 8px 0; margin-bottom: 4px;
+}
+
+/* artigo (capítulo renderizado) */
+article.capitulo { background: var(--cartao); border-radius: var(--raio); padding: 18px 18px 24px; }
+article.capitulo h1 { font-size: 22px; margin-bottom: 12px; letter-spacing: -0.02em; }
+article.capitulo h2 {
+  font-size: 18px; margin: 22px 0 8px; padding-top: 8px;
+  border-top: 1px solid var(--linha); scroll-margin-top: 12px;
+}
+article.capitulo h3 { font-size: 15px; margin: 16px 0 6px; }
+article.capitulo p { font-size: 15px; margin: 8px 0; }
+article.capitulo ul, article.capitulo ol { padding-left: 22px; margin: 8px 0; }
+article.capitulo li { font-size: 15px; margin: 5px 0; }
+article.capitulo blockquote {
+  background: var(--acento-suave); border-left: 4px solid var(--acento);
+  border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 14px;
+}
+article.capitulo code {
+  background: var(--fundo); border-radius: 4px; padding: 1px 5px;
+  font-size: 13px; font-family: ui-monospace, Consolas, monospace;
+}
+article.capitulo .tabela-scroll { overflow-x: auto; margin: 10px 0; }
+article.capitulo table { border-collapse: collapse; font-size: 14px; min-width: 100%; }
+article.capitulo th, article.capitulo td {
+  border: 1px solid var(--linha); padding: 7px 10px; text-align: left; vertical-align: top;
+}
+article.capitulo th { background: var(--fundo); }
+h2.realce { animation: realce 2s ease; }
+@keyframes realce { from { background: var(--acento-suave); } to { background: none; } }
+
+/* ---------- Pesquisa ---------- */
+.caixa-pesquisa { position: sticky; top: 0; padding: 6px 0 10px; background: var(--fundo); z-index: 2; }
+#campoPesquisa {
+  width: 100%; padding: 13px 16px; font-size: 16px;
+  border: 1px solid var(--linha); border-radius: 999px;
+  background: var(--cartao); color: var(--tinta);
+}
+#campoPesquisa:focus { outline: 2px solid var(--acento); border-color: transparent; }
+.resultado { display: block; text-decoration: none; color: var(--tinta); }
+.resultado .caminho { font-size: 12px; color: var(--suave); margin-bottom: 2px; }
+.resultado h3 { font-size: 15px; margin-bottom: 4px; color: var(--acento); }
+.resultado p { font-size: 14px; color: var(--tinta); }
+.resultado mark { background: var(--acento-suave); color: var(--acento); border-radius: 3px; padding: 0 2px; font-weight: 700; }
+
+/* ---------- Tarefas ---------- */
+.tarefa {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--cartao); border-radius: var(--raio);
+  padding: 12px 14px; margin-bottom: 8px;
+}
+.tarefa input[type="checkbox"] {
+  width: 24px; height: 24px; accent-color: var(--acento); flex-shrink: 0; cursor: pointer;
+}
+.tarefa .corpo { flex: 1; min-width: 0; cursor: pointer; }
+.tarefa .titulo { font-weight: 600; font-size: 15px; }
+.tarefa.feita .titulo { text-decoration: line-through; color: var(--suave); }
+.tarefa .membro { font-size: 13px; color: var(--suave); display: flex; align-items: center; gap: 5px; }
+.ponto-cor { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
+.botao-principal {
+  display: block; width: 100%; padding: 14px; margin-top: 12px;
+  border: none; border-radius: 12px; cursor: pointer;
+  background: var(--acento); color: #fff; font-size: 16px; font-weight: 700;
+}
+.botao-secundario {
+  display: block; width: 100%; padding: 12px; margin-top: 8px;
+  border: 1px solid var(--linha); border-radius: 12px; cursor: pointer;
+  background: var(--cartao); color: var(--tinta); font-size: 14px; font-weight: 600;
+}
+
+/* histórico 7 dias */
+.historico { overflow-x: auto; }
+.historico table { border-collapse: collapse; font-size: 12px; width: 100%; }
+.historico th, .historico td { padding: 5px 6px; text-align: center; color: var(--suave); }
+.historico td:first-child, .historico th:first-child {
+  text-align: left; color: var(--tinta); font-weight: 600; max-width: 140px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.historico .feito { color: var(--c-estimulacao); font-weight: 700; }
+.historico .hoje-col { background: var(--acento-suave); border-radius: 6px; }
+
+/* ---------- folha inferior (bottom sheet) ---------- */
+.fundo-folha {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+  display: none; z-index: 10;
+}
+.fundo-folha.aberta { display: block; }
+.folha {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 11;
+  background: var(--cartao); border-radius: 20px 20px 0 0;
+  padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+  transform: translateY(105%); transition: transform 0.22s ease;
+  max-height: 88vh; overflow-y: auto;
+  max-width: 720px; margin: 0 auto;
+}
+@media (prefers-reduced-motion: reduce) { .folha { transition: none; } html { scroll-behavior: auto; } }
+.folha.aberta { transform: translateY(0); }
+.folha h2 { font-size: 18px; margin-bottom: 14px; }
+.folha label { display: block; font-size: 13px; color: var(--suave); margin: 12px 0 5px; }
+.folha input[type="text"], .folha input[type="date"], .folha select {
+  width: 100%; padding: 11px 12px; font-size: 16px;
+  border: 1px solid var(--linha); border-radius: 10px;
+  background: var(--fundo); color: var(--tinta);
+}
+.folha .acoes { display: flex; gap: 10px; margin-top: 20px; }
+.folha .acoes button {
+  flex: 1; padding: 14px; border: none; border-radius: 12px;
+  font-size: 16px; font-weight: 700; cursor: pointer;
+}
+.botao-guardar { background: var(--acento); color: #fff; }
+.botao-cancelar { background: var(--fundo); color: var(--tinta); border: 1px solid var(--linha) !important; }
+.botao-apagar {
+  background: none; border: none; color: var(--c-alerta);
+  font-size: 14px; font-weight: 600; margin-top: 14px; cursor: pointer; width: 100%;
+}
+.linha-botoes { display: flex; gap: 10px; margin-top: 10px; }
+.linha-botoes button {
+  flex: 1; padding: 12px; border: 1px solid var(--linha); border-radius: 10px;
+  background: var(--fundo); color: var(--tinta); font-size: 14px; font-weight: 600; cursor: pointer;
+}
+
+/* seletor de dias da semana */
+.dias-semana { display: flex; gap: 6px; }
+.dias-semana button {
+  flex: 1; padding: 9px 0; border: 1px solid var(--linha); border-radius: 10px;
+  background: var(--fundo); color: var(--tinta); font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.dias-semana button.sel { background: var(--acento); color: #fff; border-color: var(--acento); }
+
+/* seletor de cores de membro */
+.paleta { display: flex; gap: 8px; flex-wrap: wrap; }
+.paleta button {
+  width: 34px; height: 34px; border-radius: 50%; border: 3px solid transparent; cursor: pointer;
+}
+.paleta button.sel { border-color: var(--tinta); }
+
+.membro-linha {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid var(--linha); font-size: 15px;
+}
+.membro-linha .nome { flex: 1; }
+.membro-linha button { background: none; border: none; color: var(--suave); cursor: pointer; font-size: 16px; }
+
+.aviso-import { background: var(--acento-suave); border-radius: 10px; padding: 10px 12px; font-size: 14px; margin-top: 10px; }
+
+button:focus-visible, input:focus-visible, a:focus-visible, select:focus-visible {
+  outline: 2px solid var(--acento); outline-offset: 2px;
+}
