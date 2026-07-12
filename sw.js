@@ -3,7 +3,7 @@
 // IMPORTANTE: sempre que alterares conteúdo (.md), dados (.json) ou código,
 // incrementa a VERSAO abaixo. É isso que faz os telemóveis que já têm a app
 // instalada irem buscar a versão nova.
-const VERSAO = 'papaya-v1';
+const VERSAO = 'papaya-v2';
 
 const ASSETS = [
   './',
@@ -19,9 +19,11 @@ const ASSETS = [
   './js/pesquisa.js',
   './js/idade.js',
   './js/tarefas.js',
+  './js/montessori.js',
   './js/vendor/fuse.min.mjs',
   './dados/capitulos.json',
   './dados/faixas-etarias.json',
+  './dados/montessori.json',
   './conteudo/01-como-usar.md',
   './conteudo/02-emergencias.md',
   './conteudo/03-mala-maternidade.md',
@@ -33,7 +35,8 @@ const ASSETS = [
   './conteudo/09-vacinas-consultas.md',
   './conteudo/10-seguranca.md',
   './conteudo/11-ser-pai.md',
-  './conteudo/12-fontes.md'
+  './conteudo/12-montessori.md',
+  './conteudo/13-fontes.md'
 ];
 
 self.addEventListener('install', e => {

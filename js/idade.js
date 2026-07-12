@@ -3,6 +3,7 @@
 
 import { estado } from './armazenamento.js';
 import { capitulos, slug } from './conteudo.js';
+import { dicaDoDia, cartaoDicaDia } from './montessori.js';
 import { escaparHtml } from './ui.js';
 
 let entradas = null;
@@ -100,7 +101,7 @@ export async function renderHoje(alvo) {
   const proximoMarco = futuras.length ? futuras[0].mesesMin : null;
   const proximas = futuras.filter(e => e.mesesMin === proximoMarco);
 
-  let html = '';
+  let html = cartaoDicaDia(await dicaDoDia(meses));
   if (agora.length) {
     html += '<div class="subtitulo">É este mês</div>' +
       agora.map(e => cartaoDica(e, 'agora')).join('');

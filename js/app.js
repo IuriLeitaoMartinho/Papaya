@@ -11,8 +11,9 @@ import {
 } from './armazenamento.js';
 import { carregarGuia, capitulos, htmlCapitulo } from './conteudo.js';
 import { construirIndice, ligarPesquisa } from './pesquisa.js';
-import { renderHoje, textoIdade } from './idade.js';
+import { renderHoje, textoIdade, idadeEmMeses } from './idade.js';
 import { renderTarefas, CORES_MEMBRO } from './tarefas.js';
+import { renderMontessori } from './montessori.js';
 import { $, escaparHtml, abrirFolha, fecharFolha, acoesFolha } from './ui.js';
 
 // ------------------------------------------------------------- cabeçalho ----
@@ -47,7 +48,7 @@ function renderCapitulo(alvo, id, ancora) {
 
 // ---------------------------------------------------------------- rotas -----
 
-const vistas = ['hoje', 'guia', 'pesquisa', 'tarefas'];
+const vistas = ['hoje', 'guia', 'pesquisa', 'tarefas', 'montessori'];
 
 function rota() {
   const partes = location.hash.replace(/^#/, '').split('/');
@@ -64,6 +65,10 @@ function rota() {
     else renderListaCapitulos($('#vista-guia'));
   }
   else if (separador === 'tarefas') renderTarefas($('#vista-tarefas'));
+  else if (separador === 'montessori') {
+    const { dataNascimento } = estado.definicoes;
+    renderMontessori($('#vista-montessori'), dataNascimento ? idadeEmMeses(dataNascimento) : null);
+  }
   else if (separador === 'pesquisa') $('#campoPesquisa').focus();
 }
 

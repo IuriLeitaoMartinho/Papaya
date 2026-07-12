@@ -17,6 +17,7 @@
   --c-consulta: #C9922A;
   --c-vacina: #3FA0A0;
   --c-alerta: #C75450;
+  --c-montessori: #A8674B;
 
   --raio: 16px;
 }
@@ -91,6 +92,13 @@ main { padding: 8px 16px; max-width: 720px; margin: 0 auto; }
 .dica p { font-size: 14px; color: var(--tinta); }
 .dica .ler-mais { font-size: 13px; font-weight: 600; display: inline-block; margin-top: 6px; text-decoration: none; }
 .dica.pontual .quando { font-weight: 700; }
+.dica-montessori { border: 1px solid var(--linha); }
+
+/* ---------- separador Montessori ---------- */
+.subtitulo.faixa { color: var(--c-montessori); }
+.principio h3 { font-size: 14px; color: var(--c-montessori); margin-bottom: 3px; }
+.principio p { font-size: 14px; }
+.botao-link { text-align: center; text-decoration: none; margin-bottom: 10px; }
 
 /* ---------- Guia ---------- */
 .lista-capitulos a {

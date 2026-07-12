@@ -14,6 +14,14 @@
 - **The Happiest Baby on the Block**, Harvey Karp — a técnica dos 5 S's para acalmar recém-nascidos (embrulhar, posição de lado ao colo, shhh, embalar, sucção). Vale pelo primeiro trimestre inteiro.
 - **The Wonder Weeks**, van de Rijt & Plooij — os "saltos" de desenvolvimento e por que o bebé fica irritável em certas semanas.
 
+## Montessori (ver capítulo Montessori em casa)
+
+- **The Montessori Baby** / **The Montessori Toddler**, Simone Davies — guias práticos para pais, com edições em português.
+- **A Mente Absorvente** e **A Criança**, Maria Montessori — os textos originais.
+- **AMI** — montessori-ami.org (secção 0–3) — e **AMS** — amshq.org — as duas grandes organizações de referência.
+- **The Montessori Notebook** — themontessorinotebook.com — atividades por idade, gratuitas.
+- Evidência: *Montessori education's impact on academic and nonacademic outcomes: a systematic review* (Campbell Systematic Reviews, 2023).
+
 ## Sites de confiança (para pesquisar sintomas e dúvidas)
 
 - **SNS 24** — sns24.gov.pt — guias práticos de saúde infantil em português e a linha 808 24 24 24. Primeiro recurso em Portugal.
