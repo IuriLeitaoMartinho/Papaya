@@ -175,7 +175,8 @@ function escolherFicheiroImport() {
     const data = r.resumo.exportadoEm ? new Date(r.resumo.exportadoEm).toLocaleDateString('pt-PT') : 'data desconhecida';
     abrirFolha(`<h2>Importar dados</h2>
       <p>Backup de <strong>${data}</strong>: ${r.resumo.membros} membro(s),
-      ${r.resumo.tarefas} tarefa(s), registos em ${r.resumo.diasComRegistos} dia(s).</p>
+      ${r.resumo.tarefas} tarefa(s), ${r.resumo.eventos} lembrete(s),
+      registos em ${r.resumo.diasComRegistos} dia(s).</p>
       <div class="aviso-import"><strong>Substituir</strong> apaga os dados deste dispositivo e usa só os do ficheiro.
       <strong>Fundir</strong> junta os dois (em conflito, ganha o ficheiro).</div>
       <div class="acoes">

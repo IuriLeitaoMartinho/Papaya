@@ -4,6 +4,7 @@
 import { estado } from './armazenamento.js';
 import { capitulos, slug } from './conteudo.js';
 import { dicaDoDia, cartaoDicaDia } from './montessori.js';
+import { renderCalendario } from './calendario.js';
 import { escaparHtml } from './ui.js';
 
 let entradas = null;
@@ -71,9 +72,14 @@ function cartaoDica(e, quando) {
 }
 
 export async function renderHoje(alvo) {
+  // O calendário fica sempre no topo; o resto do ecrã vai para #hojeCorpo.
+  alvo.innerHTML = '<div id="calRaiz"></div><div id="hojeCorpo"></div>';
+  await renderCalendario(alvo.querySelector('#calRaiz'));
+  const corpo = alvo.querySelector('#hojeCorpo');
+
   const { dataNascimento, nomeCrianca } = estado.definicoes;
   if (!dataNascimento) {
-    alvo.innerHTML = `<div class="vazio">Para veres dicas adequadas à idade,
+    corpo.innerHTML = `<div class="vazio">Para veres dicas adequadas à idade,
       indica a data de nascimento nas definições (⚙ no canto superior direito).</div>`;
     return;
   }
@@ -81,12 +87,12 @@ export async function renderHoje(alvo) {
   const meses = idadeEmMeses(dataNascimento);
 
   if (meses < 0) {
-    alvo.innerHTML = `<div class="vazio">${escaparHtml(nomeCrianca || 'O bebé')} ainda vem a caminho.
+    corpo.innerHTML = `<div class="vazio">${escaparHtml(nomeCrianca || 'O bebé')} ainda vem a caminho.
       Espreita entretanto o capítulo da mala da maternidade no Guia.</div>`;
     return;
   }
   if (meses > 25) {
-    alvo.innerHTML = `<div class="vazio">Este guia cobre dos 0 aos 2 anos — que voam.
+    corpo.innerHTML = `<div class="vazio">Este guia cobre dos 0 aos 2 anos — que voam.
       O conteúdo do Guia e a Pesquisa continuam disponíveis.</div>`;
     return;
   }
@@ -118,7 +124,7 @@ export async function renderHoje(alvo) {
     html += '<div class="subtitulo">A seguir</div>' +
       proximas.map(e => cartaoDica(e, rotuloMeses(e.mesesMin))).join('');
   }
-  alvo.innerHTML = html || '<div class="vazio">Sem dicas para esta idade — acrescenta entradas em dados/faixas-etarias.json.</div>';
+  corpo.innerHTML = html || '<div class="vazio">Sem dicas para esta idade — acrescenta entradas em dados/faixas-etarias.json.</div>';
 }
 
 const ehPontual = e => e.categoria === 'consulta' || e.categoria === 'vacina';

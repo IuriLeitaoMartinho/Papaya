@@ -5,7 +5,7 @@
 
 const PREFIXO = 'papaya.';
 const SCHEMA_BACKUP = 'papaya-backup';
-const VERSAO_BACKUP = 1;
+const VERSAO_BACKUP = 2; // v2 acrescentou os eventos do calendário; ainda aceita importar v1
 
 function carregar(chave, defeito) {
   try {
@@ -24,12 +24,14 @@ function guardar(chave, valor) {
 export const estado = {
   definicoes: carregar('definicoes', { nomeCrianca: '', dataNascimento: '', membros: [] }),
   tarefas: carregar('tarefas', []),      // [{id, titulo, membroId|null, dias:[0-6], ativa}]
-  conclusoes: carregar('conclusoes', {}) // { tarefaId: { 'AAAA-MM-DD': true } }
+  conclusoes: carregar('conclusoes', {}),// { tarefaId: { 'AAAA-MM-DD': true } }
+  eventos: carregar('eventos', [])       // [{id, data:'AAAA-MM-DD', hora?:'HH:MM', titulo, notas?}]
 };
 
 export const guardarDefinicoes = () => guardar('definicoes', estado.definicoes);
 export const guardarTarefas = () => guardar('tarefas', estado.tarefas);
 export const guardarConclusoes = () => guardar('conclusoes', estado.conclusoes);
+export const guardarEventos = () => guardar('eventos', estado.eventos);
 
 export const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 
@@ -50,7 +52,8 @@ export function exportarBackup() {
     dados: {
       definicoes: estado.definicoes,
       tarefas: estado.tarefas,
-      conclusoes: estado.conclusoes
+      conclusoes: estado.conclusoes,
+      eventos: estado.eventos
     }
   };
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
@@ -70,9 +73,11 @@ const ehData = v => ehTexto(v) && /^\d{4}-\d{2}-\d{2}$/.test(v);
 export function validarBackup(obj) {
   if (!obj || typeof obj !== 'object') return { erro: 'O ficheiro não contém JSON válido.' };
   if (obj.schema !== SCHEMA_BACKUP) return { erro: 'Este ficheiro não é um backup da Papaya.' };
-  if (obj.versao !== VERSAO_BACKUP) return { erro: `Versão de backup não suportada (${obj.versao}).` };
+  if (obj.versao !== 1 && obj.versao !== VERSAO_BACKUP)
+    return { erro: `Versão de backup não suportada (${obj.versao}).` };
   const d = obj.dados;
   if (!d || typeof d !== 'object') return { erro: 'O backup não tem a secção de dados.' };
+  if (d.eventos == null) d.eventos = []; // backups v1 não tinham eventos
 
   const def = d.definicoes;
   if (!def || typeof def !== 'object' || !ehTexto(def.nomeCrianca ?? '') ||
@@ -94,9 +99,16 @@ export function validarBackup(obj) {
         Object.keys(porDia).every(ehData)))
     return { erro: 'O histórico de conclusões no backup está corrompido.' };
 
+  if (!Array.isArray(d.eventos) ||
+      !d.eventos.every(e => e && ehTexto(e.id) && ehTexto(e.titulo) && ehData(e.data) &&
+        (e.hora == null || (ehTexto(e.hora) && /^\d{2}:\d{2}$/.test(e.hora))) &&
+        (e.notas == null || ehTexto(e.notas))))
+    return { erro: 'Os eventos do calendário no backup estão corrompidos.' };
+
   const resumo = {
     membros: def.membros.length,
     tarefas: d.tarefas.length,
+    eventos: d.eventos.length,
     diasComRegistos: new Set(Object.values(d.conclusoes).flatMap(Object.keys)).size,
     exportadoEm: obj.exportadoEm || null
   };
@@ -109,6 +121,7 @@ export function aplicarBackup(dados, modo) {
     estado.definicoes = dados.definicoes;
     estado.tarefas = dados.tarefas;
     estado.conclusoes = dados.conclusoes;
+    estado.eventos = dados.eventos;
   } else {
     // Fundir: união por id (o ficheiro ganha nos conflitos);
     // definições só preenchem o que estiver vazio neste dispositivo.
@@ -126,10 +139,15 @@ export function aplicarBackup(dados, modo) {
     for (const [tarefaId, porDia] of Object.entries(dados.conclusoes)) {
       estado.conclusoes[tarefaId] = { ...(estado.conclusoes[tarefaId] || {}), ...porDia };
     }
+    for (const e of dados.eventos) {
+      const i = estado.eventos.findIndex(x => x.id === e.id);
+      if (i >= 0) estado.eventos[i] = e; else estado.eventos.push(e);
+    }
   }
   guardarDefinicoes();
   guardarTarefas();
   guardarConclusoes();
+  guardarEventos();
 }
 
 // Remove conclusões com mais de `dias` dias (o histórico útil é curto).

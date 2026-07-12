@@ -18,6 +18,7 @@
   --c-vacina: #3FA0A0;
   --c-alerta: #C75450;
   --c-montessori: #A8674B;
+  --c-evento: #6C63B5;      /* lembretes criados pelo utilizador */
 
   --raio: 16px;
 }
@@ -99,6 +100,61 @@ main { padding: 8px 16px; max-width: 720px; margin: 0 auto; }
 .principio h3 { font-size: 14px; color: var(--c-montessori); margin-bottom: 3px; }
 .principio p { font-size: 14px; }
 .botao-link { text-align: center; text-decoration: none; margin-bottom: 10px; }
+
+/* ---------- calendário (topo do ecrã Hoje) ---------- */
+.cal { padding: 8px 10px 12px; }
+.cal-cab {
+  width: 100%; background: none; border: none; cursor: pointer;
+  font-weight: 700; font-size: 15px; color: var(--tinta);
+  padding: 4px; text-transform: capitalize;
+}
+.cal-cab .seta { color: var(--suave); font-size: 12px; }
+.cal-nav { display: flex; justify-content: space-between; margin: 2px 0; }
+.cal-nav button {
+  background: none; border: none; font-size: 24px; line-height: 1;
+  color: var(--acento); cursor: pointer; padding: 0 12px;
+}
+.cal-grelha { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.cal-letras span { text-align: center; font-size: 11px; color: var(--suave); padding: 2px 0; }
+.cal-dia {
+  background: none; border: none; border-radius: 10px; cursor: pointer;
+  padding: 3px 0 4px; color: var(--tinta);
+  display: flex; flex-direction: column; align-items: center; gap: 1px;
+}
+.cal-dia .num {
+  font-size: 14px; font-weight: 600; width: 30px; line-height: 30px;
+  border-radius: 50%; text-align: center; font-variant-numeric: tabular-nums;
+}
+.cal-dia.hoje .num { color: var(--acento); font-weight: 800; }
+.cal-dia.sel .num { background: var(--acento); color: #fff; }
+.cal-pontos { display: flex; gap: 2px; height: 5px; }
+.cal-pontos i { width: 5px; height: 5px; border-radius: 50%; }
+.cal-eventos { border-top: 1px solid var(--linha); margin-top: 8px; padding-top: 8px; }
+.cal-rotulo {
+  font-size: 12px; color: var(--suave); text-transform: uppercase;
+  letter-spacing: 0.06em; margin-bottom: 6px; font-weight: 700;
+}
+.cal-evento {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--fundo); border-left: 3px solid var(--cor, var(--linha));
+  border-radius: 8px; padding: 8px 8px 8px 10px; margin-bottom: 5px;
+}
+.cal-evento.editavel { cursor: pointer; }
+.cal-evento .corpo { flex: 1; min-width: 0; }
+.cal-evento .titulo { font-size: 14px; font-weight: 600; }
+.cal-evento .hora { color: var(--acento); font-variant-numeric: tabular-nums; }
+.cal-evento .sub { font-size: 12px; color: var(--suave); }
+.cal-evento a { text-decoration: none; font-size: 18px; padding: 0 6px; }
+.cal-vazio { color: var(--suave); font-size: 13px; padding: 2px 4px 4px; }
+.cal-novo {
+  background: none; border: none; color: var(--acento);
+  font-weight: 700; font-size: 14px; cursor: pointer; padding: 8px 4px 0;
+}
+.folha input[type="time"] {
+  width: 100%; padding: 11px 12px; font-size: 16px;
+  border: 1px solid var(--linha); border-radius: 10px;
+  background: var(--fundo); color: var(--tinta);
+}
 
 /* ---------- Guia ---------- */
 .lista-capitulos a {

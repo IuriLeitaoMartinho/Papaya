@@ -2,7 +2,7 @@
 
 App web estática, 100% client-side, para acompanhar o crescimento de uma criança dos 0 aos 2 anos:
 
-- **Hoje** — dicas de saúde, marcos de desenvolvimento e próximas consultas/vacinas adequadas à idade (calculada a partir da data de nascimento), mais a dica Montessori do dia;
+- **Hoje** — calendário no topo (barra da semana que expande para o mês) com as consultas/vacinas do PNV marcadas automaticamente e lembretes teus; dicas de saúde, marcos de desenvolvimento e próximas consultas/vacinas adequadas à idade (calculada a partir da data de nascimento), mais a dica Montessori do dia;
 - **Guia** — o guia completo, capítulo a capítulo;
 - **Pesquisa** — pesquisa em todo o conteúdo, tolerante a acentos e gralhas (Fuse.js);
 - **Tarefas** — tarefas recorrentes da família, com membros a cores, marcadas por dia e histórico de 7 dias;
@@ -26,6 +26,7 @@ Papaya/
 │   ├── idade.js          ecrã Hoje (dicas por faixa etária)
 │   ├── tarefas.js        tarefas da família e histórico
 │   ├── montessori.js     separador Montessori e dica do dia
+│   ├── calendario.js     calendário do Hoje (semana/mês, lembretes)
 │   ├── ui.js             folha inferior e utilitários
 │   └── vendor/fuse.min.mjs
 ├── conteudo/*.md         o conteúdo do guia (a fonte única — também gera o PDF)
@@ -68,6 +69,9 @@ Edita `dados/montessori.json`:
 - `dicas`: a dica do dia roda automaticamente pela data (a mesma para todos os dispositivos no mesmo dia). Dicas com `mesesMin`/`mesesMax` só entram na rotação quando a idade da criança está na faixa. `seccao` (opcional) é o título exato de uma secção `##` de `conteudo/12-montessori.md` e cria o link "Ler mais".
 - `atividades`: sugestões por faixa etária (`mesesMin`–`mesesMax`), mostradas no separador Montessori para a idade atual.
 - `principios`: a lista fixa "Os seis princípios".
+
+### Calendário e lembretes
+No topo do ecrã Hoje: toca no nome do mês para expandir a vista mensal e navegar entre meses; toca num dia para ver os eventos dele. As **consultas e vacinas do PNV** aparecem automaticamente (data estimada: data de nascimento + idade do marco em `faixas-etarias.json`; pontos âmbar/verde-água). Os **lembretes** criados com "+ Lembrete neste dia" (pontos roxos) têm dia, hora e notas opcionais, ficam no localStorage e entram no export/import.
 
 ### Depois de qualquer alteração: subir a versão do service worker
 Em `sw.js`, muda `const VERSAO = 'papaya-v1'` para `v2`, `v3`, ... É isto que faz as apps já instaladas irem buscar o conteúdo novo.
