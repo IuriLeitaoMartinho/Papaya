@@ -12,9 +12,12 @@ Adicionar deteção de dia e noite e janela de sono com horas
 
 Adicionar funcionalidade de sono para podermos controlar os sonos e guarda estas contagems numa nova aba. 
 - Mostrar sono diario/seminal 
-- alertas e feedback de como esta a correr
+- alertas e feedback de como esta a corer de acordo com a idade da criança e a informação presente no guia
 - Botao para começar a contar tempo dormido do bebe
 - Criar maneira em que podemos adicionar sonos noutra altura
+
+Adicionar funcionalidade para alimentar a criança
+- Função de alarme para alimentar a criança, com temporizadores recomendados para a idade
 
 Detectar melhor acontecimentos e separar o guia em datas e periodos mais especificos
 
@@ -28,3 +31,4 @@ Universidades e Instituições Científicas - 	Biblioteca Cochrane
 						Manuais MSD
 Ordens Profissionais e Associações - 	Ordem dos Médicos
 					Ordem dos Farmacêuticos - Centro de Informação do Medicamento (CIM)
+BMJ Best Practice, cochranelibrary,DynaMed

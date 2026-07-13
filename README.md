@@ -73,6 +73,8 @@ Edita `dados/montessori.json`:
 ### Calendário e lembretes
 No topo do ecrã Hoje: toca no nome do mês para expandir a vista mensal e navegar entre meses; toca num dia para ver os eventos dele. As **consultas e vacinas do PNV** aparecem automaticamente (data estimada: data de nascimento + idade do marco em `faixas-etarias.json`; pontos âmbar/verde-água). Os **lembretes** criados com "+ Lembrete neste dia" (pontos roxos) têm dia, hora e notas opcionais, ficam no localStorage e entram no export/import.
 
+Nas Definições (⚙) podes ainda escolher a **modalidade da licença parental** (120, 150, 120+30 ou 150+30). O calendário passa a marcar (pontos rosa) as datas-chave calculadas a partir da data de nascimento: início das licenças, prazo dos 7 dias para comunicar ao empregador, dia 42 (fim do período obrigatório da mãe / limite dos 28+7 do pai), fim de cada bloco e regressos ao trabalho — com link para o capítulo Licença parental do guia.
+
 ### Depois de qualquer alteração: subir a versão do service worker
 Em `sw.js`, muda `const VERSAO = 'papaya-v1'` para `v2`, `v3`, ... É isto que faz as apps já instaladas irem buscar o conteúdo novo.
 

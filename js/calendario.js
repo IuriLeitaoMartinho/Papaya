@@ -20,9 +20,9 @@ let expandido = false;
 let mesVis = null; // {ano, mes} da vista de mês
 let raiz = null;   // o contentor onde o calendário se desenha
 
-let faixas = null;   // cache de dados/faixas-etarias.json
-let marcos = null;   // { 'AAAA-MM-DD': [{titulo, categoria, capitulo, seccao}] }
-let marcosNasc = ''; // data de nascimento com que os marcos foram calculados
+let faixas = null;    // cache de dados/faixas-etarias.json
+let marcos = null;    // { 'AAAA-MM-DD': [{titulo, categoria, capitulo, seccao, sub?}] }
+let marcosChave = ''; // nascimento + modalidade de licença com que foram calculados
 
 const deISO = iso => new Date(iso + 'T00:00:00');
 const paraISO = d => dataLocalISO(d);
@@ -32,12 +32,18 @@ function somarMeses(iso, n) {
   return paraISO(new Date(d.getFullYear(), d.getMonth() + n, d.getDate()));
 }
 
-// Consultas e vacinas do PNV projetadas em datas concretas.
+function somarDias(iso, n) {
+  const d = deISO(iso);
+  return paraISO(new Date(d.getFullYear(), d.getMonth(), d.getDate() + n));
+}
+
+// Consultas/vacinas do PNV e datas da licença parental projetadas em datas concretas.
 async function calcularMarcos() {
   const nasc = estado.definicoes.dataNascimento;
-  if (marcos && marcosNasc === nasc) return marcos;
+  const chave = nasc + '|' + (estado.definicoes.licenca || '');
+  if (marcos && marcosChave === chave) return marcos;
   marcos = {};
-  marcosNasc = nasc;
+  marcosChave = chave;
   if (!nasc) return marcos;
   if (!faixas) faixas = (await (await fetch('dados/faixas-etarias.json')).json()).entradas;
   for (const e of faixas) {
@@ -45,7 +51,48 @@ async function calcularMarcos() {
     const data = somarMeses(nasc, e.mesesMin);
     (marcos[data] = marcos[data] || []).push(e);
   }
+  for (const m of marcosLicenca(nasc, estado.definicoes.licenca)) {
+    (marcos[m.data] = marcos[m.data] || []).push(m);
+  }
   return marcos;
+}
+
+// Datas-chave da licença parental (regras no capítulo Licença parental).
+// Estimativas em dias de calendário a partir do nascimento — a confirmar
+// com a Segurança Social e a entidade empregadora.
+function marcosLicenca(nasc, modalidade) {
+  if (!modalidade) return [];
+  const partilhada = modalidade.includes('+');
+  const diasMae = modalidade.startsWith('150') ? 150 : 120;
+  const total = partilhada ? diasMae + 30 : diasMae;
+  const ev = (dias, titulo, sub) => ({
+    data: somarDias(nasc, dias), titulo, sub,
+    categoria: 'licenca', capitulo: '13-licenca-parental'
+  });
+  const lista = [
+    ev(0, 'Início das licenças parentais',
+      'Pai: começam os 7 dias seguidos obrigatórios. Mãe: dia 1 da licença inicial.'),
+    ev(7, 'Prazo: comunicar as licenças ao empregador',
+      'Por escrito, até 7 dias após o parto' + (partilhada ? ', com a declaração conjunta de partilha' : '') + '.'),
+    ev(42, 'Dia 42: fim do período obrigatório da mãe',
+      'Também é o limite para o pai gozar os 28 dias obrigatórios e os 7 facultativos.')
+  ];
+  if (partilhada) {
+    lista.push(
+      ev(diasMae - 1, `Dia ${diasMae}: último dia de licença da mãe`,
+        'No dia seguinte começa o bloco de 30 dias do pai.'),
+      ev(diasMae, 'Início do bloco de 30 dias do pai',
+        'A mãe regressa ao trabalho (no dia útil seguinte).'),
+      ev(total - 1, `Dia ${total}: fim da licença parental inicial`,
+        'O pai regressa ao trabalho no dia útil seguinte.')
+    );
+  } else {
+    lista.push(
+      ev(total - 1, `Dia ${total}: fim da licença parental inicial`,
+        'Regresso ao trabalho no dia útil seguinte (ou início da licença alargada, se pedida).')
+    );
+  }
+  return lista;
 }
 
 const eventosDoDia = iso => estado.eventos
@@ -126,7 +173,7 @@ function renderDia() {
     html += `<div class="cal-evento" style="--cor:var(--c-${m.categoria})">
       <span class="ponto-cor" style="background:var(--c-${m.categoria})"></span>
       <div class="corpo"><div class="titulo">${escaparHtml(m.titulo)}</div>
-        <div class="sub">${m.categoria === 'vacina' ? 'Vacinas (PNV)' : 'Consulta de vigilância'} — data estimada pela idade</div></div>
+        <div class="sub">${m.sub ? escaparHtml(m.sub) : (m.categoria === 'vacina' ? 'Vacinas (PNV)' : 'Consulta de vigilância') + ' — data estimada pela idade'}</div></div>
       ${destino ? `<a href="${destino}" aria-label="Abrir no guia">→</a>` : ''}</div>`;
   }
   for (const e of eventosDoDia(diaSel)) {

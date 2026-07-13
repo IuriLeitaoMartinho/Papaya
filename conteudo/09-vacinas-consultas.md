@@ -50,6 +50,6 @@ O PNV é **gratuito** e administrado nos centros de saúde. Esquema em vigor (co
 
 - **Registo de nascimento:** na maternidade (balcão "Nascer Cidadão") ou conservatória, até 20 dias.
 - **Cartão de Cidadão do bebé** e inscrição no centro de saúde (número de utente sai com o registo).
-- **Licença parental:** o pai tem 28 dias úteis de licença exclusiva **obrigatória**, dos quais os primeiros 7 são gozados de seguida logo após o nascimento e os restantes 21 nos 42 dias seguintes (pagos a 100%); há ainda licença facultativa e a possibilidade de partilhar a licença inicial com a mãe. (Foi aprovada na generalidade, em 2026, uma proposta que alarga a licença exclusiva do pai a 56 dias, mas só entraria em vigor mais tarde — até lá valem as regras atuais. Confirma sempre na Segurança Social Direta, que muda com frequência.)
+- **Licença parental:** o pai tem 28 dias de calendário de licença exclusiva **obrigatória** (7 seguidos logo após o nascimento + os restantes nos 42 dias seguintes), pagos a 100%, mais 7 dias úteis facultativos; a mãe tem 42 dias obrigatórios; o resto do bolo de 120/150 dias divide-se entre os dois — as modalidades, percentagens e prazos estão no capítulo **Licença parental**, e a app Papaya marca as datas no calendário.
 - **Abono de família:** pedir na Segurança Social Direta.
 - Declarar o bebé nas Finanças (agregado familiar) e no seguro de saúde, se tiverem.

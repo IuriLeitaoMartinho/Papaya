@@ -82,6 +82,16 @@ function folhaDefinicoes() {
     <label>Data de nascimento</label>
     <input type="date" id="defNascimento" value="${d.dataNascimento || ''}">
 
+    <label>Licença parental — marcar datas no calendário</label>
+    <select id="defLicenca">
+      <option value="">Não marcar</option>
+      <option value="120" ${d.licenca === '120' ? 'selected' : ''}>120 dias (100%)</option>
+      <option value="150" ${d.licenca === '150' ? 'selected' : ''}>150 dias (80%)</option>
+      <option value="120+30" ${d.licenca === '120+30' ? 'selected' : ''}>Partilhada 120+30 (100%)</option>
+      <option value="150+30" ${d.licenca === '150+30' ? 'selected' : ''}>Partilhada 150+30 (83%)</option>
+    </select>
+    <div class="aviso-import" style="margin-top:6px">As datas (prazos, fim de cada bloco, regressos ao trabalho) são estimadas a partir da data de nascimento e aparecem no calendário do ecrã Hoje. Regras no capítulo Licença parental do Guia; confirma com a Segurança Social.</div>
+
     <label>Membros da família (para as tarefas)</label>
     <div id="listaMembros"></div>
     <button type="button" class="botao-secundario" id="defNovoMembro">+ Adicionar membro</button>
@@ -100,6 +110,7 @@ function folhaDefinicoes() {
   $('#folhaGuardar').onclick = () => {
     d.nomeCrianca = $('#defNome').value.trim();
     d.dataNascimento = $('#defNascimento').value;
+    d.licenca = $('#defLicenca').value;
     guardarDefinicoes();
     fecharFolha();
     renderCabecalho();

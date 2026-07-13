@@ -22,7 +22,9 @@ function guardar(chave, valor) {
 
 // Estado partilhado por toda a app. Mutar e chamar o guardar* respetivo.
 export const estado = {
-  definicoes: carregar('definicoes', { nomeCrianca: '', dataNascimento: '', membros: [] }),
+  // licenca: modalidade da licença parental para marcar no calendário
+  // ('' | '120' | '150' | '120+30' | '150+30')
+  definicoes: carregar('definicoes', { nomeCrianca: '', dataNascimento: '', membros: [], licenca: '' }),
   tarefas: carregar('tarefas', []),      // [{id, titulo, membroId|null, dias:[0-6], ativa}]
   conclusoes: carregar('conclusoes', {}),// { tarefaId: { 'AAAA-MM-DD': true } }
   eventos: carregar('eventos', [])       // [{id, data:'AAAA-MM-DD', hora?:'HH:MM', titulo, notas?}]
@@ -128,6 +130,7 @@ export function aplicarBackup(dados, modo) {
     const def = estado.definicoes;
     if (!def.nomeCrianca) def.nomeCrianca = dados.definicoes.nomeCrianca;
     if (!def.dataNascimento) def.dataNascimento = dados.definicoes.dataNascimento;
+    if (!def.licenca) def.licenca = dados.definicoes.licenca || '';
     for (const m of dados.definicoes.membros) {
       const i = def.membros.findIndex(x => x.id === m.id);
       if (i >= 0) def.membros[i] = m; else def.membros.push(m);
