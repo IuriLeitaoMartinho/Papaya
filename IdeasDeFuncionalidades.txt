@@ -1,0 +1,30 @@
+Agrupar semanas por semanas, onde se pode por uma foto e aparece ao lado
+- Ao pe do nome ter uma imagem que pode ser uploaded de cada semana da criança, apenas gravado localmente.
+- Ter o numero de dias depois meses e dias da criança
+
+Adicionar actividades DYI e melhores actividades para a idade
+- Uma nova aba para actividades, isto vai ser trabalhado para ter fotos/imagens. 
+- Guardar actividades feitas pela criança e o quao ela gostou, ativiades com boa classificação fica numa tabela de classificação
+
+Adicionar deteção de dia e noite e janela de sono com horas
+- UI muda para dia e noite, com cores claras e escuras
+
+
+Adicionar funcionalidade de sono para podermos controlar os sonos e guarda estas contagems numa nova aba. 
+- Mostrar sono diario/seminal 
+- alertas e feedback de como esta a correr
+- Botao para começar a contar tempo dormido do bebe
+- Criar maneira em que podemos adicionar sonos noutra altura
+
+Detectar melhor acontecimentos e separar o guia em datas e periodos mais especificos
+
+Fazer uma verificação da informação do guia e juntar nova informações tendo em conta as novas funcionalidades das fontes crediveis.
+
+Fontes crediveis:
+Autoridades de Saúde e Governamentais - Portal SNS 24
+					Direção-Geral da Saúde (DGS)	
+					Organização Mundial da Saúde (OMS) 
+Universidades e Instituições Científicas - 	Biblioteca Cochrane
+						Manuais MSD
+Ordens Profissionais e Associações - 	Ordem dos Médicos
+					Ordem dos Farmacêuticos - Centro de Informação do Medicamento (CIM)

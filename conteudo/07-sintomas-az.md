@@ -54,7 +54,7 @@ Ver manobras passo a passo no capítulo **Segurança** — lê-as ANTES de preci
 Febre = temperatura **retal ≥ 38,0 °C** (axilar ≥ 37,6 °C). É uma defesa do corpo, não uma doença — o objetivo de tratar é o **conforto**, não o número.
 
 - **< 3 meses: urgência imediata, sempre.** Não medicar antes da observação.
-- O que fazer (> 3 meses): roupa leve, líquidos, **paracetamol em dose por peso** (15 mg/kg por toma, máx. 4 tomas/dia) se estiver desconfortável. Ibuprofeno (10 mg/kg/toma, máx 3 tomas/dia) só **a partir dos 6 meses** e preferencialmente bem hidratado. Não alternar por sistema. Banhos frios e álcool friccionado: **não**.
+- O que fazer (> 3 meses): roupa leve, líquidos, **paracetamol em dose por peso** (15 mg/kg por toma, máx. 4 tomas/dia) se estiver desconfortável. Ibuprofeno (10 mg/kg/toma, máx. 3 tomas/dia, mín. 6 h entre tomas) habitualmente **a partir dos 6 meses** e com o bebé bem hidratado — alguns folhetos autorizados pelo Infarmed permitem-no desde os 3 meses e acima de ~5 kg, mas nessa idade confirma sempre com o médico. **A dose é pelo peso, não pela idade.** Não alternar os dois por sistema. Banhos frios e álcool friccionado: **não**.
 - **Urgência:** < 3 meses; manchas que não desaparecem à pressão; prostração mesmo sem febre; gemido; dificuldade respiratória; convulsão; sinais de desidratação; febre > 40 °C pouco responsiva; febre > 3–5 dias sem foco.
 - O que conta é o estado geral entre picos: se brinca e come razoavelmente quando a febre baixa, é bom sinal.
 

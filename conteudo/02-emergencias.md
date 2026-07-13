@@ -51,7 +51,7 @@ Mais do que o número no termómetro, conta o **estado geral**: um bebé que sor
 
 - Termómetro digital (retal é o mais fiável em bebés pequenos).
 - Paracetamol em xarope ou supositórios (dose **por peso** — confirma com o pediatra e aponta aqui: _____ ).
-- Ibuprofeno em xarope (**só a partir dos 6 meses**, dose por peso: _____ ).
+- Ibuprofeno em xarope (habitualmente **a partir dos 6 meses**; a dose é por peso, não por idade: _____ ).
 - Soro fisiológico (monodoses) e aspirador nasal.
 - Solução de reidratação oral (saquetas, tipo Redrate/Dioralyte).
 - Compressas esterilizadas, pensos, desinfetante (clorohexidina).

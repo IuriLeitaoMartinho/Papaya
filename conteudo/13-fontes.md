@@ -36,6 +36,16 @@
 - **APSI** — apsi.org.pt — Associação para a Promoção da Segurança Infantil (Portugal): cadeirinhas auto, casa segura, afogamento.
 - **Programa Nacional de Saúde Infantil e Juvenil (DGS)** — o documento oficial que rege consultas, rastreios e cuidados antecipatórios em Portugal.
 
+## Referências técnicas e oficiais (para confirmar informação)
+
+- **Direção-Geral da Saúde (DGS)** — dgs.pt — Programa Nacional de Vacinação e o **Livro Azul de Vacinas** (referencial técnico nacional desde 2025), normas e orientações. É aqui que se confirma o esquema de vacinas atual.
+- **SNS 24** — sns24.gov.pt — informação oficial ao cidadão e linha 808 24 24 24.
+- **Organização Mundial da Saúde (OMS/WHO)** — who.int — recomendações de amamentação, sono seguro, diversificação e desenvolvimento.
+- **Manuais MSD (MSD Manuals)** — msdmanuals.com/pt — versão "Saúde para a Família" fiável e detalhada sobre sintomas e doenças pediátricas.
+- **Biblioteca Cochrane** — cochranelibrary.com — revisões sistemáticas que resumem a melhor evidência (ex.: treino de sono, probióticos na diarreia, tratamento de cólicas).
+- **Ordem dos Médicos** — ordemdosmedicos.pt — e sociedades como a Sociedade Portuguesa de Pediatria (spp.pt) para posições clínicas.
+- **Ordem dos Farmacêuticos — Centro de Informação do Medicamento (CIM)** e **Infarmed** (infarmed.pt) — para doses, folhetos informativos (RCM/FI) e segurança de medicamentos; a dose pediátrica de paracetamol/ibuprofeno calcula-se sempre pelo **peso**.
+
 ## Blogs e redes (PT) que valem a pena
 
 - **SOS Mamã / Mãe-Me-Quer** e perfis de pediatras portugueses com presença online (ex.: "Pediatra do Bairro" e semelhantes) — útil para o dia a dia, mas confirma sempre informação médica nos sites oficiais acima.

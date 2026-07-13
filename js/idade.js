@@ -45,10 +45,12 @@ export function textoIdade(dataNascimento) {
     return dias === 1 ? '1 dia' : dias + ' dias';
   }
   if (meses < 24) {
+    if (meses >= 12) {
+      const resto = meses - 12;
+      return resto ? `1 ano e ${resto} ${resto === 1 ? 'mês' : 'meses'}` : '1 ano';
+    }
     const ancora = new Date(n); ancora.setMonth(ancora.getMonth() + meses);
     const dias = Math.floor((h - ancora) / 86400000);
-    const anos = meses >= 12 ? '1 ano e ' + (meses - 12) + (meses - 12 === 1 ? ' mês' : ' meses') : meses + ' meses';
-    if (meses >= 12) return anos;
     return dias > 0 ? `${meses} ${meses === 1 ? 'mês' : 'meses'} e ${dias} ${dias === 1 ? 'dia' : 'dias'}` : `${meses} ${meses === 1 ? 'mês' : 'meses'}`;
   }
   const anos = Math.floor(meses / 12), resto = meses % 12;

@@ -15,7 +15,7 @@ Este guia foi feito para ser **prático**: não é para ler de uma ponta à outr
 
 - Este guia **não substitui médicos**. Serve para saberes o que é normal, o que fazer em casa e, sobretudo, **quando pedir ajuda**.
 - Em Portugal, na dúvida: **SNS 24 — 808 24 24 24**. Em emergência: **112**.
-- A medicina muda. As doses, vacinas e recomendações devem ser confirmadas com o pediatra ou médico de família. As fontes usadas estão no último capítulo.
+- A medicina muda. As doses, vacinas e recomendações devem ser confirmadas com o pediatra ou médico de família. As fontes usadas estão no último capítulo — o conteúdo é cruzado com fontes oficiais e técnicas (DGS/SNS 24, OMS, Manuais MSD, Cochrane, Infarmed/CIM). A última verificação de dados sensíveis (esquema de vacinas, doses, prazos legais) foi feita em julho de 2026; confirma sempre o esquema em vigor.
 
 ## Como atualizar este documento
 
