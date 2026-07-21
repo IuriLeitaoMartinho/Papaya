@@ -14,6 +14,7 @@ import { construirIndice, ligarPesquisa } from './pesquisa.js';
 import { renderHoje, textoIdade, idadeEmMeses } from './idade.js';
 import { renderTarefas, CORES_MEMBRO } from './tarefas.js';
 import { renderMontessori } from './montessori.js';
+import { iniciarTemporizador } from './temporizador.js';
 import { $, escaparHtml, abrirFolha, fecharFolha, acoesFolha } from './ui.js';
 
 // ------------------------------------------------------------- cabeçalho ----
@@ -57,6 +58,7 @@ function rota() {
   for (const v of vistas) $('#vista-' + v).hidden = v !== separador;
   document.querySelectorAll('.barra-fundo a').forEach(a =>
     a.classList.toggle('ativo', a.dataset.sep === separador));
+  $('#fabMamada').hidden = separador !== 'hoje'; // botão do temporizador só no Hoje
   fecharFolha();
 
   if (separador === 'hoje') renderHoje($('#vista-hoje'));
@@ -215,6 +217,7 @@ async function iniciar() {
   podarConclusoes();
   renderCabecalho();
   $('#botaoDefinicoes').addEventListener('click', folhaDefinicoes);
+  iniciarTemporizador();
   window.addEventListener('hashchange', rota);
 
   try {

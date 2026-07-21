@@ -151,6 +151,41 @@ main { padding: 8px 16px; max-width: 720px; margin: 0 auto; }
   background: none; border: none; color: var(--acento);
   font-weight: 700; font-size: 14px; cursor: pointer; padding: 8px 4px 0;
 }
+
+/* ---------- temporizador de mamada (botão flutuante + folha) ---------- */
+.fab-mamada {
+  position: fixed; left: 16px; z-index: 6;
+  bottom: calc(76px + env(safe-area-inset-bottom) + 12px);
+  height: 56px; min-width: 56px; padding: 0 16px 0 14px;
+  border: none; border-radius: 28px; cursor: pointer;
+  background: var(--acento); color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  display: flex; align-items: center; gap: 8px;
+  font-size: 16px; font-weight: 700;
+}
+.fab-mamada[hidden] { display: none; }
+.fab-mamada .icone { font-size: 24px; }
+.fab-mamada .tempo { font-variant-numeric: tabular-nums; }
+.fab-mamada.terminado { background: var(--c-alerta); animation: fab-pulsar 1.1s ease-in-out infinite; }
+@keyframes fab-pulsar { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+@media (prefers-reduced-motion: reduce) { .fab-mamada.terminado { animation: none; } }
+
+.tmp-rapidos { display: flex; gap: 8px; }
+.tmp-rapidos button {
+  flex: 1; padding: 11px 4px; border: 1px solid var(--linha); border-radius: 10px;
+  background: var(--fundo); color: var(--tinta); font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.tmp-rapidos button.sel { background: var(--acento); color: #fff; border-color: var(--acento); }
+.tmp-contador {
+  font-size: 46px; font-weight: 800; text-align: center; margin: 6px 0 2px;
+  font-variant-numeric: tabular-nums; letter-spacing: -0.02em; color: var(--acento);
+}
+.tmp-info { text-align: center; color: var(--suave); font-size: 14px; margin-bottom: 2px; }
+.tmp-info strong { color: var(--tinta); }
+.tmp-alerta {
+  background: var(--acento-suave); color: var(--tinta);
+  border-radius: 10px; padding: 12px; font-size: 15px;
+}
 .folha input[type="time"] {
   width: 100%; padding: 11px 12px; font-size: 16px;
   border: 1px solid var(--linha); border-radius: 10px;
@@ -270,7 +305,8 @@ h2.realce { animation: realce 2s ease; }
 .folha.aberta { transform: translateY(0); }
 .folha h2 { font-size: 18px; margin-bottom: 14px; }
 .folha label { display: block; font-size: 13px; color: var(--suave); margin: 12px 0 5px; }
-.folha input[type="text"], .folha input[type="date"], .folha select {
+.folha input[type="text"], .folha input[type="date"],
+.folha input[type="number"], .folha select {
   width: 100%; padding: 11px 12px; font-size: 16px;
   border: 1px solid var(--linha); border-radius: 10px;
   background: var(--fundo); color: var(--tinta);

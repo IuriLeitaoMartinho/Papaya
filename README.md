@@ -27,6 +27,7 @@ Papaya/
 │   ├── tarefas.js        tarefas da família e histórico
 │   ├── montessori.js     separador Montessori e dica do dia
 │   ├── calendario.js     calendário do Hoje (semana/mês, lembretes)
+│   ├── temporizador.js   temporizador de mamada (botão flutuante do Hoje)
 │   ├── ui.js             folha inferior e utilitários
 │   └── vendor/fuse.min.mjs
 ├── conteudo/*.md         o conteúdo do guia (a fonte única — também gera o PDF)
@@ -75,6 +76,9 @@ No topo do ecrã Hoje: toca no nome do mês para expandir a vista mensal e naveg
 
 Nas Definições (⚙) podes ainda escolher a **modalidade da licença parental** (120, 150, 120+30 ou 150+30). O calendário passa a marcar (pontos rosa) as datas-chave calculadas a partir da data de nascimento: início das licenças, prazo dos 7 dias para comunicar ao empregador, dia 42 (fim do período obrigatório da mãe / limite dos 28+7 do pai), fim de cada bloco e regressos ao trabalho — com link para o capítulo Licença parental do guia.
 
+### Temporizador de mamada
+No ecrã Hoje há um **botão flutuante à esquerda** (🍼). Ao tocar, abre uma folha onde defines o tempo até à próxima mamada (atalhos 2h/2h30/3h/3h30 ou minutos exatos) e anotas quantos ml o bebé bebeu. O botão mostra a contagem decrescente e, quando termina, fica em alerta e avisa (vibração e, se autorizada, notificação). O temporizador continua a contar mesmo noutros separadores; o estado fica só neste dispositivo (não entra no backup, por ser transitório).
+
 ### Depois de qualquer alteração: subir a versão do service worker
 Em `sw.js`, muda `const VERSAO = 'papaya-v1'` para `v2`, `v3`, ... É isto que faz as apps já instaladas irem buscar o conteúdo novo.
 
@@ -86,6 +90,18 @@ Definições (⚙) → **Exportar dados** gera `papaya-backup-AAAA-MM-DD.json`. 
 - **Fundir** — junta os dois conjuntos (membros/tarefas por id, histórico dia a dia); em conflito ganha o ficheiro.
 
 O ficheiro é validado antes de aplicar qualquer alteração.
+
+# Testar localmente
+
+Os módulos ES e o `fetch` não funcionam abrindo o `index.html` diretamente — precisa de um servidor:
+
+```
+cd GitPage/Papaya
+python -m http.server 8000
+```
+
+e abre http://localhost:8000. (Para testar alterações com o service worker ativo, faz hard-refresh — Ctrl+Shift+R — ou desativa o SW nas DevTools.)
+
 
 ## Nota
 
