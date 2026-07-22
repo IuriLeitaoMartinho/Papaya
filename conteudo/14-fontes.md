@@ -32,7 +32,9 @@
 - **Lullaby Trust** — lullabytrust.org.uk — a referência sobre sono seguro e prevenção da morte súbita.
 - **Sleep Foundation** — sleepfoundation.org/baby-sleep — guias detalhados sobre treino de sono, método Ferber e horários por idade, revistos por médicos.
 - **Parenting Science** — parentingscience.com — análise da evidência científica por trás de métodos de sono e parentalidade (ótimo para separar ciência de moda).
-- **KellyMom.com** — amamentação baseada em evidência (em inglês); em Portugal, **SOS Amamentação** (213 880 915).
+- **KellyMom.com** — amamentação baseada em evidência (em inglês); em Portugal, **SOS Amamentação** (213 880 915) e o **Cantinho da Amamentação** do centro de saúde.
+- **e-lactancia.org** (APILAM) — compatibilidade de medicamentos, plantas e exames com a amamentação, pesquisável por princípio ativo; classifica o risco de cada substância.
+- **Banco de Leite Humano** — Maternidade Dr. Alfredo da Costa (Lisboa): doação de leite materno para bebés prematuros internados.
 - **APSI** — apsi.org.pt — Associação para a Promoção da Segurança Infantil (Portugal): cadeirinhas auto, casa segura, afogamento.
 - **Programa Nacional de Saúde Infantil e Juvenil (DGS)** — o documento oficial que rege consultas, rastreios e cuidados antecipatórios em Portugal.
 

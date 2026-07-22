@@ -51,11 +51,17 @@ function renderResultados(termo) {
     alvo.innerHTML = '<div class="vazio">Escreve para pesquisar em todo o guia.<br>A pesquisa ignora acentos e perdoa gralhas.</div>';
     return;
   }
-  const resultados = fuse.search(q, { limit: 15 });
+  const resultados = fuse.search(q, { limit: 30 });
   if (!resultados.length) {
     alvo.innerHTML = `<div class="vazio">Sem resultados para «${escaparHtml(termo)}».<br>Tenta outra palavra (ex: febre, sono, papa).</div>`;
     return;
   }
+  // O fuzzy é ótimo para gralhas, mas um match exato deve ganhar sempre a um
+  // parecido: reordena por (termo no título) > (termo no texto) > ordem do Fuse.
+  // O sort é estável, por isso dentro de cada grupo mantém-se o ranking do Fuse.
+  const prioridade = d => d.tituloNorm.includes(q) ? 2 : (d.textoNorm.includes(q) ? 1 : 0);
+  resultados.sort((a, b) => prioridade(b.item) - prioridade(a.item));
+  resultados.length = Math.min(resultados.length, 15);
   alvo.innerHTML = resultados.map(r => {
     const d = r.item;
     const destino = '#guia/' + d.capituloId + (d.ancora ? '/' + d.ancora : '');
