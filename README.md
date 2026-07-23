@@ -2,11 +2,12 @@
 
 App web estática, 100% client-side, para acompanhar o crescimento de uma criança dos 0 aos 2 anos:
 
-- **Hoje** — calendário no topo (barra da semana que expande para o mês) com as consultas/vacinas do PNV marcadas automaticamente e lembretes teus; dicas de saúde, marcos de desenvolvimento e próximas consultas/vacinas adequadas à idade (calculada a partir da data de nascimento), mais a dica Montessori do dia;
-- **Guia** — o guia completo, capítulo a capítulo;
-- **Pesquisa** — pesquisa em todo o conteúdo, tolerante a acentos e gralhas (Fuse.js);
-- **Tarefas** — tarefas recorrentes da família, com membros a cores, marcadas por dia e histórico de 7 dias;
+- **Hoje** — a visão geral do dia: calendário no topo (semana que expande para o mês) com consultas/vacinas do PNV e lembretes, as **tarefas de hoje** para marcar, a **dica do dia** e as dicas de saúde/desenvolvimento adequadas à idade;
+- **Guia** — o guia completo, capítulo a capítulo, com a **pesquisa integrada no topo** (tolerante a acentos e gralhas, Fuse.js);
+- **Tarefas** — gestão das tarefas recorrentes da família, com membros a cores e histórico de 7 dias;
 - **Montessori** — dica do dia, princípios e atividades para a idade atual, com ligação ao capítulo completo do guia.
+
+A navegação são **botões flutuantes nas margens** (sem barra inferior): à esquerda **Hoje** e **Mamada** (temporizador); à direita **Guia**, **Tarefas** e **Montessori**. O botão de mamada mostra a contagem decrescente e está sempre acessível.
 
 Sem backend, sem contas: os dados vivem só no dispositivo (localStorage), com export/import em JSON para partilhar entre dispositivos (opção substituir ou fundir). Funciona offline e é instalável como PWA.
 

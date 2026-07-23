@@ -39,16 +39,17 @@ export function construirIndice() {
   });
 }
 
-export function ligarPesquisa() {
-  const campo = $('#campoPesquisa');
-  campo.addEventListener('input', () => renderResultados(campo.value));
+// Liga uma caixa de pesquisa ao seu contentor de resultados. Enquanto a query
+// tem menos de 2 caracteres, mostra `aoLimpar()` (ex.: a lista de capítulos).
+export function ligarPesquisa(campo, alvo, aoLimpar) {
+  campo.addEventListener('input', () => renderResultados(campo.value, alvo, aoLimpar));
 }
 
-function renderResultados(termo) {
-  const alvo = $('#resultadosPesquisa');
+function renderResultados(termo, alvo, aoLimpar) {
   const q = normalizar(termo.trim());
   if (q.length < 2) {
-    alvo.innerHTML = '<div class="vazio">Escreve para pesquisar em todo o guia.<br>A pesquisa ignora acentos e perdoa gralhas.</div>';
+    if (aoLimpar) aoLimpar();
+    else alvo.innerHTML = '';
     return;
   }
   const resultados = fuse.search(q, { limit: 30 });

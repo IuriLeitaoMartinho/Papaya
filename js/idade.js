@@ -5,17 +5,18 @@ import { estado } from './armazenamento.js';
 import { capitulos, slug } from './conteudo.js';
 import { dicaDoDia, cartaoDicaDia } from './montessori.js';
 import { renderCalendario } from './calendario.js';
+import { renderTarefasHoje } from './tarefas.js';
 import { escaparHtml } from './ui.js';
 
 let entradas = null;
 
 const CATEGORIAS = {
-  desenvolvimento: { rotulo: 'O que esperar', cor: 'var(--c-desenvolvimento)' },
-  estimulacao:     { rotulo: 'O que trabalhar', cor: 'var(--c-estimulacao)' },
-  saude:           { rotulo: 'Saúde', cor: 'var(--c-saude)' },
-  consulta:        { rotulo: 'Consulta', cor: 'var(--c-consulta)' },
-  vacina:          { rotulo: 'Vacinas', cor: 'var(--c-vacina)' },
-  alerta:          { rotulo: 'Sinal a vigiar', cor: 'var(--c-alerta)' }
+  desenvolvimento: { rotulo: 'O que esperar', cor: 'var(--c-desenvolvimento)', icone: '🌟' },
+  estimulacao:     { rotulo: 'O que trabalhar', cor: 'var(--c-estimulacao)', icone: '🧩' },
+  saude:           { rotulo: 'Saúde', cor: 'var(--c-saude)', icone: '➕' },
+  consulta:        { rotulo: 'Consulta', cor: 'var(--c-consulta)', icone: '🩺' },
+  vacina:          { rotulo: 'Vacinas', cor: 'var(--c-vacina)', icone: '💉' },
+  alerta:          { rotulo: 'Sinal a vigiar', cor: 'var(--c-alerta)', icone: '⚠' }
 };
 
 async function carregarEntradas() {
@@ -67,16 +68,18 @@ function cartaoDica(e, quando) {
     link = `<a class="ler-mais" href="${destino}">Ler mais no guia →</a>`;
   }
   return `<div class="cartao dica ${quando ? 'pontual' : ''}" style="--cor:${cat.cor}">
-    <span class="etiqueta">${cat.rotulo}${quando ? ` · <span class="quando">${quando}</span>` : ''}</span>
+    <span class="etiqueta"><span class="et-icone">${cat.icone}</span>${cat.rotulo}${quando ? ` · <span class="quando">${quando}</span>` : ''}</span>
     <h3>${escaparHtml(e.titulo)}</h3>
     <p>${escaparHtml(e.texto)}</p>
     ${link}</div>`;
 }
 
 export async function renderHoje(alvo) {
-  // O calendário fica sempre no topo; o resto do ecrã vai para #hojeCorpo.
-  alvo.innerHTML = '<div id="calRaiz"></div><div id="hojeCorpo"></div>';
+  // O Hoje é a visão geral do dia: calendário, tarefas de hoje, dica do dia
+  // e dicas adequadas à idade. Cada bloco vai para o seu contentor.
+  alvo.innerHTML = '<div id="calRaiz"></div><div id="tarefasHoje"></div><div id="hojeCorpo"></div>';
   await renderCalendario(alvo.querySelector('#calRaiz'));
+  renderTarefasHoje(alvo.querySelector('#tarefasHoje'));
   const corpo = alvo.querySelector('#hojeCorpo');
 
   const { dataNascimento, nomeCrianca } = estado.definicoes;
@@ -109,7 +112,7 @@ export async function renderHoje(alvo) {
   const proximoMarco = futuras.length ? futuras[0].mesesMin : null;
   const proximas = futuras.filter(e => e.mesesMin === proximoMarco);
 
-  let html = cartaoDicaDia(await dicaDoDia(meses));
+  let html = '<div class="subtitulo">Dica do dia</div>' + cartaoDicaDia(await dicaDoDia(meses));
   if (agora.length) {
     html += '<div class="subtitulo">É este mês</div>' +
       agora.map(e => cartaoDica(e, 'agora')).join('');

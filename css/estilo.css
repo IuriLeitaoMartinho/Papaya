@@ -35,7 +35,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   background: var(--fundo); color: var(--tinta);
-  padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  padding-bottom: calc(24px + env(safe-area-inset-bottom));
   -webkit-tap-highlight-color: transparent;
   line-height: 1.5;
 }
@@ -54,23 +54,33 @@ header button {
   font-size: 22px; cursor: pointer; padding: 4px;
 }
 
-main { padding: 8px 16px; max-width: 720px; margin: 0 auto; }
+/* Margens laterais para o conteúdo não passar por baixo dos botões flutuantes. */
+main { padding: 8px 60px; max-width: 640px; margin: 0 auto; }
 
-/* ---------- barra de navegação inferior ---------- */
-.barra-fundo {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
-  display: flex;
-  background: var(--cartao); border-top: 1px solid var(--linha);
-  padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+/* ---------- navegação: clusters flutuantes nas margens ---------- */
+.nav-cluster {
+  position: fixed; top: 50%; transform: translateY(-50%); z-index: 6;
+  display: flex; flex-direction: column; gap: 12px;
 }
-.barra-fundo a {
-  flex: 1; text-align: center; text-decoration: none;
-  color: var(--suave); font-size: 12px; font-weight: 600;
-  padding: 4px 0; border-radius: 12px;
-  display: flex; flex-direction: column; align-items: center; gap: 1px;
+.nav-esq { left: 6px; }
+.nav-dir { right: 6px; }
+.nav-btn {
+  width: 50px; height: 50px; border-radius: 25px;
+  background: var(--cartao); border: 1px solid var(--linha);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.14);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+  text-decoration: none; color: var(--suave); cursor: pointer; padding: 0;
 }
-.barra-fundo a .icone { font-size: 20px; }
-.barra-fundo a.ativo { color: var(--acento); background: var(--acento-suave); }
+.nav-btn .icone { font-size: 20px; line-height: 1; }
+.nav-btn .rot { font-size: 9px; font-weight: 700; letter-spacing: 0.01em; }
+.nav-btn.ativo { background: var(--acento); border-color: var(--acento); color: #fff; }
+/* Botão de alimentação: sempre destacado (ação rápida, não é uma vista). */
+.fab-mamada { background: var(--acento); border-color: var(--acento); color: #fff; }
+.fab-mamada .rot { font-variant-numeric: tabular-nums; }
+.fab-mamada.terminado { background: var(--c-alerta); border-color: var(--c-alerta); animation: fab-pulsar 1.1s ease-in-out infinite; }
+@keyframes fab-pulsar { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+@media (prefers-reduced-motion: reduce) { .fab-mamada.terminado { animation: none; } }
+@media (min-width: 760px) { main { padding-left: 16px; padding-right: 16px; } }
 
 /* ---------- cartões genéricos ---------- */
 .cartao {
@@ -80,21 +90,44 @@ main { padding: 8px 16px; max-width: 720px; margin: 0 auto; }
 .vazio { color: var(--suave); text-align: center; padding: 40px 20px; font-size: 15px; }
 .subtitulo {
   color: var(--suave); font-size: 12px; text-transform: uppercase;
-  letter-spacing: 0.08em; margin: 18px 4px 8px; font-weight: 700;
+  letter-spacing: 0.08em; margin: 20px 4px 8px; font-weight: 700;
+  display: flex; align-items: center; gap: 8px;
 }
+.subtitulo::after { content: ""; flex: 1; height: 1px; background: var(--linha); }
 
-/* ---------- ecrã Hoje ---------- */
+/* ---------- ecrã Hoje: cartões de dica ---------- */
 .dica { border-left: 4px solid var(--cor, var(--linha)); }
 .dica h3 { font-size: 15px; margin-bottom: 4px; }
 .dica .etiqueta {
-  display: inline-block; font-size: 11px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--cor); margin-bottom: 4px;
+  color: var(--cor); margin-bottom: 5px;
+}
+.dica .et-icone {
+  font-size: 11px; width: 20px; height: 20px; border-radius: 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--cor) 15%, transparent);
 }
 .dica p { font-size: 14px; color: var(--tinta); }
 .dica .ler-mais { font-size: 13px; font-weight: 600; display: inline-block; margin-top: 6px; text-decoration: none; }
 .dica.pontual .quando { font-weight: 700; }
-.dica-montessori { border: 1px solid var(--linha); }
+
+/* Dica do dia (Montessori): cartão em destaque no topo do Hoje. */
+.dica-montessori {
+  border: 1px solid var(--linha); border-left: 4px solid var(--c-montessori);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c-montessori) 8%, var(--cartao)), var(--cartao));
+}
+
+/* Tarefas de hoje (painel Hoje) */
+.contador-tarefas {
+  color: var(--acento); font-weight: 800;
+  font-variant-numeric: tabular-nums; letter-spacing: 0;
+}
+.ver-mais-tarefas {
+  display: inline-block; margin: 2px 4px 6px; font-size: 13px;
+  font-weight: 600; text-decoration: none;
+}
 
 /* ---------- separador Montessori ---------- */
 .subtitulo.faixa { color: var(--c-montessori); }
@@ -152,24 +185,7 @@ main { padding: 8px 16px; max-width: 720px; margin: 0 auto; }
   font-weight: 700; font-size: 14px; cursor: pointer; padding: 8px 4px 0;
 }
 
-/* ---------- temporizador de mamada (botão flutuante + folha) ---------- */
-.fab-mamada {
-  position: fixed; left: 16px; z-index: 6;
-  bottom: calc(76px + env(safe-area-inset-bottom) + 12px);
-  height: 56px; min-width: 56px; padding: 0 16px 0 14px;
-  border: none; border-radius: 28px; cursor: pointer;
-  background: var(--acento); color: #fff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
-  display: flex; align-items: center; gap: 8px;
-  font-size: 16px; font-weight: 700;
-}
-.fab-mamada[hidden] { display: none; }
-.fab-mamada .icone { font-size: 24px; }
-.fab-mamada .tempo { font-variant-numeric: tabular-nums; }
-.fab-mamada.terminado { background: var(--c-alerta); animation: fab-pulsar 1.1s ease-in-out infinite; }
-@keyframes fab-pulsar { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
-@media (prefers-reduced-motion: reduce) { .fab-mamada.terminado { animation: none; } }
-
+/* ---------- temporizador de mamada (folha; o botão está na navegação) ---------- */
 .tmp-rapidos { display: flex; gap: 8px; }
 .tmp-rapidos button {
   flex: 1; padding: 11px 4px; border: 1px solid var(--linha); border-radius: 10px;

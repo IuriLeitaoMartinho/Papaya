@@ -27,10 +27,23 @@ function renderCabecalho() {
 
 // ------------------------------------------------------------------ guia ----
 
+// Lista de capítulos com a pesquisa integrada no topo: enquanto se escreve,
+// os resultados substituem a lista; ao limpar, a lista volta.
 function renderListaCapitulos(alvo) {
-  alvo.innerHTML = '<div class="lista-capitulos">' + capitulos.map((c, i) =>
-    `<a href="#guia/${c.id}"><span class="num">${String(i + 1).padStart(2, '0')}</span>${escaparHtml(c.titulo)}</a>`
-  ).join('') + '</div>';
+  alvo.innerHTML = `
+    <div class="caixa-pesquisa">
+      <input type="search" id="campoPesquisa" placeholder="Pesquisar no guia (ex: febre, sono...)"
+             autocomplete="off" autocapitalize="off" aria-label="Pesquisar no guia">
+    </div>
+    <div id="guiaResultados"></div>
+    <div id="guiaLista" class="lista-capitulos">` +
+      capitulos.map((c, i) =>
+        `<a href="#guia/${c.id}"><span class="num">${String(i + 1).padStart(2, '0')}</span>${escaparHtml(c.titulo)}</a>`
+      ).join('') +
+    `</div>`;
+  const campo = $('#campoPesquisa'), resultados = $('#guiaResultados'), lista = $('#guiaLista');
+  ligarPesquisa(campo, resultados, () => { resultados.innerHTML = ''; });
+  campo.addEventListener('input', () => { lista.hidden = campo.value.trim().length >= 2; });
 }
 
 function renderCapitulo(alvo, id, ancora) {
@@ -49,16 +62,15 @@ function renderCapitulo(alvo, id, ancora) {
 
 // ---------------------------------------------------------------- rotas -----
 
-const vistas = ['hoje', 'guia', 'pesquisa', 'tarefas', 'montessori'];
+const vistas = ['hoje', 'guia', 'tarefas', 'montessori'];
 
 function rota() {
   const partes = location.hash.replace(/^#/, '').split('/');
   const separador = vistas.includes(partes[0]) ? partes[0] : 'hoje';
 
   for (const v of vistas) $('#vista-' + v).hidden = v !== separador;
-  document.querySelectorAll('.barra-fundo a').forEach(a =>
+  document.querySelectorAll('.nav-btn[data-sep]').forEach(a =>
     a.classList.toggle('ativo', a.dataset.sep === separador));
-  $('#fabMamada').hidden = separador !== 'hoje'; // botão do temporizador só no Hoje
   fecharFolha();
 
   if (separador === 'hoje') renderHoje($('#vista-hoje'));
@@ -71,7 +83,6 @@ function rota() {
     const { dataNascimento } = estado.definicoes;
     renderMontessori($('#vista-montessori'), dataNascimento ? idadeEmMeses(dataNascimento) : null);
   }
-  else if (separador === 'pesquisa') $('#campoPesquisa').focus();
 }
 
 // ------------------------------------------------------------- definições ---
@@ -222,8 +233,7 @@ async function iniciar() {
 
   try {
     await carregarGuia();
-    construirIndice();
-    ligarPesquisa();
+    construirIndice(); // a pesquisa é ligada dentro do Guia, ao render da lista
   } catch (e) {
     $('#vista-guia').innerHTML = '<div class="vazio">Não foi possível carregar o conteúdo do guia.<br>' + escaparHtml(String(e)) + '</div>';
   }

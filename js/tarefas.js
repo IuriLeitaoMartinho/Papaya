@@ -20,8 +20,48 @@ const NOMES_DIA = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 const membro = id => estado.definicoes.membros.find(m => m.id === id) || null;
 const feita = (t, data) => !!estado.conclusoes[t.id]?.[data];
 
-export function renderTarefas(alvo) {
+// HTML de uma linha de tarefa (partilhado pela vista Tarefas e pelo Hoje).
+function linhaTarefa(t) {
+  const m = membro(t.membroId);
+  const ok = feita(t, dataLocalISO());
+  return `<div class="tarefa ${ok ? 'feita' : ''}" data-id="${t.id}">
+    <input type="checkbox" ${ok ? 'checked' : ''} aria-label="Concluir ${escaparHtml(t.titulo)}">
+    <div class="corpo">
+      <div class="titulo">${escaparHtml(t.titulo)}</div>
+      <div class="membro">${m ? `<span class="ponto-cor" style="background:${m.cor}"></span>${escaparHtml(m.nome)}` : 'Família'}</div>
+    </div>
+  </div>`;
+}
+
+function alternarConclusao(t) {
   const hoje = dataLocalISO();
+  estado.conclusoes[t.id] = estado.conclusoes[t.id] || {};
+  if (estado.conclusoes[t.id][hoje]) delete estado.conclusoes[t.id][hoje];
+  else estado.conclusoes[t.id][hoje] = true;
+  guardarConclusoes();
+}
+
+// Vista compacta das tarefas de hoje, para o painel Hoje (visão geral do dia).
+export function renderTarefasHoje(alvo) {
+  const diaSemana = new Date().getDay();
+  const deHoje = estado.tarefas.filter(t => t.ativa && t.dias.includes(diaSemana));
+  if (!deHoje.length) return; // sem tarefas hoje: não ocupa espaço no painel
+
+  const feitas = deHoje.filter(t => feita(t, dataLocalISO())).length;
+  alvo.innerHTML = `<div class="subtitulo">Tarefas de hoje <span class="contador-tarefas">${feitas}/${deHoje.length}</span></div>` +
+    deHoje.map(linhaTarefa).join('') +
+    '<a class="ver-mais-tarefas" href="#tarefas">Gerir tarefas e histórico →</a>';
+
+  alvo.querySelectorAll('.tarefa').forEach(el => {
+    const t = estado.tarefas.find(x => x.id === el.dataset.id);
+    el.querySelector('input').addEventListener('change', () => {
+      alternarConclusao(t);
+      renderTarefasHoje(alvo);
+    });
+  });
+}
+
+export function renderTarefas(alvo) {
   const diaSemana = new Date().getDay();
   const deHoje = estado.tarefas.filter(t => t.ativa && t.dias.includes(diaSemana));
 
@@ -29,17 +69,7 @@ export function renderTarefas(alvo) {
   if (!deHoje.length) {
     html += '<div class="vazio">Sem tarefas para hoje.<br>Cria a primeira com o botão abaixo.</div>';
   } else {
-    html += deHoje.map(t => {
-      const m = membro(t.membroId);
-      const ok = feita(t, hoje);
-      return `<div class="tarefa ${ok ? 'feita' : ''}" data-id="${t.id}">
-        <input type="checkbox" ${ok ? 'checked' : ''} aria-label="Concluir ${escaparHtml(t.titulo)}">
-        <div class="corpo">
-          <div class="titulo">${escaparHtml(t.titulo)}</div>
-          <div class="membro">${m ? `<span class="ponto-cor" style="background:${m.cor}"></span>${escaparHtml(m.nome)}` : 'Família'}</div>
-        </div>
-      </div>`;
-    }).join('');
+    html += deHoje.map(linhaTarefa).join('');
   }
   html += '<button class="botao-principal" id="novaTarefa">+ Nova tarefa</button>';
   html += historico();
@@ -47,19 +77,10 @@ export function renderTarefas(alvo) {
 
   alvo.querySelectorAll('.tarefa').forEach(el => {
     const t = estado.tarefas.find(x => x.id === el.dataset.id);
-    el.querySelector('input').addEventListener('change', () => alternar(t, alvo));
+    el.querySelector('input').addEventListener('change', () => { alternarConclusao(t); renderTarefas(alvo); });
     el.querySelector('.corpo').addEventListener('click', () => folhaTarefa(t, alvo));
   });
   $('#novaTarefa').addEventListener('click', () => folhaTarefa(null, alvo));
-}
-
-function alternar(t, alvo) {
-  const hoje = dataLocalISO();
-  estado.conclusoes[t.id] = estado.conclusoes[t.id] || {};
-  if (estado.conclusoes[t.id][hoje]) delete estado.conclusoes[t.id][hoje];
-  else estado.conclusoes[t.id][hoje] = true;
-  guardarConclusoes();
-  renderTarefas(alvo);
 }
 
 // Grelha dos últimos 7 dias: linhas = tarefas ativas, colunas = dias.

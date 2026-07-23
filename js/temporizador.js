@@ -40,24 +40,28 @@ function fmt(ms) {
 const horaFim = () =>
   new Date(fimMs()).toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
 
-// ---------------------------------------------------------- botão (FAB) -----
+// Versão curta para o rótulo do botão de navegação (ex: "2h58", "45m").
+function fmtCurto(ms) {
+  const min = Math.max(0, Math.round(ms / 60000));
+  if (min >= 60) return Math.floor(min / 60) + 'h' + String(min % 60).padStart(2, '0');
+  return min + 'm';
+}
+
+// -------------------------------------- botão de mamada (na navegação) ------
 
 function atualizarFab() {
   const b = fab();
   if (!b) return;
-  if (!temporizador) {
-    b.className = 'fab-mamada';
-    b.innerHTML = '<span class="icone">🍼</span>';
-    b.setAttribute('aria-label', 'Temporizador de mamada');
-  } else if (terminado()) {
-    b.className = 'fab-mamada terminado';
-    b.innerHTML = '<span class="icone">🍼</span><span class="tempo">Mamada!</span>';
-    b.setAttribute('aria-label', 'Está na hora da mamada');
-  } else {
-    b.className = 'fab-mamada ativo';
-    b.innerHTML = `<span class="icone">🍼</span><span class="tempo">${fmt(restanteMs())}</span>`;
-    b.setAttribute('aria-label', `Mamada dentro de ${fmt(restanteMs())}`);
+  b.classList.remove('terminado');
+  let rot = 'Mamada', aria = 'Temporizador de mamada';
+  if (temporizador && terminado()) {
+    b.classList.add('terminado');
+    rot = 'Agora!'; aria = 'Está na hora da mamada';
+  } else if (temporizador) {
+    rot = fmtCurto(restanteMs()); aria = `Mamada dentro de ${fmt(restanteMs())}`;
   }
+  b.innerHTML = `<span class="icone">🍼</span><span class="rot">${rot}</span>`;
+  b.setAttribute('aria-label', aria);
 }
 
 // ------------------------------------------------------------- contagem -----

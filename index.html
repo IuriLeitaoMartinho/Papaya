@@ -25,27 +25,22 @@
 <main>
   <section id="vista-hoje" hidden></section>
   <section id="vista-guia" hidden></section>
-  <section id="vista-pesquisa" hidden>
-    <div class="caixa-pesquisa">
-      <input type="search" id="campoPesquisa" placeholder="Pesquisar no guia (ex: febre, sono...)"
-             autocomplete="off" autocapitalize="off" aria-label="Pesquisar no guia">
-    </div>
-    <div id="resultadosPesquisa"></div>
-  </section>
   <section id="vista-tarefas" hidden></section>
   <section id="vista-montessori" hidden></section>
 </main>
 
-<nav class="barra-fundo" aria-label="Navegação principal">
-  <a href="#hoje" data-sep="hoje"><span class="icone">☀</span>Hoje</a>
-  <a href="#guia" data-sep="guia"><span class="icone">📖</span>Guia</a>
-  <a href="#pesquisa" data-sep="pesquisa"><span class="icone">🔍</span>Pesquisa</a>
-  <a href="#tarefas" data-sep="tarefas"><span class="icone">✓</span>Tarefas</a>
-  <a href="#montessori" data-sep="montessori"><span class="icone">🌱</span>Montessori</a>
+<!-- Navegação: botões flutuantes verticais nas margens (esquerda e direita) -->
+<nav class="nav-flutuante" aria-label="Navegação principal">
+  <div class="nav-cluster nav-esq">
+    <a href="#hoje" data-sep="hoje" class="nav-btn"><span class="icone">☀</span><span class="rot">Hoje</span></a>
+    <button type="button" id="fabMamada" class="nav-btn fab-mamada"><span class="icone">🍼</span><span class="rot">Mamada</span></button>
+  </div>
+  <div class="nav-cluster nav-dir">
+    <a href="#guia" data-sep="guia" class="nav-btn"><span class="icone">📖</span><span class="rot">Guia</span></a>
+    <a href="#tarefas" data-sep="tarefas" class="nav-btn"><span class="icone">✓</span><span class="rot">Tarefas</span></a>
+    <a href="#montessori" data-sep="montessori" class="nav-btn"><span class="icone">🌱</span><span class="rot">Montessori</span></a>
+  </div>
 </nav>
-
-<!-- Botão flutuante do temporizador de mamada (só visível no separador Hoje) -->
-<button class="fab-mamada" id="fabMamada" hidden><span class="icone">🍼</span></button>
 
 <div class="fundo-folha" id="fundoFolha"></div>
 <div class="folha" id="folha" role="dialog" aria-modal="true"></div>
