@@ -9,6 +9,8 @@ App web estática, 100% client-side, para acompanhar o crescimento de uma crian�
 
 A navegação são **botões flutuantes nas margens** (sem barra inferior): à esquerda **Hoje** e **Mamada** (temporizador); à direita **Guia**, **Tarefas** e **Montessori**. O botão de mamada mostra a contagem decrescente e está sempre acessível.
 
+Os botões flutuam **por cima** do conteúdo, para que o texto e os cartões usem quase toda a largura do ecrã. Para não estorvarem a leitura, **recolhem quando se rola para baixo** e voltam assim que se rola para cima ou a página fica parada. Em ecrãs largos (≥ 900 px) ficam sempre visíveis, porque há margem de sobra.
+
 Sem backend, sem contas: os dados vivem só no dispositivo (localStorage), com export/import em JSON para partilhar entre dispositivos (opção substituir ou fundir). Funciona offline e é instalável como PWA.
 
 O mesmo conteúdo (`conteudo/*.md`) alimenta também o PDF do guia — ver `gerar_pdf.py` duas pastas acima.

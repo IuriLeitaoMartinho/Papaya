@@ -56,33 +56,61 @@ header button {
   font-size: 22px; cursor: pointer; padding: 4px;
 }
 
-/* Margens laterais para o conteúdo não passar por baixo dos botões flutuantes. */
-main { padding: 8px 60px; max-width: 640px; margin: 0 auto; }
+/* O conteúdo ocupa quase toda a largura; a navegação flutua por cima e
+   recolhe ao rolar para baixo (volta ao subir ou ao parar). */
+main { padding: 8px 14px; max-width: 720px; margin: 0 auto; }
 
 /* ---------- navegação: clusters flutuantes nas margens ---------- */
 .nav-cluster {
-  position: fixed; top: 50%; transform: translateY(-50%); z-index: 6;
-  display: flex; flex-direction: column; gap: 12px;
+  position: fixed; top: 50%; z-index: 6;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 10px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
-.nav-esq { left: 6px; }
-.nav-dir { right: 6px; }
+.nav-esq { left: 8px; }
+.nav-dir { right: 8px; }
+/* Recolhida: sai de cena para o conteúdo respirar durante a leitura. */
+.nav-oculta .nav-esq { transform: translateY(-50%) translateX(calc(-100% - 12px)); opacity: 0; pointer-events: none; }
+.nav-oculta .nav-dir { transform: translateY(-50%) translateX(calc(100% + 12px)); opacity: 0; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .nav-cluster { transition: none; } }
+
 .nav-btn {
-  width: 50px; height: 50px; border-radius: 25px;
-  background: var(--cartao); border: 1px solid var(--linha);
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.14);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
-  text-decoration: none; color: var(--suave); cursor: pointer; padding: 0;
+  width: 60px; height: 60px; border-radius: 20px;
+  background: color-mix(in srgb, var(--cartao) 92%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1.5px solid var(--linha);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  text-decoration: none; color: var(--tinta); cursor: pointer; padding: 0;
+  transition: transform 0.12s ease;
 }
-.nav-btn .icone { font-size: 20px; line-height: 1; }
-.nav-btn .rot { font-size: 9px; font-weight: 700; letter-spacing: 0.01em; }
-.nav-btn.ativo { background: var(--acento); border-color: var(--acento); color: #fff; }
+.nav-btn:active { transform: scale(0.94); }
+.nav-btn .icone { font-size: 24px; line-height: 1; }
+.nav-btn .rot { font-size: 10px; font-weight: 700; letter-spacing: 0.01em; }
+.nav-btn.ativo {
+  background: var(--acento); border-color: var(--acento); color: #fff;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--acento) 45%, transparent);
+}
 /* Botão de alimentação: sempre destacado (ação rápida, não é uma vista). */
-.fab-mamada { background: var(--acento); border-color: var(--acento); color: #fff; }
+.fab-mamada {
+  background: var(--acento); border-color: var(--acento); color: #fff;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--acento) 45%, transparent);
+}
 .fab-mamada .rot { font-variant-numeric: tabular-nums; }
-.fab-mamada.terminado { background: var(--c-alerta); border-color: var(--c-alerta); animation: fab-pulsar 1.1s ease-in-out infinite; }
+.fab-mamada.terminado {
+  background: var(--c-alerta); border-color: var(--c-alerta);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--c-alerta) 50%, transparent);
+  animation: fab-pulsar 1.1s ease-in-out infinite;
+}
 @keyframes fab-pulsar { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
 @media (prefers-reduced-motion: reduce) { .fab-mamada.terminado { animation: none; } }
-@media (min-width: 760px) { main { padding-left: 16px; padding-right: 16px; } }
+
+/* Em ecrãs largos há espaço para os botões viverem fora do conteúdo. */
+@media (min-width: 900px) {
+  .nav-esq { left: 24px; }
+  .nav-dir { right: 24px; }
+  .nav-oculta .nav-esq, .nav-oculta .nav-dir { transform: translateY(-50%); opacity: 1; pointer-events: auto; }
+}
 
 /* ---------- cartões genéricos ---------- */
 .cartao {

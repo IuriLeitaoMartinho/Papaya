@@ -69,8 +69,13 @@ function rota() {
   const separador = vistas.includes(partes[0]) ? partes[0] : 'hoje';
 
   for (const v of vistas) $('#vista-' + v).hidden = v !== separador;
-  document.querySelectorAll('.nav-btn[data-sep]').forEach(a =>
-    a.classList.toggle('ativo', a.dataset.sep === separador));
+  document.querySelectorAll('.nav-btn[data-sep]').forEach(a => {
+    const ativo = a.dataset.sep === separador;
+    a.classList.toggle('ativo', ativo);
+    if (ativo) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
+  });
+  mostrarNav();
   fecharFolha();
 
   if (separador === 'hoje') renderHoje($('#vista-hoje'));
@@ -83,6 +88,29 @@ function rota() {
     const { dataNascimento } = estado.definicoes;
     renderMontessori($('#vista-montessori'), dataNascimento ? idadeEmMeses(dataNascimento) : null);
   }
+}
+
+// --------------------------------------------------- navegação flutuante ----
+// Os botões flutuam por cima do conteúdo (que usa quase toda a largura do
+// ecrã). Para não estorvarem a leitura, recolhem quando se rola para baixo e
+// voltam ao rolar para cima ou assim que a página fica parada.
+
+let ultimoScroll = 0, temporizadorNav = null;
+
+function mostrarNav() {
+  document.querySelector('.nav-flutuante').classList.remove('nav-oculta');
+}
+
+function ligarNavScroll() {
+  const nav = document.querySelector('.nav-flutuante');
+  addEventListener('scroll', () => {
+    const y = Math.max(0, scrollY);
+    if (y > ultimoScroll + 6 && y > 140) nav.classList.add('nav-oculta');
+    else if (y < ultimoScroll - 6) nav.classList.remove('nav-oculta');
+    ultimoScroll = y;
+    clearTimeout(temporizadorNav);
+    temporizadorNav = setTimeout(mostrarNav, 800);
+  }, { passive: true });
 }
 
 // ------------------------------------------------------------- definições ---
@@ -229,6 +257,7 @@ async function iniciar() {
   renderCabecalho();
   $('#botaoDefinicoes').addEventListener('click', folhaDefinicoes);
   iniciarTemporizador();
+  ligarNavScroll();
   window.addEventListener('hashchange', rota);
 
   try {
