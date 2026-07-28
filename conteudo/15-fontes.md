@@ -47,7 +47,8 @@
 - **Biblioteca Cochrane** — cochranelibrary.com — revisões sistemáticas que resumem a melhor evidência (ex.: treino de sono, probióticos na diarreia, tratamento de cólicas).
 - **Ordem dos Médicos** — ordemdosmedicos.pt — e sociedades como a Sociedade Portuguesa de Pediatria (spp.pt) para posições clínicas.
 - **Ordem dos Farmacêuticos — Centro de Informação do Medicamento (CIM)** e **Infarmed** (infarmed.pt) — para doses, folhetos informativos (RCM/FI) e segurança de medicamentos; a dose pediátrica de paracetamol/ibuprofeno calcula-se sempre pelo **peso**.
-- **gov.pt — guia "Ter uma criança"** e **Segurança Social Direta** (seg-social.pt) — licenças e subsídios parentais, abono de família, prazos e formulários (ver capítulo Licença parental).
+- **gov.pt — guia "Ter uma criança"** e **Segurança Social Direta** (seg-social.pt) — licenças e subsídios parentais, abono de família, prazos e formulários (ver capítulos Licença parental e Burocracia ao nascer).
+- **IRN — Instituto dos Registos e do Notariado** (irn.justica.gov.pt) — registo de nascimento online, Cartão de Cidadão; **Portal das Finanças** (portaldasfinancas.gov.pt) — agregado familiar, e-fatura e deduções.
 
 ## Blogs e redes (PT) que valem a pena
 

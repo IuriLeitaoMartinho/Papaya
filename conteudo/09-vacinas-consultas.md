@@ -48,8 +48,6 @@ O PNV é **gratuito** e administrado nos centros de saúde. Esquema em vigor (co
 
 ## Documentos e burocracia ao nascer (Portugal)
 
-- **Registo de nascimento:** na maternidade (balcão "Nascer Cidadão") ou conservatória, até 20 dias.
-- **Cartão de Cidadão do bebé** e inscrição no centro de saúde (número de utente sai com o registo).
-- **Licença parental:** o pai tem 28 dias de calendário de licença exclusiva **obrigatória** (7 seguidos logo após o nascimento + os restantes nos 42 dias seguintes), pagos a 100%, mais 7 dias úteis facultativos; a mãe tem 42 dias obrigatórios; o resto do bolo de 120/150 dias divide-se entre os dois — as modalidades, percentagens e prazos estão no capítulo **Licença parental**, e a app Papaya marca as datas no calendário.
-- **Abono de família:** pedir na Segurança Social Direta.
-- Declarar o bebé nas Finanças (agregado familiar) e no seguro de saúde, se tiverem.
+O essencial: **registo de nascimento até 20 dias** (balcão Nascer Cidadão na maternidade, online no IRN ou numa conservatória), com o **número de utente** atribuído logo a seguir, e **Cartão de Cidadão** do bebé — gratuito até ao primeiro aniversário.
+
+Depois vêm a Segurança Social (subsídio parental, **abono de família até 6 meses**), as Finanças (agregado familiar, retenção na fonte, faturas com o NIF da criança), a creche e o seguro de saúde. O passo a passo, com prazos e as armadilhas que custam dinheiro, está no capítulo **Burocracia ao nascer**; as licenças e subsídios parentais estão no capítulo **Licença parental**.
