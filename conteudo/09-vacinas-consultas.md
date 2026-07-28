@@ -40,6 +40,26 @@ O PNV é **gratuito** e administrado nos centros de saúde. Esquema em vigor (co
 - Reações normais às vacinas: febre baixa, irritabilidade e dor/inchaço local nas 24–48 h. Pode dar-se paracetamol se desconfortável (não por rotina preventiva). **Médico se:** febre alta persistente, choro inconsolável > 3 horas, reação alérgica.
 - Constipação ligeira sem febre **não** é motivo para adiar vacinas.
 
+## Pesagens e curvas de crescimento
+
+O peso é medido **em todas as consultas de vigilância** (com o comprimento e o perímetro cefálico) e registado nas curvas do **Boletim de Saúde Infantil e Juvenil**. Nas primeiras semanas há pesagens extra, porque é aí que se confirma que a alimentação está a correr bem.
+
+**Nas primeiras semanas:**
+
+- Ao nascer, e outra vez durante a **1.ª semana** (na primeira consulta).
+- Nova pesagem por volta das **2 semanas**, para confirmar que **recuperou o peso de nascimento** — é normal perder até 7–10% nos primeiros dias e recuperar até aos 10–15 dias.
+- Se a amamentação ainda está a estabelecer-se, se o bebé foi prematuro ou se houve dúvidas sobre o ganho de peso, o enfermeiro ou o médico marcam pesagens mais frequentes (por exemplo, semanais) até estabilizar.
+
+**Onde pesar entre consultas:** no **centro de saúde**, na consulta de enfermagem/sala de tratamentos. Na maior parte das unidades é gratuito e muitas têm horário de atendimento aberto para pesagens, sem marcação — confirma como funciona na tua. As farmácias também pesam, mas o registo que conta é o do boletim.
+
+**Com que frequência chega?** Passadas as primeiras duas semanas, e **se não houver preocupações**, a referência é: no máximo **1 vez por mês até aos 6 meses**, **cada 2 meses dos 6 aos 12** e **cada 3 meses depois do 1.º ano** (orientação do NHS, alinhada com o calendário de consultas do PNSIJ).
+
+> **Não peses o bebé todos os dias em casa.** As variações normais de um dia para o outro (fralda, mamada, hora do dia) não dizem nada e geram ansiedade a sério. Se pesares, usa **sempre a mesma balança**, sem fralda e à mesma hora do dia — só assim os números são comparáveis.
+
+**Ler as curvas sem entrar em pânico:** Portugal usa desde 2013 as **curvas da OMS (2006)**. O percentil não é uma nota — é só a posição em relação a outras crianças saudáveis. Uma criança sempre no percentil 25 está a crescer perfeitamente bem. **O que importa é a trajetória**: seguir o seu próprio canal ao longo do tempo.
+
+**Falar com o médico se:** não recuperou o peso de nascimento até às 2–3 semanas, perdeu mais de 10% nos primeiros dias, a curva **atravessa dois canais de percentil para baixo**, o peso estagna ou desce depois de estabilizado, ou há sinais de desidratação e poucas fraldas molhadas (ver capítulos Alimentação e Emergências).
+
 ## Crescimento — valores de bolso
 
 - Peso: duplica o de nascimento ~4–5 meses, triplica ~12 meses.
