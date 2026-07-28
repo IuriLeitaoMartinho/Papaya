@@ -54,7 +54,49 @@ async function calcularMarcos() {
   for (const m of marcosLicenca(nasc, estado.definicoes.licenca)) {
     (marcos[m.data] = marcos[m.data] || []).push(m);
   }
+  for (const m of marcosBurocracia(nasc)) {
+    (marcos[m.data] = marcos[m.data] || []).push(m);
+  }
   return marcos;
+}
+
+// Prazos legais e datas-chave da burocracia ao nascer (capítulo Burocracia).
+// Tudo derivado da data de nascimento; são estimativas para não falhar prazos,
+// não substituem a confirmação nos sites oficiais.
+function marcosBurocracia(nasc) {
+  const ev = (data, titulo, sub, seccao) => ({
+    data, titulo, sub, categoria: 'burocracia',
+    capitulo: '14-burocracia', seccao
+  });
+  const d = deISO(nasc);
+  // Abono: 6 meses a contar do 1.º dia do mês seguinte ao nascimento.
+  const prazoAbono = paraISO(new Date(d.getFullYear(), d.getMonth() + 7, 1));
+  // Agregado familiar: comunica-se no início do ano seguinte ao nascimento.
+  const janSeguinte = paraISO(new Date(d.getFullYear() + 1, 0, 2));
+
+  return [
+    ev(somarDias(nasc, 3), 'Teste do pezinho',
+      'Faz-se entre o 3.º e o 6.º dia de vida, na maternidade ou no centro de saúde.',
+      '2. Número de utente e centro de saúde'),
+    ev(somarDias(nasc, 20), 'Prazo: registo de nascimento',
+      'Último dia para registar (se ainda não foi feito no balcão Nascer Cidadão). A partir daqui o Cartão de Cidadão também é obrigatório — é gratuito até ao 1.º aniversário.',
+      '1. Registo de nascimento (o primeiro de todos)'),
+    ev(somarDias(nasc, 30), 'Prazo: seguro de saúde',
+      'A maioria das apólices inclui o bebé sem períodos de carência se o pedido for feito nos primeiros 30 dias.',
+      '7. Outras coisas que vale a pena tratar'),
+    ev(somarMeses(nasc, 4), 'Creche: idade mínima e candidaturas',
+      'A partir dos 4 meses. As vagas esgotam cedo — candidatura no Portal da Segurança Social.',
+      '6. Creche'),
+    ev(prazoAbono, 'Prazo: abono de família',
+      'Limite aproximado do pedido (6 meses a contar do 1.º dia do mês seguinte ao nascimento). Fora do prazo não é retroativo.',
+      '4. Segurança Social'),
+    ev(janSeguinte, 'Comunicar o agregado familiar às Finanças',
+      'A janela abre em janeiro e fecha por volta de meados de fevereiro/início de março — confirma a data deste ano no Portal das Finanças.',
+      '5. Finanças'),
+    ev(somarMeses(nasc, 11), 'Cartão de Cidadão: último mês grátis',
+      'O primeiro Cartão de Cidadão é gratuito até ao 1.º aniversário.',
+      '3. Cartão de Cidadão do bebé')
+  ];
 }
 
 // Datas-chave da licença parental (regras no capítulo Licença parental).

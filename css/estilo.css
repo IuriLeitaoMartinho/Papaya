@@ -20,6 +20,8 @@
   --c-montessori: #A8674B;
   --c-evento: #6C63B5;      /* lembretes criados pelo utilizador */
   --c-licenca: #B05A8F;     /* datas da licença parental */
+  --c-burocracia: #5F7A8A;  /* prazos legais e papelada */
+  --c-preparacao: #7A9E7E;  /* antes do nascimento */
 
   --raio: 16px;
 }

@@ -14,6 +14,9 @@ const CATEGORIAS = {
   desenvolvimento: { rotulo: 'O que esperar', cor: 'var(--c-desenvolvimento)', icone: '🌟' },
   estimulacao:     { rotulo: 'O que trabalhar', cor: 'var(--c-estimulacao)', icone: '🧩' },
   saude:           { rotulo: 'Saúde', cor: 'var(--c-saude)', icone: '➕' },
+  seguranca:       { rotulo: 'Segurança', cor: 'var(--c-alerta)', icone: '🛡' },
+  burocracia:      { rotulo: 'Papelada', cor: 'var(--c-burocracia)', icone: '📋' },
+  preparacao:      { rotulo: 'Preparar', cor: 'var(--c-preparacao)', icone: '🎒' },
   consulta:        { rotulo: 'Consulta', cor: 'var(--c-consulta)', icone: '🩺' },
   vacina:          { rotulo: 'Vacinas', cor: 'var(--c-vacina)', icone: '💉' },
   alerta:          { rotulo: 'Sinal a vigiar', cor: 'var(--c-alerta)', icone: '⚠' }
@@ -91,9 +94,13 @@ export async function renderHoje(alvo) {
   const lista = await carregarEntradas();
   const meses = idadeEmMeses(dataNascimento);
 
+  // Antes do nascimento: mostra o que há a preparar (entradas com meses negativos).
   if (meses < 0) {
-    corpo.innerHTML = `<div class="vazio">${escaparHtml(nomeCrianca || 'O bebé')} ainda vem a caminho.
-      Espreita entretanto o capítulo da mala da maternidade no Guia.</div>`;
+    const preparar = lista.filter(e => e.mesesMin <= meses && meses <= e.mesesMax);
+    corpo.innerHTML =
+      `<div class="vazio">${escaparHtml(nomeCrianca || 'O bebé')} ainda vem a caminho.
+        Aqui fica o que vale a pena adiantar.</div>` +
+      (preparar.length ? '<div class="subtitulo">A preparar</div>' + preparar.map(e => cartaoDica(e)).join('') : '');
     return;
   }
   if (meses > 25) {
@@ -120,6 +127,8 @@ export async function renderHoje(alvo) {
   const seccoes = [
     ['Nesta idade', [...porCategoria('desenvolvimento'), ...porCategoria('estimulacao')]],
     ['Saúde e rotinas', porCategoria('saude')],
+    ['Segurança', porCategoria('seguranca')],
+    ['Papelada e apoios', [...porCategoria('burocracia'), ...porCategoria('preparacao')]],
     ['Sinais a vigiar', porCategoria('alerta')]
   ];
   for (const [titulo, grupo] of seccoes) {

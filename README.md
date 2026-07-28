@@ -64,6 +64,8 @@ Acrescenta entradas a `dados/faixas-etarias.json`:
 - `mesesMin`/`mesesMax`: faixa etária em meses completos, inclusive.
 - `categoria`: `desenvolvimento`, `estimulacao`, `saude`, `alerta` (mostradas enquanto a idade está na faixa) ou `consulta`, `vacina` (pontuais: usa `mesesMin` = `mesesMax` = idade do marco; a app mostra as deste mês e as do marco seguinte).
 - `capitulo`/`seccao` (opcionais): criam o link "Ler mais no guia".
+- Categorias disponíveis: `desenvolvimento`, `estimulacao`, `saude`, `seguranca`, `burocracia`, `preparacao`, `alerta` (mostradas enquanto a idade está na faixa) e `consulta`/`vacina` (pontuais).
+- **Meses negativos** servem para o período antes do nascimento (ex.: `-9` a `-1`): aparecem no Hoje como "A preparar" enquanto o bebé ainda não nasceu.
 
 ### Adicionar dicas e atividades Montessori
 Edita `dados/montessori.json`:
