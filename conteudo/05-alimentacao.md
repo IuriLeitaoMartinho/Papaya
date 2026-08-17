@@ -49,7 +49,7 @@ Como funciona, em três frases: nos primeiros dias sai **colostro** (pouca quant
 - Prepara de fresco sempre que possível. Se precisares de adiantar: arrefecer depressa e guardar **no fundo do frigorífico até 24 h**. Restos do biberão deitam-se fora até 1 hora após o início da refeição.
 - **Biberão ao ritmo do bebé ("paced feeding"):** bebé semi-sentado, tetina de fluxo lento, biberão quase na horizontal, pausas frequentes e troca de lado a meio — deixa-o decidir quando parar, sem forçar a acabar. Evita a sobrealimentação, reduz o desconforto e imita o ritmo da mama (essencial no aleitamento misto).
 - **Quantidades:** a lata é orientação, o bebé é quem manda. Referência nas primeiras semanas: ~150–200 ml por kg por dia, divididos por 6–8 refeições — e varia de dia para dia, como o teu apetite.
-- Esteriliza biberões e tetinas nos primeiros 3–4 meses; depois, lavagem cuidada chega.
+- **Lavar, desinfetar e secar** o material tem capítulo próprio — ver **Esterilização e higiene do material do bebé**, que cobre até que idade esterilizar (as autoridades divergem), métodos, secagem, chupetas, bombas tira-leite e o que fazer fora de casa.
 - **Arroto:** ao colo, na vertical, com palmadinhas suaves nas costas, 5–10 minutos. Se não arrotar, não faz mal.
 
 ### Aleitamento misto (mama + fórmula)

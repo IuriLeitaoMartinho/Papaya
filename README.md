@@ -52,7 +52,12 @@ Edita o `.md` em `conteudo/`. Sintaxe suportada (a mesma do PDF): `# capítulo`,
 2. Acrescenta `"13-nome.md"` à lista em `dados/capitulos.json` (a ordem da lista é a ordem na app).
 3. Sobe a versão no `sw.js` (ver abaixo).
 
-O capítulo fica automaticamente pesquisável — cada secção `##` é um resultado possível.
+O capítulo fica automaticamente pesquisável — cada secção `##` **e cada subsecção `###`** é um resultado possível, o que importa em capítulos longos: o resultado aponta para a subsecção exata.
+
+### Palavras-chave de pesquisa
+Uma linha `<!-- chaves: uma coisa, outra coisa -->` logo a seguir a um título acrescenta termos de pesquisa a essa secção, sem aparecer no texto (nem na app nem no PDF). Serve para o leitor encontrar a secção pelas palavras que usaria, mesmo que não estejam escritas lá dentro — por exemplo, "quando parar de esterilizar" encontra "Até que idade é preciso esterilizar biberões e tetinas". As chaves de uma secção valem também para as suas subsecções.
+
+A pesquisa aceita **várias palavras** (todas têm de aparecer), ignora acentos e maiúsculas, tolera gralhas, e despreza palavras de ligação. Se a combinação não der resultados, mostra os do termo mais específico e avisa.
 
 ### Adicionar dicas ao ecrã Hoje
 Acrescenta entradas a `dados/faixas-etarias.json`:

@@ -295,6 +295,10 @@ h2.realce { animation: realce 2s ease; }
 .resultado h3 { font-size: 15px; margin-bottom: 4px; color: var(--acento); }
 .resultado p { font-size: 14px; color: var(--tinta); }
 .resultado mark { background: var(--acento-suave); color: var(--acento); border-radius: 3px; padding: 0 2px; font-weight: 700; }
+.nota-pesquisa {
+  font-size: 13px; color: var(--suave); background: var(--cartao);
+  border-radius: 10px; padding: 8px 12px; margin-bottom: 8px;
+}
 
 /* ---------- Tarefas ---------- */
 .tarefa {

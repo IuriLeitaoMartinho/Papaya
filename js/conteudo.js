@@ -43,16 +43,39 @@ export async function carregarGuia() {
   return capitulos;
 }
 
-// Divide um capítulo em secções (## ...) com texto simples, para a pesquisa.
-// O texto antes da primeira secção conta como secção com o título do capítulo.
+// Divide um capítulo em secções (##) e subsecções (###) com texto simples, para
+// a pesquisa. A granularidade fina importa em capítulos longos: um resultado
+// aponta para a subsecção exata em vez de para o topo de uma secção enorme.
+//
+// Palavras-chave: uma linha `<!-- chaves: a, b, c -->` logo a seguir a um
+// título acrescenta termos de pesquisa a essa secção (não aparecem no texto).
+// As chaves da secção-mãe valem também para as suas subsecções.
 function extrairSeccoes(tituloCapitulo, linhas) {
   const seccoes = [];
-  let atual = { titulo: tituloCapitulo, ancora: '', texto: [] };
+  let atual = { titulo: tituloCapitulo, sub: null, ancora: '', chaves: [], texto: [] };
+  let chavesSeccao = [];
+
+  const novaSeccao = (titulo, sub, ancora, chaves) => {
+    if (atual.texto.length || atual.chaves.length) seccoes.push(fecharSeccao(atual));
+    atual = { titulo, sub, ancora, chaves: [...chaves], texto: [] };
+  };
+
   for (const linha of linhas) {
+    const chaves = linha.match(/^<!--\s*chaves:\s*(.*?)\s*-->\s*$/i);
+    if (chaves) {
+      const lista = chaves[1].split(',').map(s => s.trim()).filter(Boolean);
+      atual.chaves.push(...lista);
+      if (!atual.sub) chavesSeccao = [...atual.chaves];
+      continue;
+    }
     if (linha.startsWith('## ')) {
-      if (atual.texto.length) seccoes.push(fecharSeccao(atual));
       const t = linha.slice(3).trim();
-      atual = { titulo: t, ancora: slug(t), texto: [] };
+      chavesSeccao = [];
+      novaSeccao(t, null, slug(t), []);
+    } else if (linha.startsWith('### ')) {
+      const t = linha.slice(4).trim();
+      // A subsecção herda as chaves da secção-mãe e guarda o título dela.
+      novaSeccao(atual.sub ? atual.titulo : atual.titulo, t, slug(t), chavesSeccao);
     } else if (!linha.startsWith('# ')) {
       const limpo = linhaParaTexto(linha);
       if (limpo) atual.texto.push(limpo);
@@ -62,7 +85,10 @@ function extrairSeccoes(tituloCapitulo, linhas) {
   return seccoes;
 }
 
-const fecharSeccao = s => ({ titulo: s.titulo, ancora: s.ancora, texto: s.texto.join(' ') });
+const fecharSeccao = s => ({
+  titulo: s.titulo, sub: s.sub, ancora: s.ancora,
+  chaves: s.chaves.join(', '), texto: s.texto.join(' ')
+});
 
 // Reduz uma linha Markdown a texto corrido (para indexar e mostrar excertos).
 function linhaParaTexto(linha) {
@@ -122,6 +148,8 @@ export function markdownParaHtml(linhas) {
   for (const linha of linhas) {
     const l = linha.trimEnd();
     let m;
+    // Comentários HTML (ex.: as palavras-chave da pesquisa) não são mostrados.
+    if (/^<!--.*-->\s*$/.test(l)) continue;
     if (l.startsWith('# ')) {
       fecharTudo(); saida.push('<h1>' + inline(l.slice(2)) + '</h1>');
     } else if (l.startsWith('## ')) {
@@ -129,7 +157,9 @@ export function markdownParaHtml(linhas) {
       const t = l.slice(3).trim();
       saida.push(`<h2 id="${slug(t)}">` + inline(t) + '</h2>');
     } else if (l.startsWith('### ')) {
-      fecharTudo(); saida.push('<h3>' + inline(l.slice(4)) + '</h3>');
+      fecharTudo();
+      const t = l.slice(4).trim();
+      saida.push(`<h3 id="${slug(t)}">` + inline(t) + '</h3>');
     } else if (l.startsWith('>')) {
       fecharParagrafo(); fecharLista(); fecharTabela();
       citacao.push(l.replace(/^>\s?/, ''));

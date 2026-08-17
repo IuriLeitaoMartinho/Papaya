@@ -3,7 +3,7 @@
 // IMPORTANTE: sempre que alterares conteúdo (.md), dados (.json) ou código,
 // incrementa a VERSAO abaixo. É isso que faz os telemóveis que já têm a app
 // instalada irem buscar a versão nova.
-const VERSAO = 'papaya-v12';
+const VERSAO = 'papaya-v13';
 
 const ASSETS = [
   './',
@@ -40,7 +40,8 @@ const ASSETS = [
   './conteudo/12-montessori.md',
   './conteudo/13-licenca-parental.md',
   './conteudo/14-burocracia.md',
-  './conteudo/15-fontes.md'
+  './conteudo/15-esterilizacao.md',
+  './conteudo/16-fontes.md'
 ];
 
 self.addEventListener('install', e => {
