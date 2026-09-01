@@ -23,6 +23,7 @@ Regras consensuais (AAP, DGS, Lullaby Trust) para reduzir o risco de Síndrome d
 | 12–18 meses | 11–14 h | 1–2 sestas; transição para 1 sesta ~15–18 meses |
 | 18–24 meses | 11–14 h | 1 sesta; resistência a ir para a cama é típica |
 
+- Estes totais são os **intervalos recomendados pela OMS** por 24 horas, sestas incluídas — são intervalos, não objetivos. Um bebé de 6 meses que durma 12 horas e outro que durma 16 estão ambos dentro do recomendado; o critério útil não é o número, é se acorda descansado, está bem-disposto de dia e cresce bem.
 - "Dormir a noite toda" em bebés significa 5–6 horas seguidas — e mesmo isso só lá para os 4–6 meses, com enormes variações. **Acordar de noite no primeiro ano é biologicamente normal.**
 - **Regressões do sono** (~4 meses, ~8–10 meses, ~18 meses): fases em que um bebé que dormia bem volta a acordar — associadas a saltos de desenvolvimento. Passam em 2–6 semanas; mantém a rotina.
 
@@ -32,6 +33,7 @@ Regras consensuais (AAP, DGS, Lullaby Trust) para reduzir o risco de Síndrome d
 - Distinguir dia e noite desde cedo: dia com luz e barulho normal, noite escura, silenciosa e aborrecida (mamadas noturnas sem conversa nem luz forte).
 - Deitar o bebé **sonolento mas acordado**, quando possível — aprender a adormecer no berço é a competência-chave.
 - Hora de deitar consistente (19h30–20h30 funciona para a maioria).
+- O ritual é dado por ti e **não deve depender de elementos externos** — televisão, tablet ou passeio de carro (recomendação do Programa Nacional de Saúde Infantil e Juvenil). Ao longo do primeiro ano podes ir reduzindo o colo, substituindo-o por toque e voz.
 
 ## Treino de sono — o que diz a evidência
 

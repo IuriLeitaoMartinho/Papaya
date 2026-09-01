@@ -23,6 +23,7 @@
 - **Pilhas de botão e ímanes**: os mais perigosos de todos os objetos domésticos. Ingestão = urgência imediata.
 - Detergentes, medicamentos e cápsulas de máquina de lavar em armários **altos e trancados** (as cápsulas parecem doces).
 - Cancelas nas escadas (em cima e em baixo).
+- **Andarilhos ("aranhas", "voadores"): não.** É o equipamento de puericultura com mais lesões documentadas — nos EUA, 230 676 crianças com menos de 15 meses tratadas em urgências entre 1990 e 2014, 90,6% na cabeça ou pescoço e 74,1% por queda pelas escadas dentro do andarilho. O Canadá proibiu-os em 2004; em Portugal continuam legais. Não ajudam a andar (podem atrasar) e dão à criança uma velocidade que ultrapassa a tua capacidade de reação. Alternativas: tapete de atividades, parque seguro, centro de atividades **estacionário, sem rodas** (ver capítulo Desenvolvimento).
 
 **Quando anda e trepa (12–24 meses):**
 - Cabos de panelas para dentro do fogão; bocas de trás primeiro. Forno com proteção ou barreira.

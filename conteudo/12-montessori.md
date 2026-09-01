@@ -21,7 +21,7 @@ O que Montessori **não** é: não é deixar a criança fazer tudo (há liberdad
 3. **Liberdade dentro de limites:** poucas regras, mas firmes (segurança, respeito pelos outros), e liberdade total dentro delas. Em vez de "não" constante, oferece duas escolhas aceitáveis: "pijama azul ou verde?".
 4. **Independência:** pergunta-te em cada rotina: "que parte disto podia ele fazer?". Aos 10 meses segura a fralda limpa; aos 15 estica o braço para a manga; aos 20 leva o prato para a mesa. Demora mais? Demora. É esse o investimento.
 5. **Ambiente preparado:** em vez de mudares a criança, muda a casa (ver secção seguinte). Se ele consegue alcançar, consegue aprender.
-6. **Movimento livre:** máximo tempo no chão, mínimo em "contentores" (espreguiçadeira, baloiço, parque fechado). Não coloques o bebé em posições que ele ainda não alcança sozinho — sentado com almofadas, em pé pelas mãos. Ele chega lá pela ordem certa dele.
+6. **Movimento livre:** máximo tempo no chão, mínimo em "contentores" (espreguiçadeira, baloiço, parque fechado). A regra oficial da OMS dá-te o teto: **nunca mais de 1 hora seguida** em carrinho, ovo, cadeira de papa ou qualquer equipamento que restrinja o movimento (ver capítulo Desenvolvimento). Não coloques o bebé em posições que ele ainda não alcança sozinho — sentado com almofadas, em pé pelas mãos. Ele chega lá pela ordem certa dele. (Aqui Montessori é mais estrito do que o programa da DGS, que aos 6 meses admite "sentá-lo com apoio" em períodos curtos e vigiados, para ele participar no que se passa à volta. A divergência é pequena e o critério é o mesmo: períodos curtos, nunca horas numa cadeira.)
 
 ## O ambiente preparado, divisão a divisão
 
@@ -59,7 +59,7 @@ A pergunta-guia: **ajoelha-te à altura dele e olha em volta** — o que é que 
 
 ### 12–18 meses
 
-- **Carrinho de empurrar** estável (não andarilho de sentar, que a evidência desaconselha) para os primeiros passos e para carregar tralha — a obsessão da idade.
+- **Carrinho de empurrar** estável (não andarilho de sentar, desaconselhado por todas as sociedades científicas e com lesões graves documentadas — ver capítulo Desenvolvimento) para os primeiros passos e para carregar tralha, a obsessão da idade.
 - Encaixes simples de madeira, empilhar argolas, abrir e fechar caixas e frascos.
 - **Vida prática a sério:** limpar o que entornou (pano ao alcance), pôr a roupa suja no cesto, regar uma planta com regador mínimo, descascar uma banana começada. Tarefas reais, resultados reais.
 - Roupa que ele consiga trabalhar: calças de elástico, sapatos de velcro.
@@ -85,7 +85,7 @@ A pergunta-guia: **ajoelha-te à altura dele e olha em volta** — o que é que 
 - **"Montessori é não dar limites."** É o contrário: limites poucos, claros e inegociáveis — e liberdade genuína dentro deles.
 - **Transformar a casa num catálogo de uma vez.** Começa por UMA coisa: uma prateleira baixa, ou o copo real, ou o banco na casa de banho. Vê o que muda e continua.
 - **Rotação a mais de brinquedos e "atividades" a menos de vida.** Nos 0–2 anos, a máquina de lavar, a fruteira e o regador ensinam mais do que qualquer tabuleiro de atividades do Pinterest.
-- **Ecrãs "educativos".** Montessori e as recomendações oficiais (OMS/AAP/DGS) coincidem: zero ecrãs antes dos 2 anos, salvo videochamadas com família.
+- **Ecrãs "educativos".** Montessori e as recomendações oficiais coincidem, e a portuguesa é a mais restritiva: a Sociedade Portuguesa de Neuropediatria (2024) recomenda evicção de ecrãs até aos 3 anos, salvo videochamadas com família e, quando muito, 30 minutos de televisão por dia com um adulto ao lado (ver capítulo Desenvolvimento). Bebés não aprendem palavras com vídeos: a evidência mostra o contrário.
 - **Perfeccionismo dos pais.** Colo, embalar, dias de sofá e desenhos animados no dia em que estão todos doentes — nada disto "estraga" o método. Montessori é uma direção, não um tribunal.
 
 ## Para saber mais

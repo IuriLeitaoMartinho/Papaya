@@ -1,6 +1,6 @@
 # Alimentação (0 aos 24 meses)
 
-> A OMS e a DGS recomendam **leite materno exclusivo até aos 6 meses**, mantendo-o depois em paralelo com a comida até aos 2 anos ou enquanto mãe e bebé quiserem. Mas a regra que vem antes de todas: **um bebé alimentado e uns pais inteiros valem mais do que qualquer ideal**. Se a amamentação não for possível ou desejada, as fórmulas infantis são seguras e reguladas — **alimentar sem culpa**. (Secção revista em 2026 com OMS, DGS/SNS, NHS, AAP e protocolos da Academy of Breastfeeding Medicine.)
+> A OMS e a DGS recomendam **leite materno exclusivo até aos 6 meses**, mantendo-o depois em paralelo com a comida até aos 2 anos ou enquanto mãe e bebé quiserem. Mas a regra que vem antes de todas: **um bebé alimentado e uns pais inteiros valem mais do que qualquer ideal**. Se a amamentação não for possível ou desejada, as fórmulas infantis são seguras e reguladas — **alimentar sem culpa**. (Capítulo revisto em 2026 com OMS, DGS/SNS, NHS, AAP e protocolos da Academy of Breastfeeding Medicine; a parte do biberão e da fórmula foi revista em setembro de 2026 com o Regulamento (UE) 2016/127, EFSA, ESPGHAN, EAACI e o consenso português CoFI.)
 
 ## Amamentação (0–6 meses)
 
@@ -43,14 +43,89 @@ Como funciona, em três frases: nos primeiros dias sai **colostro** (pouca quant
 
 ## Biberão e fórmula
 
-- Usa **fórmula infantil tipo 1** (0–6 meses); a partir dos 6 meses, tipo 2 (transição); depois dos 12 meses pode passar a leite de vaca gordo ou meio-gordo — **leite de vaca nunca antes dos 12 meses** como bebida principal.
-- **Todas as fórmulas à venda na UE cumprem a mesma regulação de composição** — a marca cara não é "melhor", e mudar de marca por marketing não resolve cólicas. Fórmulas especiais (anti-cólicas, AR/anti-regurgitação, HA, sem lactose) **só com indicação do médico**.
-- **Preparação segura (OMS/NHS):** lava as mãos; ferve a água e usa-a **ainda acima de 70 °C** (na prática: até 30 minutos depois de ferver) — é esta temperatura que mata bactérias raras mas perigosas que podem existir **no próprio pó** (Cronobacter, Salmonella). **Primeiro a água, depois o pó**, 1 medida rasa por cada 30 ml, exatamente como diz a lata — nunca diluir mais nem menos. Arrefece depressa (biberão sob água fria corrente) e testa a temperatura no pulso antes de dar. Atenção: **máquinas preparadoras e água apenas "morna" não garantem os 70 °C**.
-- Prepara de fresco sempre que possível. Se precisares de adiantar: arrefecer depressa e guardar **no fundo do frigorífico até 24 h**. Restos do biberão deitam-se fora até 1 hora após o início da refeição.
-- **Biberão ao ritmo do bebé ("paced feeding"):** bebé semi-sentado, tetina de fluxo lento, biberão quase na horizontal, pausas frequentes e troca de lado a meio — deixa-o decidir quando parar, sem forçar a acabar. Evita a sobrealimentação, reduz o desconforto e imita o ritmo da mama (essencial no aleitamento misto).
-- **Quantidades:** a lata é orientação, o bebé é quem manda. Referência nas primeiras semanas: ~150–200 ml por kg por dia, divididos por 6–8 refeições — e varia de dia para dia, como o teu apetite.
+<!-- chaves: fórmula infantil, leite artificial, leite em pó, qual leite escolher, melhor marca, leite 1, leite 2, leite 3, alimentar em exclusivo -->
+
+> **A pergunta útil não é "qual é a melhor marca" — é "estou a usar a categoria certa para a idade e para a situação do meu bebé".** A composição das fórmulas para lactentes está fixada por lei europeia (Regulamento (UE) 2016/127), com mínimos e máximos obrigatórios de energia, proteína, gordura, DHA, vitaminas e minerais. Qualquer fórmula para lactentes à venda legalmente em Portugal alimenta em exclusivo, sozinha, um bebé saudável nascido de termo. (Revisto em setembro de 2026 com o Regulamento (UE) 2016/127, DGS, NHS, EFSA, ESPGHAN, EAACI e o consenso português CoFI.)
+
+### Que fórmula usar em cada idade
+
+<!-- chaves: leite 1, leite 2, leite 3, leite 4, fórmula de transição, leite de crescimento, mudar aos 6 meses, aos 12 meses, leite de vaca -->
+
+| Categoria | Idade | Vale a pena? |
+|---|---|---|
+| Fórmula para lactentes ("leite 1") | desde o nascimento | Sim. É a única que alimenta em exclusivo — e pode manter-se **todo o primeiro ano**. |
+| Fórmula de transição ("leite 2") | só a partir dos 6 meses | Opcional. O NHS diz que **não há benefício** em mudar aos 6 meses. |
+| Leite de crescimento ("leite 3/4") | a partir dos 12 meses | Não é necessário. A EFSA não lhe encontra papel próprio na dieta. |
+| Leite de vaca gordo ou meio-gordo | a partir dos 12 meses | Adequado como bebida principal. Nunca antes dos 12 meses. |
+
+- A regra rígida é a inversa da que se costuma ouvir: **fórmula de transição nunca antes dos 6 meses** (tem tipicamente mais proteína e mais ferro do que um bebé pequeno deve receber). Mudar aos 6 meses é opcional; **não mudar não é um erro**.
+- O leite de crescimento **não é sequer uma fórmula infantil no sentido legal** — fica fora do Regulamento (UE) 2016/127 e segue só as regras gerais dos alimentos, com margens de composição muito mais largas. A EFSA concluiu em 2013 que não é identificável um papel próprio destes leites entre o 1 e os 3 anos, e os peritos portugueses do consenso CoFI também não chegaram a acordo sobre as suas vantagens. Podem fazer sentido numa criança com ingestão comprovadamente baixa de ferro ou vitamina D, decidido com o médico — não como passo automático a seguir ao "leite 2".
+- O que muda mesmo aos 6 meses não é o leite: é a diversificação alimentar.
+
+### O que varia (e o que não varia) entre marcas
+
+<!-- chaves: diferenças entre marcas, marca branca, mais cara é melhor, HMO, prebióticos, probióticos, MFGM, teor de proteína, rótulo, preço -->
+
+- **Por lei, todas cumprem os mesmos limites:** 60 a 70 kcal por 100 ml; proteína entre **1,8 e 2,5 g por 100 kcal** (leite de vaca ou de cabra); **DHA obrigatório**, entre 20 e 50 mg por 100 kcal; lactose, ferro e vitamina D com mínimos definidos; e um limite de resíduos de pesticidas muito mais apertado do que o dos alimentos em geral. Duas fórmulas para lactentes de marcas diferentes não podem ser nutricionalmente muito diferentes.
+- **A diferença com melhor evidência é o teor de proteína.** Um ensaio europeu com 1138 lactentes mostrou que a fórmula com menos proteína se associou a menor IMC e menor risco de obesidade em idade escolar. Traduzido para a prateleira: entre as disponíveis, preferir a que tiver o valor de proteína mais próximo do mínimo de 1,8 g/100 kcal — vem no rótulo. Ressalva honesta: o contraste testado no ensaio era maior do que o que hoje existe no mercado, por isso o ganho esperado é pequeno.
+- **HMO, MFGM, nucleótidos, prebióticos, probióticos, alfa-lactalbumina, beta-palmitato:** é aqui que se concentra o marketing e boa parte da diferença de preço. Uma revisão sistemática da ESPGHAN publicada em 2026 concluiu que os HMO estudados **não mostraram diferença face à fórmula de controlo** em crescimento, choro, irritabilidade, cólica ou regurgitação. São ingredientes seguros: não há razão para os evitar, nem para pagar muito mais por eles.
+- **Critérios por que faz sentido decidir, por ordem de peso:** categoria certa para a idade; indicação clínica, se existir; teor de proteína mais baixo; **disponibilidade estável onde costumas comprar** (ficar sem leite às 3 da manhã é um problema real, um HMO a menos não é); preço. Escolher a mais barata entre fórmulas para lactentes é uma decisão defensável, não uma cedência na qualidade.
+- **Onde não se poupa nunca:** diluir mais o pó para render (altera a densidade energética e sobrecarrega o rim), substituir por leite de vaca antes dos 12 meses, ou substituir por bebidas vegetais.
+
+### Fórmulas especiais: o que a evidência diz de cada uma
+
+<!-- chaves: fórmula anticólicas, conforto, comfort, AR, anti-regurgitação, refluxo, HA, hipoalergénica, sem lactose, soja, leite de cabra, anti-obstipação, funcionam mesmo -->
+
+Nenhuma se inicia por iniciativa própria — todas exigem indicação médica. O que sabe hoje quem escreve as recomendações (ESPGHAN 2024, EAACI 2021, NHS):
+
+- **Anticólicas / "conforto": não usar.** O Comité de Nutrição da ESPGHAN, na tomada de posição de 2024, desaconselha expressamente as fórmulas especializadas para cólicas por falta de evidência clínica — baixa lactose, parcialmente hidrolisadas, extensamente hidrolisadas, com pré ou probióticos e de soja, todas sem evidência suficiente para serem recomendadas. O que a ESPGHAN recomenda em vez disso é o que já sabias: colo, embalar, e saber que a cólica é fisiológica e passa (ver capítulo O recém-nascido).
+- **AR / anti-regurgitação (espessadas):** a única categoria que a ESPGHAN admite considerar — e mesmo assim só quando a regurgitação é isolada (sem outros sintomas), depois de tranquilizar os pais, e se o sofrimento em casa for grande. Reduzem o número de golfadas visíveis. Prefere-se espessante de baixo valor calórico (goma de alfarroba ou de guar) aos amidos, para não sobrealimentar; uma AR que seja também hidrolisada não tem vantagem demonstrada sobre uma AR simples. **Atenção: várias exigem água a temperatura diferente da habitual — ler as instruções da lata.** Regurgitação com recusa alimentar, má progressão de peso, sangue, tosse persistente ou irritabilidade marcada não é funcional e não se trata mudando de leite: é consulta.
+- **Anti-obstipação:** a ESPGHAN admite como opção possível as fórmulas com mais beta-palmitato e mais magnésio. E deixa um aviso contra-intuitivo: **num bebé com fezes duras, uma fórmula com lactose reduzida — que é o que muitas "conforto" são — pode piorar o problema**, porque a lactose não absorvida tem efeito laxante osmótico. Antes de mudar de leite: hidratação, tempo de barriga para baixo e massagem circular na barriga no sentido dos ponteiros do relógio.
+- **HA (parcialmente hidrolisadas): não previnem alergia.** A EAACI inverteu em 2020/2021 a recomendação que tinha desde 2014 e deixou de aconselhar qualquer fórmula hidrolisada, parcial ou extensa, para prevenir alergia — mesmo com história familiar. E uma HA **não trata** alergia às proteínas do leite de vaca: as proteínas continuam lá, apenas fragmentadas, e podem desencadear reação.
+- **Sem lactose:** só sob supervisão médica. A intolerância primária à lactose é rara no bebé; o que aparece com alguma frequência é a intolerância transitória depois de uma gastroenterite, que se resolve em dias a semanas. **Não serve para a alergia ao leite** — a alergia é às proteínas, que continuam integralmente na fórmula sem lactose. No rótulo, "isento de lactose" tem definição legal; "lactose reduzida" ou "baixa lactose" não é a mesma coisa.
+- **Soja:** nunca abaixo dos 6 meses e, depois, só por indicação médica — por causa dos fitoestrogénios (isoflavonas), a que um lactente ficaria exposto em doses relativamente altas por quilo de peso. Não é primeira linha na alergia ao leite (parte das crianças reage também à soja) e não serve para cólicas. Nada a ver com a bebida de soja de supermercado, que não é fórmula.
+- **Leite de cabra:** fonte proteica legal e nutricionalmente equivalente (parecer da EFSA de 2012), portanto uma escolha segura por preferência ou disponibilidade. Mas **não é menos alergénica** — há reatividade cruzada elevada com o leite de vaca, e o NHS diz expressamente que não serve para bebés com alergia à proteína do leite de vaca. Um ensaio não encontrou melhoria em irritabilidade nem em cólicas.
+- **Prematuros e fórmulas pós-alta:** decisão da equipa de neonatologia, que ajusta densidade energética, suplementos e duração à trajetória de crescimento. Não alterar fórmula, diluição nem suplementação por conta própria; num prematuro as doses de vitamina D e de ferro são diferentes das do bebé de termo.
+
+### Alergia à proteína do leite de vaca (APLV) e comparticipação
+
+<!-- chaves: APLV, alergia ao leite de vaca, extensamente hidrolisada, aminoácidos, elementar, comparticipação, receita, farmácia, 70 por cento, 90 por cento, Portaria 137/2024 -->
+
+- **Primeiro o diagnóstico.** Faz-se com dieta de eliminação limitada no tempo (2 a 4 semanas) seguida de **prova de provocação** — e não pela impressão de que "melhorou ao mudar de leite". As manifestações são sobretudo cutâneas (70 a 75%), menos vezes digestivas (13 a 34%) ou respiratórias (1 a 8%). Se o bebé mama, a eliminação faz-se na dieta da mãe: não se substitui o leite materno por fórmula.
+- **Primeira escolha: fórmula extensamente hidrolisada (FEH).** As **fórmulas de aminoácidos (elementares)** ficam reservadas para casos graves, alergias alimentares múltiplas, estado nutricional comprometido, ou ausência de melhoria ao fim de 2 a 4 semanas de FEH.
+- **Comparticipação em Portugal (Portaria n.º 137/2024/1, de 3 de abril):** o Estado comparticipa **70% do preço de venda ao público das extensamente hidrolisadas** e **90% das de aminoácidos ou elementares**, para crianças com APLV. Desde 1 de novembro de 2024 a prescrição deixou de estar limitada a pediatras de hospitais do SNS — também podem prescrever imunoalergologistas e médicos de hospitais privados; a dispensa é na farmácia comunitária. Uma FEH custa 2 a 3 vezes mais do que uma fórmula standard, por isso vale mesmo a pena garantir que a receita é passada.
+- Fora da APLV, **nenhuma fórmula é comparticipada** — nem AR, nem sem lactose, nem HA, nem "conforto".
+- Nunca começar uma FEH ou uma fórmula de aminoácidos por conta própria: custam muito mais, têm sabor difícil (com impacto possível nas preferências alimentares da criança) e impedem depois estabelecer o diagnóstico correto.
+
+### Preparar o biberão em segurança
+
+<!-- chaves: preparar biberão, temperatura da água, 70 graus, água engarrafada, Cronobacter, leite em pó não é estéril, guardar, sobras, aquecer -->
+
+- **O facto de onde tudo decorre: o leite em pó não é estéril.** Pode conter *Cronobacter* e *Salmonella*, capazes de causar infeções graves em prematuros, recém-nascidos de poucas semanas e bebés imunodeprimidos. Esterilizar o biberão trata do que está no biberão, não do que vem dentro da lata.
+- **A prática recomendada pela OMS e pelo NHS:** lavar as mãos; ferver a água e usá-la **ainda acima de 70 °C** (na prática, até 30 minutos depois de ferver); **primeiro a água, depois o pó**, 1 medida rasa por cada 30 ml exatamente como diz a lata, sem diluir mais nem menos; arrefecer depressa com o biberão sob água fria corrente e testar no pulso antes de dar. Máquinas preparadoras e água apenas morna **não garantem os 70 °C**.
+- **Há divergência institucional real, e é justo saber que existe:** a ESPGHAN e a Sociedade Portuguesa de Pediatria têm reservas quanto aos 70 °C (degradam vitaminas termolábeis e aumentam o risco de queimadura) e privilegiam preparar o biberão no momento em que vai ser dado; a única orientação portuguesa que existe — a Orientação da DGS n.º 018/2013, dirigida a hospitais — escreve textualmente que "não há consenso" e manda seguir a recomendação do fabricante. **Se o bebé for prematuro, tiver poucas semanas ou tiver a imunidade comprometida, o argumento da OMS pesa mais** — é conversa a ter com quem o segue. O tema está desenvolvido no capítulo Esterilização e higiene do material do bebé.
+- **O que é consensual em todas as posições, e por isso é o que se faz:** mãos lavadas; material lavado e desinfetado; preparar imediatamente antes de dar; nunca deixar leite preparado à espera à temperatura ambiente; se for mesmo preciso adiantar, arrefecer depressa e guardar no fundo do frigorífico, a 4 °C ou menos, no máximo 24 h; nunca reaquecer duas vezes; nunca micro-ondas; e deitar fora as sobras (até 1 hora depois de começada a refeição).
+- **Água:** pouco mineralizada, com pouco sódio e poucos nitratos. Também aqui as autoridades divergem — o NHS prefere água da torneira fervida e desaconselha a engarrafada (não é estéril e pode ter sódio ou sulfatos a mais); a prática portuguesa e a francesa apontam para água engarrafada rotulada como adequada à preparação de alimentos para lactentes. Sem divergência nenhuma: nada de água de furo ou poço não controlado, nada de água amaciada por descalcificador doméstico (troca cálcio por sódio), e não referver várias vezes a mesma água da chaleira.
+- **Fórmula líquida pronta a usar é estéril:** é a opção mais segura para prematuros, recém-nascidos de poucas semanas e bebés imunodeprimidos, e a mais prática fora de casa.
+
+### Dar o biberão
+
+<!-- chaves: paced feeding, dar o biberão, quantidades, ml por kg, arroto, tetina, esterilizar -->
+
+- **Ao ritmo do bebé ("paced feeding"):** bebé semi-sentado, tetina de fluxo lento, biberão quase na horizontal, pausas frequentes e troca de lado a meio — deixa-o decidir quando parar, sem forçar a acabar. Evita a sobrealimentação, reduz o desconforto e imita o ritmo da mama (essencial no aleitamento misto).
+- **Quantidades:** a lata é orientação, o bebé é quem manda. Referência nas primeiras semanas: cerca de 150 a 200 ml por kg por dia, divididos por 6 a 8 refeições — e varia de dia para dia, como o teu apetite.
+- **Arroto:** ao colo, na vertical, com palmadinhas suaves nas costas, 5 a 10 minutos. Se não arrotar, não faz mal.
 - **Lavar, desinfetar e secar** o material tem capítulo próprio — ver **Esterilização e higiene do material do bebé**, que cobre até que idade esterilizar (as autoridades divergem), métodos, secagem, chupetas, bombas tira-leite e o que fazer fora de casa.
-- **Arroto:** ao colo, na vertical, com palmadinhas suaves nas costas, 5–10 minutos. Se não arrotar, não faz mal.
+
+### Mudar de marca, recolhas e o feedback de outros pais
+
+<!-- chaves: mudar de leite, trocar de marca, bebé desconfortável, melhorou com outro leite, recolha, lote, ASAE, fóruns, opiniões de outros pais, publicidade -->
+
+- **Mudar de marca raramente é a solução, e há uma razão para tanta gente jurar que resultou.** Cólica, regurgitação e irregularidade intestinal agravam-se, atingem o pico por volta das 6 semanas e melhoram sozinhas. Os pais mudam de leite **no pico**, porque é aí que o sofrimento é maior — e a melhoria que se segue teria acontecido de qualquer maneira. É por isso que existem testemunhos igualmente entusiásticos sobre marcas com composições incompatíveis entre si.
+- **Quando mudar faz sentido:** há indicação clínica; está a corrigir-se a categoria etária (por exemplo, um bebé de 4 meses a receber "leite 2"); ou por preço, rutura de stock e disponibilidade. Entre fórmulas para lactentes standard **não é preciso transição gradual** — a composição é equiparável por lei; uns dias de mistura são conforto, não fisiologia. O que não se deve fazer é empilhar mudanças: mudar de leite de duas em duas semanas torna impossível perceber o que ajudou, o que piorou e o que era só o tempo a passar.
+- **A pergunta certa não é "que marca tem má fama" — é "que lotes foram retirados".** As recolhas dizem respeito a **lotes**, não a marcas. Onde confirmar, por ordem: **ASAE** (alertas e retiradas em Portugal), o site do fabricante (costuma ter verificador de lote) e o número de lote no fundo da lata que tens em casa. Caso real: a 10 de janeiro de 2026 a ASAE divulgou a retirada preventiva de lotes das gamas NAN e Alfamino Júnior, por presença potencial de uma toxina (cereulida, de *Bacillus cereus*) numa matéria-prima, sem casos de doença associados; os produtos regressaram depois às prateleiras, mas aqueles lotes concretos continuam a não dever ser usados. Uma recolha preventiva bem feita é sinal de que o sistema funcionou — o que deve preocupar é o contrário: um problema conhecido sem recolha, ou leite comprado fora dos canais habituais.
+- **O feedback de outros pais serve para o que é observável:** se o pó dissolve bem ou faz grumos, se a colher doseadora é prática, se a marca costuma faltar, se o preço subiu, se o bebé aceitou o sabor. Não serve para avaliar eficácia clínica — ninguém alimenta o mesmo bebé com duas fórmulas ao mesmo tempo, e quem muda e melhora escreve, enquanto quem muda e não nota nada não escreve.
+- **Uma pista útil sobre o que vês anunciado:** a lei proíbe publicidade ao consumidor das fórmulas para lactentes e permite-a nos leites de crescimento. Resultado: o produto mais publicitado da gama é justamente aquele de que a EFSA diz não haver necessidade. A visibilidade comercial não é proporcional à importância nutricional — é inversa.
 
 ### Aleitamento misto (mama + fórmula)
 
@@ -58,7 +133,11 @@ Como funciona, em três frases: nos primeiros dias sai **colostro** (pouca quant
 
 ## Vitamina D
 
-Todos os bebés devem receber **vitamina D (400 UI/dia)** durante pelo menos o primeiro ano de vida, em gotas, independentemente do tipo de aleitamento. É das poucas "vitaminas" realmente necessárias — confirma a marca e dose na primeira consulta.
+<!-- chaves: vitamina D, 400 UI, gotas, suplemento, primeiro ano, bebé de fórmula também -->
+
+Todos os bebés devem receber **vitamina D, 400 UI (10 µg) por dia**, em gotas, **independentemente do tipo de aleitamento** — mama, fórmula ou os dois. É o que diz a Norma da DGS n.º 004/2019, para crianças saudáveis até aos 12 meses, e é das poucas "vitaminas" realmente necessárias.
+
+A confusão é frequente: as fórmulas contêm vitamina D por obrigação legal, e alguma literatura internacional só suplementa até o bebé beber cerca de 1 litro de fórmula por dia. Portugal optou por uma regra única e mais simples — **suplementar todos até ao ano** —, que evita contas domésticas e cobre os meses em que o volume ingerido é claramente menor. Não aumentes a dose por iniciativa própria nem juntes multivitamínicos sem indicação: a vitamina D é lipossolúvel e acumula-se. Em prematuros as doses são outras e são definidas pela equipa que segue o bebé. Confirma marca e dose na primeira consulta.
 
 ## Diversificação alimentar (a partir dos 4–6 meses)
 
@@ -84,12 +163,12 @@ A evidência atual diz que **adiar alergénios não previne alergias — pode au
 - Frutos secos **inteiros**, pipocas, uvas inteiras, salsichas em rodelas, rebuçados — **risco de engasgamento até aos 4–5 anos** (corta uvas e tomate-cereja em quartos, ao comprido).
 - Sal, açúcar, fritos, enchidos, refrigerantes, sumos (mesmo naturais, evitar no 1.º ano).
 - Peixes grandes predadores em excesso (peixe-espada, tintureira, atum fresco) — mercúrio.
-- Bebidas vegetais (aveia, amêndoa, arroz) como substituto do leite — não são nutricionalmente adequadas nesta idade.
+- Bebidas vegetais (aveia, amêndoa, arroz, caju, coco) como substituto do leite — são sobretudo água (o ingrediente que dá nome ao produto fica tipicamente entre 1% e 20%) e não fornecem energia, proteína, cálcio nem vitaminas em quantidade adequada. A bebida de arroz tem um problema adicional, o arsénio inorgânico: a autoridade alimentar britânica desaconselha-a como substituto de leite **até aos 5 anos**. Nota: uma *fórmula* infantil à base de soja, vendida em farmácia, é uma coisa completamente diferente de uma *bebida* de soja de supermercado.
 
 ## Dos 12 aos 24 meses
 
 - A criança passa a comer **a comida da família** (saudável e sem sal em excesso): 3 refeições + 2 lanches.
-- Leite: ~500 ml/dia de leite de vaca gordo/meio-gordo (ou mama). Mais do que isso rouba apetite e ferro.
+- Leite: ~500 ml/dia de leite de vaca gordo/meio-gordo (ou mama). Mais do que isso rouba apetite e ferro. **O leite de crescimento ("leite 3/4") não é necessário** — a EFSA não lhe encontra papel próprio nesta idade e é a única categoria da gama que pode ser livremente publicitada, o que explica a visibilidade que tem.
 - O apetite **diminui visivelmente no 2.º ano** — o crescimento abranda. É normal e não se resolve com pressão; o apetite varia de dia para dia.
 - Neofobia (recusar alimentos novos) é típica: continua a oferecer **sem forçar** — às vezes são precisas 10–15 exposições até aceitar.
 - Água é a única bebida necessária além do leite. Zero refrigerantes e sumos.

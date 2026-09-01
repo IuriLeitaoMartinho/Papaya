@@ -35,16 +35,26 @@
 - **KellyMom.com** — amamentação baseada em evidência (em inglês); em Portugal, **SOS Amamentação** (213 880 915) e o **Cantinho da Amamentação** do centro de saúde.
 - **e-lactancia.org** (APILAM) — compatibilidade de medicamentos, plantas e exames com a amamentação, pesquisável por princípio ativo; classifica o risco de cada substância.
 - **Banco de Leite Humano** — Maternidade Dr. Alfredo da Costa (Lisboa): doação de leite materno para bebés prematuros internados.
+- **ASAE** — asae.gov.pt — alertas e retiradas de produtos do mercado em Portugal. É aqui (e no site do fabricante) que se confirma se um **lote** de fórmula infantil foi recolhido — e não em fóruns.
 - **APSI** — apsi.org.pt — Associação para a Promoção da Segurança Infantil (Portugal): cadeirinhas auto, casa segura, afogamento.
-- **Programa Nacional de Saúde Infantil e Juvenil (DGS)** — o documento oficial que rege consultas, rastreios e cuidados antecipatórios em Portugal.
+- **Programa Nacional de Saúde Infantil e Juvenil (DGS)** — Norma n.º 010/2013: o documento oficial que rege consultas, rastreios e cuidados antecipatórios em Portugal. Inclui a Escala de Mary Sheridan Modificada, os quadros de **sinais de alarme** por idade, as tabelas **"Atividades promotoras do desenvolvimento"** (a base do capítulo Desenvolvimento) e o rastreio M-CHAT.
+- **SNIPI — Sistema Nacional de Intervenção Precoce na Infância** — snipi.gov.pt — apoio integrado (saúde, educação, ação social) a crianças dos 0 aos 6 anos com alterações do desenvolvimento ou risco grave de atraso (Decreto-Lei n.º 281/2009). A referenciação pede-se na consulta de saúde infantil.
+- **Sociedade Portuguesa de Neuropediatria** — neuropediatria.pt — *Recomendações para a utilização de ecrãs e tecnologia digital em idade pediátrica* (2024): a posição portuguesa sobre ecrãs, e a mais restritiva das três grandes referências.
 
 ## Referências técnicas e oficiais (para confirmar informação)
 
 - **Direção-Geral da Saúde (DGS)** — dgs.pt — Programa Nacional de Vacinação e o **Livro Azul de Vacinas** (referencial técnico nacional desde 2025), normas e orientações. É aqui que se confirma o esquema de vacinas atual.
 - **SNS 24** — sns24.gov.pt — informação oficial ao cidadão e linha 808 24 24 24.
-- **Organização Mundial da Saúde (OMS/WHO)** — who.int — recomendações de amamentação, sono seguro, diversificação e desenvolvimento.
+- **Organização Mundial da Saúde (OMS/WHO)** — who.int — recomendações de amamentação, sono seguro, diversificação e desenvolvimento. Em particular, as *Guidelines on physical activity, sedentary behaviour and sleep for children under 5 years of age* (2019) — os 30 minutos de tummy time, os 180 minutos de atividade, o limite de 1 hora de contenção e os intervalos de sono — e o *WHO Motor Development Study* (2006), que fixa as janelas normais de aquisição dos marcos motores.
+- **American Academy of Pediatrics** — *The Power of Play* (2018), com as atividades por idade, e *Media and Young Minds* (2016), sobre ecrãs. Marcos de desenvolvimento dos CDC revistos em 2022 (percentil 75; o gatinhar deixou de ser marco).
 - **Manuais MSD (MSD Manuals)** — msdmanuals.com/pt — versão "Saúde para a Família" fiável e detalhada sobre sintomas e doenças pediátricas.
 - **Biblioteca Cochrane** — cochranelibrary.com — revisões sistemáticas que resumem a melhor evidência (ex.: treino de sono, probióticos na diarreia, tratamento de cólicas).
+- **EUR-Lex — Regulamento Delegado (UE) 2016/127** — a lei que fixa a composição, a rotulagem e as regras de publicidade das fórmulas para lactentes e de transição. É o que garante que todas as marcas cumprem os mesmos mínimos e máximos.
+- **EFSA** — efsa.europa.eu — pareceres científicos europeus sobre nutrição infantil (leites de crescimento, proteína de leite de cabra).
+- **ESPGHAN** — espghan.org — sociedade europeia de gastrenterologia, hepatologia e nutrição pediátrica: tomadas de posição sobre fórmulas para perturbações gastrointestinais funcionais (2024) e sobre alergia à proteína do leite de vaca.
+- **EAACI** — eaaci.org — guidelines europeias de alergia; a atualização de 2020/2021 deixou de recomendar fórmulas hidrolisadas para prevenir alergia.
+- **CoFI — Consenso sobre Fórmulas Infantis** (Acta Médica Portuguesa, 2018) — a opinião de 21 peritos portugueses sobre composição e indicações das fórmulas infantis.
+- **Portaria n.º 137/2024/1, de 3 de abril** (Diário da República) — regime de comparticipação das fórmulas para alergia à proteína do leite de vaca: 70% nas extensamente hidrolisadas, 90% nas de aminoácidos.
 - **Ordem dos Médicos** — ordemdosmedicos.pt — e sociedades como a Sociedade Portuguesa de Pediatria (spp.pt) para posições clínicas.
 - **Ordem dos Farmacêuticos — Centro de Informação do Medicamento (CIM)** e **Infarmed** (infarmed.pt) — para doses, folhetos informativos (RCM/FI) e segurança de medicamentos; a dose pediátrica de paracetamol/ibuprofeno calcula-se sempre pelo **peso**.
 - **gov.pt — guia "Ter uma criança"** e **Segurança Social Direta** (seg-social.pt) — licenças e subsídios parentais, abono de família, prazos e formulários (ver capítulos Licença parental e Burocracia ao nascer).
