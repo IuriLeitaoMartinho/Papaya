@@ -18,6 +18,26 @@ Cerca de **1 em cada 10 pais** tem depressão pós-parto paterna (pico aos 3–6
 - 15 minutos por dia de conversa que não seja logística do bebé fazem mais do que um jantar fora por mês (mas marquem o jantar também).
 - A retoma da intimidade leva tempo (fisicamente e emocionalmente) — paciência e zero pressão.
 
+## Manter a chama acesa
+
+<!-- chaves: casal, relacao, romance, intimidade, encontro, jantar, ferias, viagem, surpresas, rituais, chama -->
+
+A relação não se degrada por uma discussão grande: degrada-se por meses sem nada. Com um bebé em casa, o tempo a dois deixa de acontecer sozinho — passa a ser uma coisa que se marca, como as consultas. Não é pouco romântico marcar; pouco romântico é a coisa nunca acontecer.
+
+Três cadências diferentes, porque servem para coisas diferentes:
+
+- **Todos os dias, o gesto pequeno.** Um café levado à cama, um bilhete no espelho, tratar de uma chamada chata que estava na cabeça dela, assumir uma noite inteira de acordares. Custa cinco minutos e é o que mantém a temperatura entre os encontros maiores. A regra é ser sem pedido e sem contabilidade — no dia em que se começa a levar a conta de quem fez mais, já não é um gesto, é uma fatura.
+- **Uma vez por semana, a conversa sem distrações.** Quinze a trinta minutos, telemóveis noutra divisão, televisão desligada. A regra única é não falar de logística do bebé: nada de horários, marcações, compras ou de quem vai buscar o quê. Se a conversa lá cair — e vai cair —, um dos dois diz e volta-se atrás. Isto não é a mesma coisa que estarem os dois no sofá com o telemóvel na mão, e a diferença nota-se ao fim de duas semanas.
+- **Duas vezes por mês, o jantar a dois.** Fora de casa se houver com quem deixar o bebé; em casa depois de ele adormecer, com mesa posta a sério, se não houver. O que faz um jantar não ser uma reunião de ponto de situação é a **novidade**: um sítio onde nunca foram, um prato que nenhum dos dois já provou, uma pergunta que nunca fizeram um ao outro. Não é o preço — um passeio novo à noite vale mais do que o restaurante do costume pela terceira vez.
+- **Uma vez por ano, a viagem só dos dois.** Nem que seja uma noite a trinta quilómetros de casa. Sair do cenário onde estão todas as tarefas por fazer faz à relação o que nenhum jantar consegue fazer. A primeira vez custa e vai haver culpa; passa ao fim de umas horas, e o que fica é a memória de terem sido outra vez duas pessoas e não dois turnos.
+
+Notas práticas, para isto não virar mais uma fonte de stress:
+
+- **Nas primeiras seis a oito semanas, esqueçam o jantar e a viagem.** Nessa fase o realista é o gesto pequeno e, se der, dez minutos de conversa. Retomar o resto quando o sono começar a organizar-se.
+- **A parte difícil de sair não é sair: é organizar a saída.** Quem marca a ama, os avós ou a vizinha é tanto trabalho como a noite fora — dividam também essa parte, ou fica sempre na mesma pessoa.
+- **Falhar uma semana não é falhar.** Isto não é uma corrente que se parte: retoma-se na semana seguinte sem discussão sobre o assunto.
+- **Combinem uma frase de emergência.** Uma palavra que qualquer um dos dois possa dizer quando precisa de vinte minutos sozinho, sem ter de justificar nem de negociar. Serve mais do que muitas conversas.
+
 ## Birras e disciplina (12–24 meses)
 
 - A birra não é manipulação: é um cérebro de 1–2 anos **sem travões** a transbordar de emoção. O córtex pré-frontal (autocontrolo) demora 20+ anos a amadurecer.

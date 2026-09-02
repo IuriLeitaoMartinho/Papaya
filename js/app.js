@@ -1,12 +1,12 @@
 // Arranque da app: navegação por hash, cabeçalho, Guia e Definições.
 //
 // Rotas: #hoje | #guia | #guia/<capitulo> | #guia/<capitulo>/<ancora>
-//        #pesquisa | #tarefas
+//        #pesquisa | #tarefas | #montessori | #chama
 // Usar o hash dá deep-links (resultados de pesquisa, "ler mais") e faz o
 // botão/gesto de retroceder do telemóvel funcionar sem código extra.
 
 import {
-  estado, uid, guardarDefinicoes, podarConclusoes,
+  estado, uid, guardarDefinicoes, podarConclusoes, podarChama,
   exportarBackup, validarBackup, aplicarBackup
 } from './armazenamento.js';
 import { carregarGuia, capitulos, htmlCapitulo } from './conteudo.js';
@@ -14,6 +14,7 @@ import { construirIndice, ligarPesquisa } from './pesquisa.js';
 import { renderHoje, textoIdade, idadeEmMeses } from './idade.js';
 import { renderTarefas, CORES_MEMBRO } from './tarefas.js';
 import { renderMontessori } from './montessori.js';
+import { renderChama } from './chama.js';
 import { iniciarTemporizador } from './temporizador.js';
 import { $, escaparHtml, abrirFolha, fecharFolha, acoesFolha } from './ui.js';
 
@@ -62,7 +63,7 @@ function renderCapitulo(alvo, id, ancora) {
 
 // ---------------------------------------------------------------- rotas -----
 
-const vistas = ['hoje', 'guia', 'tarefas', 'montessori'];
+const vistas = ['hoje', 'guia', 'tarefas', 'montessori', 'chama'];
 
 function rota() {
   const partes = location.hash.replace(/^#/, '').split('/');
@@ -88,6 +89,7 @@ function rota() {
     const { dataNascimento } = estado.definicoes;
     renderMontessori($('#vista-montessori'), dataNascimento ? idadeEmMeses(dataNascimento) : null);
   }
+  else if (separador === 'chama') renderChama($('#vista-chama'));
 }
 
 // --------------------------------------------------- navegação flutuante ----
@@ -228,6 +230,7 @@ function escolherFicheiroImport() {
     abrirFolha(`<h2>Importar dados</h2>
       <p>Backup de <strong>${data}</strong>: ${r.resumo.membros} membro(s),
       ${r.resumo.tarefas} tarefa(s), ${r.resumo.eventos} lembrete(s),
+      ${r.resumo.registosChama} registo(s) do Calor da chama,
       registos em ${r.resumo.diasComRegistos} dia(s).</p>
       <div class="aviso-import"><strong>Substituir</strong> apaga os dados deste dispositivo e usa só os do ficheiro.
       <strong>Fundir</strong> junta os dois (em conflito, ganha o ficheiro).</div>
@@ -254,6 +257,7 @@ function aplicarEImportar(dados, modo) {
 
 async function iniciar() {
   podarConclusoes();
+  podarChama();
   renderCabecalho();
   $('#botaoDefinicoes').addEventListener('click', folhaDefinicoes);
   iniciarTemporizador();

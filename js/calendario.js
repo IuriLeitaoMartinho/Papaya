@@ -2,12 +2,14 @@
 // ao tocar no cabeçalho, expande para a vista do mês (com navegação).
 //
 // Nos dias aparecem pontos coloridos: consultas e vacinas do PNV (calculadas
-// automaticamente a partir da data de nascimento e de dados/faixas-etarias.json)
-// e eventos/lembretes criados pelo utilizador (guardados em estado.eventos).
+// automaticamente a partir da data de nascimento e de dados/faixas-etarias.json),
+// os rituais do Calor da chama (marcos virtuais, também calculados na hora) e
+// eventos/lembretes criados pelo utilizador (guardados em estado.eventos).
 
 import { estado, uid, dataLocalISO, guardarEventos } from './armazenamento.js';
 import { capitulos, slug } from './conteudo.js';
 import { $, escaparHtml, abrirFolha, fecharFolha, acoesFolha } from './ui.js';
+import { carregarCatalogo, marcosChama, JANELA_ATRAS, JANELA_FRENTE } from './chama.js';
 
 const MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
   'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
@@ -22,7 +24,11 @@ let raiz = null;   // o contentor onde o calendário se desenha
 
 let faixas = null;    // cache de dados/faixas-etarias.json
 let marcos = null;    // { 'AAAA-MM-DD': [{titulo, categoria, capitulo, seccao, sub?}] }
-let marcosChave = ''; // nascimento + modalidade de licença com que foram calculados
+// A chave da cache tem de incluir a revisão da chama (senão configurar um ritual
+// não muda nada até recarregar a app), os eventos já marcados a partir de um ritual
+// (senão "Agendar" deixa o marco virtual ao lado do evento real até recarregar) e o
+// dia de hoje (para a janela deslizante dos rituais deslizar mesmo, à meia-noite).
+let marcosChave = ''; // nascimento | licença | chama.rev | eventos da chama | hoje
 
 const deISO = iso => new Date(iso + 'T00:00:00');
 const paraISO = d => dataLocalISO(d);
@@ -37,13 +43,34 @@ function somarDias(iso, n) {
   return paraISO(new Date(d.getFullYear(), d.getMonth(), d.getDate() + n));
 }
 
-// Consultas/vacinas do PNV e datas da licença parental projetadas em datas concretas.
+// Consultas/vacinas do PNV, datas da licença parental e rituais do casal
+// projetados em datas concretas.
 async function calcularMarcos() {
   const nasc = estado.definicoes.dataNascimento;
-  const chave = nasc + '|' + (estado.definicoes.licenca || '');
+  const hoje = dataLocalISO();
+  // Os marcos virtuais saltam as ocorrências que já têm evento real, por isso a cache
+  // tem de cair quando esses eventos mudam — são poucos, o custo é desprezável.
+  const evChama = estado.eventos
+    .filter(e => e.origem === 'chama')
+    .map(e => e.ritualId + '@' + e.data).sort().join(',');
+  const chave = [nasc, estado.definicoes.licenca || '', estado.chama.rev, evChama, hoje].join('|');
   if (marcos && marcosChave === chave) return marcos;
   marcos = {};
   marcosChave = chave;
+
+  // A chama vem primeiro porque não depende do bebé: funciona antes de nascer e
+  // para quem nunca preencheu a data. Sem rituais ligados nem se vai buscar o
+  // catálogo; e se este falhar (offline com um service worker antigo),
+  // fica-se sem os marcos dos rituais e não sem o calendário todo.
+  if (estado.chama.rituais.some(r => r.ativo)) {
+    try {
+      await carregarCatalogo();
+      for (const m of marcosChama(somarDias(hoje, -JANELA_ATRAS), somarDias(hoje, JANELA_FRENTE))) {
+        (marcos[m.data] = marcos[m.data] || []).push(m);
+      }
+    } catch { /* sem catálogo não há marcos da chama */ }
+  }
+
   if (!nasc) return marcos;
   if (!faixas) faixas = (await (await fetch('dados/faixas-etarias.json')).json()).entradas;
   for (const e of faixas) {

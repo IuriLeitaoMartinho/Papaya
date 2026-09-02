@@ -1,0 +1,62 @@
+{
+  "_ajuda": "Conteúdo do painel Calor da chama. 'surpresas': sugestões de gestos pequenos, em rotação diária pela data (a 'etiqueta' é opcional e serve só para dar contexto de momento — manhã, noite, fim de semana). 'rituais': texto e enquadramento dos três rituais; o 'id' é usado no código e no armazenamento, por isso não deve ser mudado. A cadência real é configurada na app por cada casal — o campo 'cadencia' aqui é só o valor por omissão. 'seccao' é o título exato de uma secção ## de conteudo/11-ser-pai.md, para o link 'ler mais'.",
+
+  "surpresas": [
+    { "titulo": "Café na cama", "texto": "Levanta-te dez minutos mais cedo e leva-lhe o café antes de o bebé acordar. O truque não é o café: é ela acordar e a primeira coisa do dia já estar feita.", "etiqueta": "manhã" },
+    { "titulo": "Mensagem do meio do dia", "texto": "Uma mensagem que não seja sobre logística do bebé. Nada de fraldas, consultas ou compras — só sobre ela.", "etiqueta": "dia" },
+    { "titulo": "Assumir o turno sem pedir", "texto": "Leva o bebé a passear 45 minutos e diz-lhe explicitamente para não fazer nada de útil nesse tempo. Sem lista de tarefas à espera quando voltares.", "etiqueta": "tarde" },
+    { "titulo": "Duche longo garantido", "texto": "Vinte minutos de duche sem ninguém a chamar. Tu ficas com o bebé e não bates à porta a perguntar nada.", "etiqueta": "dia" },
+    { "titulo": "A loiça antes de ela ver", "texto": "Deitar a cozinha em ordem antes de ela entrar nela. O gesto vale o dobro quando ninguém pediu e ninguém viu a fazer." },
+    { "titulo": "Bilhete no sítio certo", "texto": "Um post-it no espelho da casa de banho, na caixa do almoço ou no volante do carro. Uma frase chega." },
+    { "titulo": "A sesta dela", "texto": "Uma hora de sono a meio da tarde, com o telemóvel dela na outra divisão. Privação de sono é o maior inimigo da relação neste ano.", "etiqueta": "tarde" },
+    { "titulo": "Trazer o jantar", "texto": "Sem aviso, no caminho de volta. Não precisa de ser caro — precisa de ser uma noite em que ninguém teve de decidir o que se come.", "etiqueta": "noite" },
+    { "titulo": "Perguntar como ela está — a sério", "texto": "Não \"está tudo bem?\" à porta. Sentado, sem telemóvel, e depois calar a boca e ouvir sem resolver nada." },
+    { "titulo": "Flores de supermercado", "texto": "Cinco euros, sem ocasião. A ausência de motivo é precisamente o motivo." },
+    { "titulo": "Tratar de uma coisa chata", "texto": "Aquela chamada, aquele formulário, aquela marcação que está há semanas na cabeça dela. Trata e diz só: já está." },
+    { "titulo": "Elogio específico", "texto": "Não \"és uma ótima mãe\". Antes: \"a forma como o acalmaste hoje de manhã\". O elogio concreto acredita-se; o genérico passa ao lado." },
+    { "titulo": "Playlist para ela", "texto": "Dez músicas de quando se conheceram. Manda o link sem explicação nenhuma." },
+    { "titulo": "Sair da cama à noite", "texto": "Nesta noite, todas as vezes que o bebé acordar és tu que te levantas. Diz-lhe antes de deitar, para ela poder mesmo desligar.", "etiqueta": "noite" },
+    { "titulo": "Uma manhã livre", "texto": "Sábado de manhã: ela sai de casa sem plano e sem hora. Café, livraria, correr, nada. O importante é ser sem o bebé e sem culpa.", "etiqueta": "fim de semana" },
+    { "titulo": "O pequeno-almoço dela preferido", "texto": "Aquele que ela pede sempre fora e nunca faz em casa. Faz tu, com o que houver.", "etiqueta": "manhã" },
+    { "titulo": "Massagem de dez minutos", "texto": "Costas, pés ou pescoço, com o temporizador ligado para ser mesmo dez minutos e não dois. Sem segundas intenções — isso estraga o presente.", "etiqueta": "noite" },
+    { "titulo": "Foto antiga", "texto": "Procura uma foto vossa de antes do bebé e manda-a a meio do dia. Sem legenda ou com uma piada só vossa." },
+    { "titulo": "Assumir a roupa", "texto": "Lavar, estender, dobrar e arrumar. O ciclo completo, não meio — meia tarefa continua a ocupar espaço na cabeça de alguém." },
+    { "titulo": "Um episódio a dois", "texto": "Uma série que só se vê quando estão os dois. Nunca avançar sozinho é metade do ritual.", "etiqueta": "noite" },
+    { "titulo": "Encher o depósito", "texto": "Levar o carro dela abastecido e lavado. Invisível até ao momento em que ela precisa e já está feito." },
+    { "titulo": "Chá sem pedir", "texto": "Chegar com a caneca à mão no momento em que ela se senta. Custa três minutos e diz: estou a olhar para ti.", "etiqueta": "noite" },
+    { "titulo": "Defendê-la em frente aos outros", "texto": "Quando alguém comenta a alimentação, o sono ou o peso do bebé, sê tu o primeiro a responder. Que ela não tenha de se defender sozinha." },
+    { "titulo": "Guardar-lhe o último bocado", "texto": "A última fatia do bolo, o resto do gelado, a peça de fruta boa. Coisa pequena, memória longa." },
+    { "titulo": "Reservar a noite", "texto": "Mandar mensagem de manhã: hoje às 21h30 estamos os dois no sofá, sem telemóveis. Antecipar uma coisa boa é metade do prazer dela.", "etiqueta": "dia" },
+    { "titulo": "Perguntar do que ela tem saudades", "texto": "Não da vida antiga em bloco: de uma coisa concreta. Depois trata de lhe devolver essa coisa uma vez este mês." },
+    { "titulo": "Tomar conta do banho inteiro", "texto": "Banho, creme, pijama e adormecer. Do princípio ao fim, sem chamar por ela a meio.", "etiqueta": "noite" },
+    { "titulo": "Comprar-lhe uma coisa pequena", "texto": "O chocolate certo, o creme que acabou, a revista. O valor é lembrares-te de qual é, não o preço." },
+    { "titulo": "Agradecer uma coisa invisível", "texto": "As coisas que ela faz e ninguém regista: as marcações, o stock de fraldas, a roupa do tamanho seguinte comprada a tempo. Nomeia uma em voz alta." },
+    { "titulo": "Dez minutos de conversa a sério", "texto": "Telemóveis noutra divisão, televisão desligada. Se der só dez minutos, dez minutos chegam para hoje.", "etiqueta": "noite" },
+    { "titulo": "Marcar a ama ou os avós", "texto": "Ser tu a tratar de quem fica com o bebé para o próximo jantar a dois. A parte cansativa de sair é organizar a saída." },
+    { "titulo": "Dizer que ela está bonita", "texto": "Num dia normal, com o cabelo por lavar e o pijama de ontem. É nesses dias que conta." }
+  ],
+
+  "rituais": [
+    {
+      "id": "conversa",
+      "titulo": "Conversa sem distrações",
+      "cadencia": "semanal",
+      "texto": "Quinze a trinta minutos, telemóveis noutra divisão e televisão desligada. Regra única: não se fala de logística do bebé. Se a conversa cair nas fraldas ou nas marcações, um dos dois diz e volta-se atrás.",
+      "seccao": "Manter a chama acesa"
+    },
+    {
+      "id": "encontro",
+      "titulo": "Jantar a dois",
+      "cadencia": "quinzenal",
+      "texto": "Duas vezes por mês, fora de casa se der. A novidade é o que separa um jantar de uma reunião de ponto de situação — sítio novo, hora diferente, qualquer coisa que não seja a rotina.",
+      "seccao": "Manter a chama acesa"
+    },
+    {
+      "id": "viagem",
+      "titulo": "Viagem só dos dois",
+      "cadencia": "anual",
+      "texto": "Uma vez por ano, mesmo que seja uma noite a trinta quilómetros de casa. Quebrar o cenário faz à relação o que nenhum jantar consegue fazer.",
+      "seccao": "Manter a chama acesa"
+    }
+  ]
+}

@@ -22,6 +22,7 @@
   --c-licenca: #B05A8F;     /* datas da licença parental */
   --c-burocracia: #5F7A8A;  /* prazos legais e papelada */
   --c-preparacao: #7A9E7E;  /* antes do nascimento */
+  --c-chama: #C0446B;       /* calor da chama — rituais do casal */
 
   --raio: 16px;
 }
@@ -164,6 +165,90 @@ main { padding: 8px 14px; max-width: 720px; margin: 0 auto; }
 .principio h3 { font-size: 14px; color: var(--c-montessori); margin-bottom: 3px; }
 .principio p { font-size: 14px; }
 .botao-link { text-align: center; text-decoration: none; margin-bottom: 10px; }
+
+/* ---------- separador Calor da chama ---------- */
+.chama-ritual .chama-estado, .chama-surpresa .chama-estado {
+  font-size: 13px; color: var(--suave); margin-top: 6px;
+}
+.chama-ritual.inativo { opacity: 0.62; }
+.chama-ritual.atrasado {
+  border: 1px solid var(--linha); border-left: 4px solid var(--c-chama);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c-chama) 9%, var(--cartao)), var(--cartao));
+}
+.chama-ritual.pausado .etiqueta { color: var(--suave); }
+.chama-surpresa {
+  border: 1px solid var(--linha); border-left: 4px solid var(--c-chama);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c-chama) 9%, var(--cartao)), var(--cartao));
+}
+.chama-ritual .linha-botoes, .chama-surpresa .linha-botoes { margin-top: 12px; }
+/* cartões da chama emprestados ao ecrã Hoje */
+.chama-hoje {
+  border: 1px solid var(--linha); border-left: 4px solid var(--c-chama);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c-chama) 9%, var(--cartao)), var(--cartao));
+}
+.chama-hoje .linha-botoes { flex-wrap: wrap; }
+.chama-hoje .linha-botoes button { flex: 1 1 30%; min-width: 92px; }
+
+.chama-lista { padding: 4px 12px; }
+.chama-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 0; border-bottom: 1px solid var(--linha);
+}
+.chama-item:last-child { border-bottom: none; }
+.chama-item .corpo { flex: 1; min-width: 0; }
+.chama-item .titulo { font-size: 15px; font-weight: 600; }
+.chama-item .meta {
+  font-size: 13px; color: var(--suave);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.chama-fav, .chama-editar, .chama-guardar {
+  background: none; border: none; cursor: pointer; color: var(--suave);
+  font-size: 18px; line-height: 1; padding: 4px 6px;
+}
+.chama-fav.sel { color: var(--c-chama); }
+.chama-guardar {
+  border: 1px solid var(--linha); border-radius: 9px;
+  color: var(--c-chama); font-weight: 700; width: 34px; height: 34px; flex: none;
+}
+
+.chama-ideias { margin-top: 10px; }
+.chama-ideias summary {
+  cursor: pointer; list-style: none; padding: 12px 16px;
+  background: var(--cartao); border-radius: var(--raio);
+  font-size: 14px; font-weight: 700; color: var(--tinta);
+  display: flex; align-items: center; gap: 8px;
+}
+.chama-ideias summary::-webkit-details-marker { display: none; }
+.chama-ideias summary::after { content: "▾"; margin-left: auto; color: var(--suave); }
+.chama-ideias[open] summary { border-radius: var(--raio) var(--raio) 0 0; margin-bottom: 0; }
+.chama-ideias[open] summary::after { content: "▴"; }
+.chama-ideias summary span {
+  font-size: 12px; font-weight: 700; color: var(--c-chama);
+  background: color-mix(in srgb, var(--c-chama) 14%, transparent);
+  border-radius: 999px; padding: 1px 8px;
+}
+.chama-ideias[open] .chama-lista { border-radius: 0 0 var(--raio) var(--raio); margin-top: 0; }
+.chama-ideias .chama-item .meta { white-space: normal; }
+
+.chama-hist .chama-hl {
+  display: flex; align-items: center; gap: 10px; font-size: 14px; padding: 5px 0;
+}
+.chama-hist .quando {
+  color: var(--suave); font-size: 12px; width: 54px; flex: none;
+  font-variant-numeric: tabular-nums;
+}
+.chama-hist .ponto {
+  width: 8px; height: 8px; border-radius: 50%; flex: none;
+  background: color-mix(in srgb, var(--c-chama) 45%, transparent);
+}
+.chama-hist .ponto.ritual { background: var(--c-chama); }
+.chama-hist .titulo { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.folha-nota { font-size: 14px; color: var(--suave); margin-bottom: 4px; }
+.folha-fixo {
+  padding: 11px 12px; border: 1px solid var(--linha); border-radius: 10px;
+  background: var(--fundo); color: var(--suave); font-size: 15px;
+}
 
 /* ---------- calendário (topo do ecrã Hoje) ---------- */
 .cal { padding: 8px 10px 12px; }

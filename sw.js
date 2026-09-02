@@ -3,7 +3,7 @@
 // IMPORTANTE: sempre que alterares conteúdo (.md), dados (.json) ou código,
 // incrementa a VERSAO abaixo. É isso que faz os telemóveis que já têm a app
 // instalada irem buscar a versão nova.
-const VERSAO = 'papaya-v15';
+const VERSAO = 'papaya-v16';
 
 const ASSETS = [
   './',
@@ -21,11 +21,13 @@ const ASSETS = [
   './js/tarefas.js',
   './js/montessori.js',
   './js/calendario.js',
+  './js/chama.js',
   './js/temporizador.js',
   './js/vendor/fuse.min.mjs',
   './dados/capitulos.json',
   './dados/faixas-etarias.json',
   './dados/montessori.json',
+  './dados/chama.json',
   './conteudo/01-como-usar.md',
   './conteudo/02-emergencias.md',
   './conteudo/03-mala-maternidade.md',

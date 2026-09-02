@@ -4,6 +4,7 @@
 import { estado } from './armazenamento.js';
 import { capitulos, slug } from './conteudo.js';
 import { dicaDoDia, cartaoDicaDia } from './montessori.js';
+import { cartoesChama, ligarCartoesChama } from './chama.js';
 import { renderCalendario } from './calendario.js';
 import { renderTarefasHoje } from './tarefas.js';
 import { escaparHtml } from './ui.js';
@@ -85,10 +86,18 @@ export async function renderHoje(alvo) {
   renderTarefasHoje(alvo.querySelector('#tarefasHoje'));
   const corpo = alvo.querySelector('#hojeCorpo');
 
+  // A chama não depende do bebé: os cartões entram com ou sem data de
+  // nascimento, por isso são calculados uma vez e colados em cada ramo.
+  const chama = await cartoesChama();
+  const pintar = html => {
+    corpo.innerHTML = html;
+    ligarCartoesChama(corpo, () => renderHoje(alvo));
+  };
+
   const { dataNascimento, nomeCrianca } = estado.definicoes;
   if (!dataNascimento) {
-    corpo.innerHTML = `<div class="vazio">Para veres dicas adequadas à idade,
-      indica a data de nascimento nas definições (⚙ no canto superior direito).</div>`;
+    pintar(`<div class="vazio">Para veres dicas adequadas à idade,
+      indica a data de nascimento nas definições (⚙ no canto superior direito).</div>` + chama);
     return;
   }
   const lista = await carregarEntradas();
@@ -97,15 +106,16 @@ export async function renderHoje(alvo) {
   // Antes do nascimento: mostra o que há a preparar (entradas com meses negativos).
   if (meses < 0) {
     const preparar = lista.filter(e => e.mesesMin <= meses && meses <= e.mesesMax);
-    corpo.innerHTML =
+    pintar(
       `<div class="vazio">${escaparHtml(nomeCrianca || 'O bebé')} ainda vem a caminho.
         Aqui fica o que vale a pena adiantar.</div>` +
-      (preparar.length ? '<div class="subtitulo">A preparar</div>' + preparar.map(e => cartaoDica(e)).join('') : '');
+      (preparar.length ? '<div class="subtitulo">A preparar</div>' + preparar.map(e => cartaoDica(e)).join('') : '') +
+      chama);
     return;
   }
   if (meses > 25) {
-    corpo.innerHTML = `<div class="vazio">Este guia cobre dos 0 aos 2 anos — que voam.
-      O conteúdo do Guia e a Pesquisa continuam disponíveis.</div>`;
+    pintar(`<div class="vazio">Este guia cobre dos 0 aos 2 anos — que voam.
+      O conteúdo do Guia e a Pesquisa continuam disponíveis.</div>` + chama);
     return;
   }
 
@@ -120,6 +130,7 @@ export async function renderHoje(alvo) {
   const proximas = futuras.filter(e => e.mesesMin === proximoMarco);
 
   let html = '<div class="subtitulo">Dica do dia</div>' + cartaoDicaDia(await dicaDoDia(meses));
+  html += chama;
   if (agora.length) {
     html += '<div class="subtitulo">É este mês</div>' +
       agora.map(e => cartaoDica(e, 'agora')).join('');
@@ -138,7 +149,7 @@ export async function renderHoje(alvo) {
     html += '<div class="subtitulo">A seguir</div>' +
       proximas.map(e => cartaoDica(e, rotuloMeses(e.mesesMin))).join('');
   }
-  corpo.innerHTML = html || '<div class="vazio">Sem dicas para esta idade — acrescenta entradas em dados/faixas-etarias.json.</div>';
+  pintar(html || '<div class="vazio">Sem dicas para esta idade — acrescenta entradas em dados/faixas-etarias.json.</div>');
 }
 
 const ehPontual = e => e.categoria === 'consulta' || e.categoria === 'vacina';

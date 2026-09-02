@@ -47,6 +47,16 @@ export function ligarSeletorDias(id) {
     b.addEventListener('click', () => b.classList.toggle('sel')));
 }
 
+// Variante de um só dia (rituais da chama): escolher um dia limpa o anterior.
+export function ligarSeletorDiaUnico(id) {
+  document.querySelectorAll(`#${id} button`).forEach(b =>
+    b.addEventListener('click', () => {
+      const jaEstava = b.classList.contains('sel');
+      document.querySelectorAll(`#${id} button`).forEach(x => x.classList.remove('sel'));
+      if (!jaEstava) b.classList.add('sel');
+    }));
+}
+
 export function diasSelecionados(id) {
   return [...document.querySelectorAll(`#${id} button.sel`)].map(b => +b.dataset.v);
 }
