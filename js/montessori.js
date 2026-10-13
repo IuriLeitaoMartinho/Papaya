@@ -6,7 +6,7 @@
 // rotação quando a idade da criança está na faixa.
 
 import { capitulos, slug } from './conteudo.js';
-import { escaparHtml } from './ui.js';
+import { escaparHtml, icone } from './ui.js';
 
 const CAPITULO = '12-montessori';
 let dados = null;
@@ -45,11 +45,11 @@ export async function dicaDoDia(meses) {
 // Cartão da dica do dia (usado no ecrã Hoje e no separador Montessori).
 export function cartaoDicaDia(dica) {
   const destino = linkSeccao(dica.seccao);
-  return `<div class="cartao dica dica-montessori" style="--cor:var(--c-montessori)">
-    <span class="etiqueta">Montessori · dica do dia</span>
+  return `<article class="cartao dica dica-montessori" style="--cor:var(--c-montessori)">
+    <span class="etiqueta">${icone('rebento')}Montessori · dica do dia</span>
     <h3>${escaparHtml(dica.titulo)}</h3>
     <p>${escaparHtml(dica.texto)}</p>
-    ${destino ? `<a class="ler-mais" href="${destino}">Ler mais no guia →</a>` : ''}</div>`;
+    ${destino ? `<a class="ler-mais" href="${destino}">Ler no guia${icone('seta-dir')}</a>` : ''}</article>`;
 }
 
 const FAIXAS = [[0, 3], [3, 6], [6, 12], [12, 18], [18, 24]];
@@ -64,34 +64,36 @@ export async function renderMontessori(alvo, meses) {
   if (meses != null && meses >= 0 && meses <= 25) {
     const atuais = d.atividades.filter(a => a.mesesMin <= meses && meses <= a.mesesMax);
     if (atuais.length) {
-      html += '<div class="subtitulo">Atividades para a idade atual</div>' +
-        atuais.map(cartaoAtividade).join('');
+      // A faixa etária só se repete quando muda de uma atividade para a seguinte.
+      html += '<h2 class="subtitulo">Atividades para a idade atual</h2><div class="lista">' +
+        atuais.map((a, i) => cartaoAtividade(a, a.mesesMin !== atuais[i - 1]?.mesesMin)).join('') + '</div>';
     }
   } else {
-    html += '<div class="subtitulo">Atividades por idade</div>';
+    html += '<h2 class="subtitulo">Atividades por idade</h2>';
     for (const faixa of FAIXAS) {
       const grupo = d.atividades.filter(a => a.mesesMin === faixa[0]);
       if (!grupo.length) continue;
-      html += `<div class="subtitulo faixa">${rotuloFaixa(faixa)}</div>` +
-        grupo.map(cartaoAtividade).join('');
+      html += `<h3 class="subtitulo faixa">${rotuloFaixa(faixa)}</h3><div class="lista">` +
+        grupo.map(a => cartaoAtividade(a, false)).join('') + '</div>';
     }
   }
 
-  html += '<div class="subtitulo">Os seis princípios</div>' +
-    d.principios.map(p => `<div class="cartao principio">
+  html += '<h2 class="subtitulo">Os seis princípios</h2><div class="lista principios">' +
+    d.principios.map(p => `<div class="principio"><div>
       <h3>${escaparHtml(p.titulo)}</h3>
       <p>${escaparHtml(p.texto)}</p>
-    </div>`).join('');
+    </div></div>`).join('') + '</div>';
 
-  html += `<a class="botao-principal botao-link" href="${linkSeccao()}">Ler o capítulo Montessori completo</a>`;
+  const capitulo = linkSeccao();
+  if (capitulo) html += `<a class="botao-secundario botao-link" href="${capitulo}">Ler o capítulo Montessori${icone('seta-dir')}</a>`;
 
   alvo.innerHTML = html;
 }
 
-function cartaoAtividade(a) {
-  return `<div class="cartao dica" style="--cor:var(--c-montessori)">
-    <span class="etiqueta">${a.mesesMin}–${a.mesesMax} meses</span>
+function cartaoAtividade(a, comFaixa) {
+  return `<article class="dica" style="--cor:var(--c-montessori)">
+    ${comFaixa ? `<span class="etiqueta">${a.mesesMin}–${a.mesesMax} meses</span>` : ''}
     <h3>${escaparHtml(a.titulo)}</h3>
     <p>${escaparHtml(a.texto)}</p>
-  </div>`;
+  </article>`;
 }

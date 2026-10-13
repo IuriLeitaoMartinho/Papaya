@@ -17,5 +17,55 @@
     "14-burocracia.md",
     "15-esterilizacao.md",
     "16-fontes.md"
+  ],
+  "_ajuda_grupos": "Como os capítulos aparecem agrupados na lista do Guia. Cada grupo tem um 'titulo' e a lista dos ficheiros. Um capítulo que não esteja em nenhum grupo aparece no fim, em 'Outros' — nada se perde. O número de cada capítulo continua a vir da ordem da lista 'capitulos' (a mesma do PDF). 'urgente': true destaca o grupo.",
+  "grupos": [
+    {
+      "titulo": "Urgente",
+      "urgente": true,
+      "capitulos": [
+        "02-emergencias.md",
+        "07-sintomas-az.md"
+      ]
+    },
+    {
+      "titulo": "Primeiros dias",
+      "capitulos": [
+        "03-mala-maternidade.md",
+        "04-recem-nascido.md"
+      ]
+    },
+    {
+      "titulo": "Dia a dia",
+      "capitulos": [
+        "05-alimentacao.md",
+        "06-sono.md",
+        "15-esterilizacao.md",
+        "10-seguranca.md"
+      ]
+    },
+    {
+      "titulo": "Crescer",
+      "capitulos": [
+        "08-desenvolvimento.md",
+        "09-vacinas-consultas.md",
+        "12-montessori.md"
+      ]
+    },
+    {
+      "titulo": "Pais e papelada",
+      "capitulos": [
+        "11-ser-pai.md",
+        "13-licenca-parental.md",
+        "14-burocracia.md"
+      ]
+    },
+    {
+      "titulo": "Sobre este guia",
+      "capitulos": [
+        "01-como-usar.md",
+        "16-fontes.md"
+      ]
+    }
   ]
 }

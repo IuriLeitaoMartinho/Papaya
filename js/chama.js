@@ -14,7 +14,7 @@
 import { estado, uid, dataLocalISO, guardarChama, guardarEventos } from './armazenamento.js';
 import { capitulos, slug } from './conteudo.js';
 import {
-  $, escaparHtml, abrirFolha, fecharFolha, acoesFolha,
+  $, escaparHtml, icone, abrirFolha, fecharFolha, acoesFolha,
   seletorDias, ligarSeletorDiaUnico
 } from './ui.js';
 
@@ -232,25 +232,43 @@ const linkGuia = () => capitulos.find(c => c.id === CAPITULO)
 export async function renderChama(alvo) {
   const cat = await carregarCatalogo();
 
-  let html = '<div class="subtitulo">Os nossos rituais</div>' +
-    cat.rituais.map(cartaoRitual).join('');
-
+  // A surpresa do dia vem primeiro: é o que há para fazer hoje, e custa dez
+  // minutos. Os rituais ligados ficam em cartão; os desligados recolhem a uma
+  // linha discreta — ninguém abre este ecrã para ver três vezes "desligado".
+  let html = '';
   const s = surpresaDoDia(cat);
-  if (s) {
-    html += '<div class="subtitulo">Surpresa de hoje</div>' + cartaoSurpresaDoDia(s);
+  if (s) html += '<h2 class="subtitulo">Surpresa de hoje</h2>' + cartaoSurpresaDoDia(s);
+
+  const ligados = cat.rituais.filter(r => configRitual(r.id).ativo);
+  const desligados = cat.rituais.filter(r => !configRitual(r.id).ativo);
+  html += '<h2 class="subtitulo">Os nossos rituais</h2>' + ligados.map(cartaoRitual).join('');
+  if (desligados.length) {
+    html += '<div class="lista">' + desligados.map(linhaRitualDesligado).join('') + '</div>';
   }
 
-  html += '<div class="subtitulo">As nossas surpresas</div>' + listaNossas(cat);
-  html += `<button class="botao-principal" id="chNova">+ Acrescentar surpresa</button>`;
+  html += '<h2 class="subtitulo">As nossas surpresas</h2>' + listaNossas(cat);
+  html += `<button type="button" class="botao-secundario" id="chNova">${icone('mais')}Acrescentar surpresa</button>`;
 
   html += ideias(cat);
   html += secaoHistorico(cat);
 
   const link = linkGuia();
-  if (link) html += `<a class="botao-secundario botao-link" href="${link}">Ler mais no guia →</a>`;
+  if (link) html += `<a class="botao-secundario botao-link" href="${link}">Ler no guia: manter a chama acesa${icone('seta-dir')}</a>`;
 
   alvo.innerHTML = html;
   ligar(alvo, cat);
+}
+
+function linhaRitualDesligado(ritual) {
+  const cad = CADENCIAS[ritual.cadencia] || CADENCIAS.semanal;
+  return `<div class="chama-item chama-ritual" data-ritual="${ritual.id}">
+    <div class="corpo">
+      <div class="titulo">${escaparHtml(ritual.titulo)}</div>
+      <div class="meta">${escaparHtml(cad.rotulo)}</div>
+    </div>
+    <button type="button" class="chama-ligar" data-acao="config"
+            aria-label="Ligar o ritual ${escaparHtml(ritual.titulo)}">Ligar</button>
+  </div>`;
 }
 
 function cartaoRitual(ritual) {
@@ -258,9 +276,9 @@ function cartaoRitual(ritual) {
   const cad = CADENCIAS[ritual.cadencia] || CADENCIAS.semanal;
 
   let etiqueta = cad.rotulo, classe = '';
-  if (!e.r.ativo) { etiqueta = 'desligado'; classe = ' inativo'; }
-  else if (e.pausado) { etiqueta = 'em pausa até ' + dataCurta(e.r.pausadoAte); classe = ' pausado'; }
+  if (e.pausado) { etiqueta = 'em pausa até ' + dataCurta(e.r.pausadoAte); classe = ' pausado'; }
   else if (e.emAtraso) { etiqueta = 'está na hora'; classe = ' atrasado'; }
+  etiqueta = etiqueta[0].toUpperCase() + etiqueta.slice(1);
 
   const linhas = [];
   if (e.ultima) linhas.push('Última vez ' + haQuanto(e.ultima));
@@ -270,25 +288,31 @@ function cartaoRitual(ritual) {
   }
 
   return `<div class="cartao dica chama-ritual${classe}" style="--cor:var(--c-chama)" data-ritual="${ritual.id}">
-    <span class="etiqueta">${escaparHtml(etiqueta)}</span>
+    <span class="etiqueta">${icone('chama')}${escaparHtml(etiqueta)}</span>
     <h3>${escaparHtml(ritual.titulo)}</h3>
     <p>${escaparHtml(ritual.texto)}</p>
     ${linhas.length ? `<p class="chama-estado">${escaparHtml(linhas.join(' · '))}</p>` : ''}
     <div class="linha-botoes">
-      ${e.r.ativo ? `<button type="button" data-acao="feito">Já fizemos</button>` : ''}
-      <button type="button" data-acao="config">${e.r.ativo ? 'Configurar' : 'Ligar ritual'}</button>
+      <button type="button" class="principal" data-acao="feito">Já fizemos</button>
+      <button type="button" data-acao="config">Configurar</button>
     </div>
   </div>`;
 }
 
+// A etiqueta de momento do catálogo (dados/chama.json), dita por extenso.
+const MOMENTOS = {
+  'manhã': 'De manhã', 'dia': 'Durante o dia', 'tarde': 'À tarde',
+  'noite': 'À noite', 'fim de semana': 'Ao fim de semana'
+};
+
 function cartaoSurpresaDoDia(s) {
   return `<div class="cartao dica chama-surpresa" style="--cor:var(--c-chama)" data-surpresa="${escaparHtml(s.id)}">
-    ${s.etiqueta ? `<span class="etiqueta">${escaparHtml(s.etiqueta)}</span>` : ''}
+    <span class="etiqueta">${icone('chama')}${escaparHtml(MOMENTOS[s.etiqueta] || s.etiqueta || 'Um gesto pequeno')}</span>
     <h3>${escaparHtml(s.titulo)}</h3>
     ${s.texto ? `<p>${escaparHtml(s.texto)}</p>` : ''}
     ${s.vezes ? `<p class="chama-estado">Já fizeram ${s.vezes}x${s.ultimaVez ? ' · última ' + haQuanto(s.ultimaVez) : ''}</p>` : ''}
     <div class="linha-botoes">
-      <button type="button" data-acao="fiz">Já fiz</button>
+      <button type="button" class="principal" data-acao="fiz">Já fiz</button>
       <button type="button" data-acao="outra">Outra</button>
     </div>
   </div>`;
@@ -299,16 +323,16 @@ function listaNossas(cat) {
     (b.favorita ? 1 : 0) - (a.favorita ? 1 : 0) || (b.vezes || 0) - (a.vezes || 0) ||
     (a.titulo > b.titulo ? 1 : -1));
   if (!nossas.length) {
-    return '<div class="vazio">Ainda nada aqui.<br>Guarda as ideias que funcionaram — ou acrescenta as vossas.</div>';
+    return '<div class="vazio"><strong>A vossa lista começa aqui</strong>Guarda as ideias que resultaram, ou escreve as vossas.</div>';
   }
-  return '<div class="cartao chama-lista">' + nossas.map(s => `<div class="chama-item" data-nossa="${escaparHtml(s.id)}">
+  return '<div class="lista">' + nossas.map(s => `<div class="chama-item" data-nossa="${escaparHtml(s.id)}">
     <button type="button" class="chama-fav ${s.favorita ? 'sel' : ''}" data-acao="fav"
-            aria-label="Marcar como favorita">${s.favorita ? '★' : '☆'}</button>
+            aria-label="Favorita" aria-pressed="${!!s.favorita}">${icone('estrela')}</button>
     <div class="corpo">
       <div class="titulo">${escaparHtml(s.titulo)}</div>
       <div class="meta">${s.vezes ? s.vezes + 'x' : 'ainda por fazer'}${s.ultimaVez ? ' · ' + haQuanto(s.ultimaVez) : ''}</div>
     </div>
-    <button type="button" class="chama-editar" data-acao="editar" aria-label="Editar surpresa">⋯</button>
+    <button type="button" class="chama-editar" data-acao="editar" aria-label="Editar surpresa">${icone('pontos')}</button>
   </div>`).join('') + '</div>';
 }
 
@@ -316,21 +340,23 @@ function ideias(cat) {
   const nossos = new Set(estado.chama.surpresas.map(s => s.id));
   const porGuardar = cat.surpresas.filter(s => !nossos.has(idCatalogo(s)));
   if (!porGuardar.length) return '';
-  return `<details class="chama-ideias">
-    <summary>Ideias <span>${porGuardar.length}</span></summary>
-    <div class="cartao chama-lista">` + porGuardar.map(s => `<div class="chama-item" data-ideia="${escaparHtml(idCatalogo(s))}">
+  return `<details class="gaveta chama-ideias">
+    <summary><span class="g-corpo"><span class="g-titulo">Ideias para guardar</span>
+      <span class="g-previa">${escaparHtml(porGuardar.map(s => s.titulo).join(' · '))}</span></span>
+      <span class="g-conta">${porGuardar.length}</span>${icone('seta-baixo')}</summary>
+    <div class="lista">` + porGuardar.map(s => `<div class="chama-item" data-ideia="${escaparHtml(idCatalogo(s))}">
       <div class="corpo">
         <div class="titulo">${escaparHtml(s.titulo)}</div>
         <div class="meta">${escaparHtml(s.texto || '')}</div>
       </div>
-      <button type="button" class="chama-guardar" data-acao="guardar" aria-label="Guardar nas nossas">+</button>
+      <button type="button" class="chama-guardar" data-acao="guardar" aria-label="Guardar nas nossas">${icone('mais')}</button>
     </div>`).join('') + '</div></details>';
 }
 
 function secaoHistorico(cat) {
   const h = historico(cat);
   if (!h.length) return '';
-  return '<div class="subtitulo">Últimos 3 meses</div><div class="cartao chama-hist">' +
+  return '<h2 class="subtitulo">Últimos 3 meses</h2><div class="lista chama-hist">' +
     h.map(g => `<div class="chama-hl">
       <span class="quando">${escaparHtml(dataCurta(g.data))}</span>
       <span class="ponto ${g.ritual ? 'ritual' : ''}"></span>
@@ -485,7 +511,7 @@ export async function cartoesChama() {
   const s = surpresaDoDia(cat);
   if (s && !feitoHoje('surpresaId', s.id)) html += cartaoSurpresaHoje(s);
 
-  return html ? '<div class="subtitulo">Calor da chama</div>' + html : '';
+  return html ? '<h2 class="subtitulo">Calor da chama</h2>' + html : '';
 }
 
 // Um ritual em atraso é um convite, nunca uma falha: sem contagem de falhas,
@@ -494,12 +520,12 @@ function cartaoRitualHoje(ritual, e, eHoje) {
   const linha = e.ultima ? 'Última vez ' + haQuanto(e.ultima) : 'Ainda sem registo';
   return `<div class="cartao dica chama-ritual chama-hoje" style="--cor:var(--c-chama)"
        data-hoje-ritual="${escaparHtml(ritual.id)}">
-    <span class="etiqueta"><span class="et-icone">🔥</span>Calor da chama · ${eHoje ? 'é hoje' : 'está na hora'}</span>
+    <span class="etiqueta">${icone('chama')}${eHoje ? 'É hoje' : 'Está na hora'}</span>
     <h3>${escaparHtml(ritual.titulo)}</h3>
     <p>${escaparHtml(ritual.texto)}</p>
     <p class="chama-estado">${escaparHtml(linha)}</p>
     <div class="linha-botoes">
-      <button type="button" data-acao="feito">Já fizemos</button>
+      <button type="button" class="principal" data-acao="feito">Já fizemos</button>
       <button type="button" data-acao="agendar">Agendar</button>
       <button type="button" data-acao="adiar">Adiar</button>
     </div>
@@ -509,11 +535,11 @@ function cartaoRitualHoje(ritual, e, eHoje) {
 function cartaoSurpresaHoje(s) {
   return `<div class="cartao dica chama-surpresa chama-hoje" style="--cor:var(--c-chama)"
        data-hoje-surpresa="${escaparHtml(s.id)}">
-    <span class="etiqueta"><span class="et-icone">🔥</span>Calor da chama · surpresa de hoje${s.etiqueta ? ' · ' + escaparHtml(s.etiqueta) : ''}</span>
+    <span class="etiqueta">${icone('chama')}Surpresa de hoje${s.etiqueta ? ' · ' + escaparHtml((MOMENTOS[s.etiqueta] || s.etiqueta).toLowerCase()) : ''}</span>
     <h3>${escaparHtml(s.titulo)}</h3>
     ${s.texto ? `<p>${escaparHtml(s.texto)}</p>` : ''}
     <div class="linha-botoes">
-      <button type="button" data-acao="fiz">Já fiz</button>
+      <button type="button" class="principal" data-acao="fiz">Já fiz</button>
       <button type="button" data-acao="outra">Outra</button>
     </div>
   </div>`;
@@ -570,12 +596,12 @@ function folhaMarcar(ritual, aoFechar) {
 
   abrirFolha(`<h2>Marcar no calendário</h2>
     <p class="folha-nota">${escaparHtml(ritual.titulo)}</p>
-    <label>Dia</label>
+    <label for="chEvData">Dia</label>
     <input type="date" id="chEvData" value="${data}">
-    <label>Hora (opcional)</label>
+    <label for="chEvHora">Hora (opcional)</label>
     <input type="time" id="chEvHora" value="${e.r.hora || ''}">
-    <label>Notas (opcional)</label>
-    <input type="text" id="chEvNotas" placeholder="ex: no sítio do costume">
+    <label for="chEvNotas">Notas (opcional)</label>
+    <input type="text" id="chEvNotas" placeholder="No sítio do costume" autocomplete="off">
     ${acoesFolha('Marcar')}`);
 
   $('#folhaGuardar').onclick = () => {
@@ -680,12 +706,12 @@ function folhaRitual(ritual, aoFechar) {
 
 function folhaSurpresa(s, aoFechar) {
   abrirFolha(`<h2>${s ? 'Editar surpresa' : 'Nova surpresa'}</h2>
-    <label>Surpresa</label>
+    <label for="chTitulo">Surpresa</label>
     <input type="text" id="chTitulo" value="${s ? escaparHtml(s.titulo) : ''}"
-           placeholder="ex: Trazer o pequeno-almoço à cama">
-    <label>Notas (opcional)</label>
+           placeholder="Trazer o pequeno-almoço à cama" autocomplete="off">
+    <label for="chTexto">Notas (opcional)</label>
     <input type="text" id="chTexto" value="${s ? escaparHtml(s.texto || '') : ''}"
-           placeholder="ex: com o pão da padaria da esquina">
+           placeholder="Com o pão da padaria da esquina" autocomplete="off">
     ${acoesFolha(s ? 'Guardar' : 'Acrescentar')}
     ${s ? '<button type="button" class="botao-apagar" id="chApagar">Apagar surpresa</button>' : ''}`);
 

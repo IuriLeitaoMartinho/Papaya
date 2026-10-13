@@ -5,18 +5,36 @@ export const $ = s => document.querySelector(s);
 export const escaparHtml = s => String(s).replace(/[&<>"']/g,
   c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+// Ícone do sprite definido no index.html (<symbol id="i-nome">).
+export const icone = nome =>
+  `<svg class="ic" aria-hidden="true"><use href="#i-${nome}"/></svg>`;
+
 const folha = () => $('#folha');
 const fundo = () => $('#fundoFolha');
 
+// Quem abriu a folha, para lhe devolver o foco ao fechar.
+let abridor = null;
+
 export function abrirFolha(html) {
-  folha().innerHTML = html;
-  folha().classList.add('aberta');
+  const f = folha();
+  // Uma folha pode abrir outra (Definições -> Novo membro): só a primeira guarda o abridor.
+  if (!f.classList.contains('aberta')) abridor = document.activeElement;
+  f.innerHTML = '<div class="folha-pega" aria-hidden="true"></div>' + html;
+  f.scrollTop = 0;
+  f.classList.add('aberta');
   fundo().classList.add('aberta');
+  document.documentElement.classList.add('folha-aberta');
+  f.focus({ preventScroll: true });
 }
 
 export function fecharFolha() {
-  folha().classList.remove('aberta');
+  const f = folha();
+  const estavaAberta = f.classList.contains('aberta');
+  f.classList.remove('aberta');
   fundo().classList.remove('aberta');
+  document.documentElement.classList.remove('folha-aberta');
+  if (estavaAberta && abridor && abridor.isConnected) abridor.focus({ preventScroll: true });
+  abridor = null;
 }
 
 // Fechar ao tocar fora ou com Escape.

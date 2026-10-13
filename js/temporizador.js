@@ -1,13 +1,16 @@
-// Temporizador de mamada: botão flutuante no ecrã Hoje que abre uma folha
-// para definir o tempo até à próxima mamada e anotar quantos ml o bebé bebeu.
+// Temporizador de mamada: uma folha para definir o tempo até à próxima mamada
+// e anotar quantos ml o bebé bebeu.
+//
+// Tem duas portas de entrada, e nunca as duas ao mesmo tempo:
+// - sem temporizador a contar, o botão "Temporizador de mamada" do ecrã Hoje;
+// - com um a contar, a faixa por cima da navegação (#fabMamada), visível em
+//   todos os separadores, com a hora e a contagem decrescente.
 //
 // O estado persiste em localStorage (chave própria, fora do backup — é estado
-// transitório, não faz sentido sincronizar entre dispositivos). O botão mostra
-// a contagem decrescente e, ao terminar, avisa com aviso visual, vibração e
-// (se autorizada) uma notificação. O temporizador continua a contar mesmo
-// noutros separadores; só o botão é que aparece apenas no Hoje.
+// transitório, não faz sentido sincronizar entre dispositivos). Ao terminar,
+// a faixa fica em alerta e avisa com vibração e (se autorizada) uma notificação.
 
-import { $, abrirFolha, fecharFolha } from './ui.js';
+import { $, icone, abrirFolha, fecharFolha } from './ui.js';
 
 const CHAVE = 'papaya.temporizador';
 
@@ -40,28 +43,39 @@ function fmt(ms) {
 const horaFim = () =>
   new Date(fimMs()).toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
 
-// Versão curta para o rótulo do botão de navegação (ex: "2h58", "45m").
+// Versão curta para a faixa da navegação (ex: "2h58", "45 min").
 function fmtCurto(ms) {
   const min = Math.max(0, Math.round(ms / 60000));
   if (min >= 60) return Math.floor(min / 60) + 'h' + String(min % 60).padStart(2, '0');
-  return min + 'm';
+  return min + ' min';
 }
 
-// -------------------------------------- botão de mamada (na navegação) ------
+// ------------------------------------- faixa da mamada (na navegação) -------
+
+// O botão de arranque do ecrã Hoje (redesenhado a cada render do Hoje).
+let botaoIniciar = null;
+
+export function ligarBotaoMamada(el) {
+  botaoIniciar = el;
+  el.onclick = folhaTemporizador;
+  el.hidden = !!temporizador;
+}
 
 function atualizarFab() {
   const b = fab();
   if (!b) return;
-  b.classList.remove('terminado');
-  let rot = 'Mamada', aria = 'Temporizador de mamada';
-  if (temporizador && terminado()) {
-    b.classList.add('terminado');
-    rot = 'Agora!'; aria = 'Está na hora da mamada';
-  } else if (temporizador) {
-    rot = fmtCurto(restanteMs()); aria = `Mamada dentro de ${fmt(restanteMs())}`;
-  }
-  b.innerHTML = `<span class="icone">🍼</span><span class="rot">${rot}</span>`;
-  b.setAttribute('aria-label', aria);
+  const ativo = !!temporizador;
+  const fim = ativo && terminado();
+  b.hidden = !ativo;
+  b.classList.toggle('terminado', fim);
+  // A faixa aumenta a barra: o corpo reserva-lhe o espaço (ver --mamada-alt).
+  document.body.classList.toggle('com-mamada', ativo);
+  if (botaoIniciar && botaoIniciar.isConnected) botaoIniciar.hidden = ativo;
+  if (!ativo) return;
+  const rot = fim ? 'Está na hora da mamada' : 'Próxima mamada às ' + horaFim();
+  const conta = fim ? '' : fmtCurto(restanteMs());
+  b.innerHTML = `${icone('biberao')}<span class="rot">${rot}</span><span class="conta">${conta}</span>`;
+  b.setAttribute('aria-label', fim ? rot : `${rot}, faltam ${fmt(restanteMs())}`);
 }
 
 // ------------------------------------------------------------- contagem -----
@@ -125,10 +139,10 @@ function folhaDefinir() {
     <div class="tmp-rapidos" id="tmpRapidos">
       ${RAPIDOS.map(([v, l]) => `<button type="button" data-min="${v}" class="${v === minAtual ? 'sel' : ''}">${l}</button>`).join('')}
     </div>
-    <label>Ou minutos exatos</label>
+    <label for="tmpMin">Ou minutos exatos</label>
     <input type="number" id="tmpMin" inputmode="numeric" min="1" max="1440" value="${minAtual}">
-    <label>Quantos ml bebeu? (opcional)</label>
-    <input type="number" id="tmpMl" inputmode="numeric" min="0" step="5" placeholder="ex: 90" value="${mlAtual}">
+    <label for="tmpMl">Quantos ml bebeu? (opcional)</label>
+    <input type="number" id="tmpMl" inputmode="numeric" min="0" step="5" placeholder="90" value="${mlAtual}">
     <div class="acoes">
       <button type="button" class="botao-cancelar" id="tmpCancelar">Cancelar</button>
       <button type="button" class="botao-guardar" id="tmpIniciar">Iniciar</button>

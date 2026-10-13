@@ -10,6 +10,7 @@ Adicionar deteção de dia e noite e janela de sono com horas
 - UI muda para dia e noite, com cores claras e escuras
 
 
+[FEITO em 2026-10-13: ecrã "Sono", a que se chega pelo Hoje; ver README, "Registo do sono"]
 Adicionar funcionalidade de sono para podermos controlar os sonos e guarda estas contagems numa nova aba. 
 - Mostrar sono diario/seminal 
 - alertas e feedback de como esta a corer de acordo com a idade da criança e a informação presente no guia

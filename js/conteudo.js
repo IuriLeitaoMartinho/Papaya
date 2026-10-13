@@ -7,10 +7,14 @@
 //   **negrito**  *itálico*  _itálico_  `código`
 //   | tabelas | com pipes |
 
-import { escaparHtml } from './ui.js';
+import { escaparHtml, icone } from './ui.js';
 
 // Preenchido por carregarGuia(): [{id, titulo, linhas, seccoes:[{titulo, ancora, texto}]}]
 export const capitulos = [];
+
+// Agrupamento da lista do Guia, lido de dados/capitulos.json ("grupos").
+// [{titulo, urgente, ids:[...]}] — os capítulos fora de qualquer grupo vão para "Outros".
+export const grupos = [];
 
 // Remove acentos e minusculiza — usado nos slugs e na pesquisa.
 // (Para os diacríticos PT a remoção preserva o comprimento da string,
@@ -40,6 +44,16 @@ export async function carregarGuia() {
       seccoes: extrairSeccoes(titulo, linhas)
     });
   });
+
+  const arrumados = new Set();
+  for (const g of manifesto.grupos || []) {
+    const ids = (g.capitulos || []).map(f => f.replace(/\.md$/, ''))
+      .filter(id => capitulos.some(c => c.id === id) && !arrumados.has(id));
+    ids.forEach(id => arrumados.add(id));
+    if (ids.length) grupos.push({ titulo: g.titulo, urgente: !!g.urgente, ids });
+  }
+  const soltos = capitulos.filter(c => !arrumados.has(c.id)).map(c => c.id);
+  if (soltos.length) grupos.push({ titulo: grupos.length ? 'Outros' : '', urgente: false, ids: soltos });
   return capitulos;
 }
 
@@ -188,5 +202,26 @@ export function markdownParaHtml(linhas) {
 export function htmlCapitulo(id) {
   const cap = capitulos.find(c => c.id === id);
   if (!cap) return '<div class="vazio">Capítulo não encontrado.</div>';
-  return '<article class="capitulo">' + markdownParaHtml(cap.linhas) + '</article>';
+  // O índice das secções entra logo a seguir ao título (só na app: o PDF tem o seu).
+  const html = markdownParaHtml(cap.linhas);
+  const fimTitulo = html.indexOf('</h1>');
+  const corpo = fimTitulo === -1
+    ? indiceCapitulo(cap) + html
+    : html.slice(0, fimTitulo + 5) + indiceCapitulo(cap) + html.slice(fimTitulo + 5);
+  return '<article class="capitulo">' + corpo + '</article>';
+}
+
+// Títulos das secções ## de um capítulo, pela ordem do texto.
+export const seccoesDoCapitulo = cap =>
+  cap.linhas.filter(l => l.startsWith('## ')).map(l => l.slice(3).trim());
+
+// Índice clicável das secções. Capítulos curtos (menos de 3 secções) não precisam.
+function indiceCapitulo(cap) {
+  const titulos = seccoesDoCapitulo(cap);
+  if (titulos.length < 3) return '';
+  return `<details class="indice lista" open>
+    <summary>Neste capítulo <span class="conta">${titulos.length} secções</span>${icone('seta-baixo')}</summary>
+    <ol>` + titulos.map(t =>
+      `<li><a href="#guia/${cap.id}/${slug(t)}" data-ancora="${slug(t)}">${inline(t)}</a></li>`).join('') +
+    '</ol></details>';
 }

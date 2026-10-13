@@ -5,7 +5,7 @@
 
 const PREFIXO = 'papaya.';
 const SCHEMA_BACKUP = 'papaya-backup';
-const VERSAO_BACKUP = 3; // v3 acrescentou o Calor da chama; ainda aceita importar v1 e v2
+const VERSAO_BACKUP = 4; // v4 acrescentou os registos (sono); ainda aceita importar v1, v2 e v3
 
 function carregar(chave, defeito) {
   try {
@@ -44,7 +44,15 @@ export const estado = {
   //               ultimaVez: 'AAAA-MM-DD'|null }]
   // registos:  [{ id, ritualId|null, surpresaId|null, data: 'AAAA-MM-DD', nota?, correu?: 1-3 }]
   // rev:       contador incrementado a cada escrita (invalida a cache do calendário)
-  chama: carregar('chama', { rituais: [], surpresas: [], registos: [], rev: 0 })
+  chama: carregar('chama', { rituais: [], surpresas: [], registos: [], rev: 0 }),
+
+  // Registo diário do bebé: uma só lista para todos os tipos, hoje só o sono.
+  // [{ id, tipo: 'sono', inicio: ms, fim: ms }]
+  // As horas são instantes (ms desde 1970), não 'AAAA-MM-DD': um sono atravessa
+  // a meia-noite e o que interessa é a duração. Um tipo sem duração (uma fralda)
+  // fica só com `inicio`. O sono que ainda está a decorrer NÃO vive aqui: é
+  // estado deste telemóvel (ver js/sono.js) e só entra na lista ao acordar.
+  registos: carregar('registos', [])
 };
 
 export const guardarDefinicoes = () => guardar('definicoes', estado.definicoes);
@@ -52,6 +60,7 @@ export const guardarTarefas = () => guardar('tarefas', estado.tarefas);
 export const guardarConclusoes = () => guardar('conclusoes', estado.conclusoes);
 export const guardarEventos = () => guardar('eventos', estado.eventos);
 export const guardarChama = () => { estado.chama.rev++; guardar('chama', estado.chama); };
+export const guardarRegistos = () => guardar('registos', estado.registos);
 
 export const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 
@@ -74,7 +83,8 @@ export function exportarBackup() {
       tarefas: estado.tarefas,
       conclusoes: estado.conclusoes,
       eventos: estado.eventos,
-      chama: estado.chama
+      chama: estado.chama,
+      registos: estado.registos
     }
   };
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
@@ -94,12 +104,13 @@ const ehData = v => ehTexto(v) && /^\d{4}-\d{2}-\d{2}$/.test(v);
 export function validarBackup(obj) {
   if (!obj || typeof obj !== 'object') return { erro: 'O ficheiro não contém JSON válido.' };
   if (obj.schema !== SCHEMA_BACKUP) return { erro: 'Este ficheiro não é um backup da Papaya.' };
-  if (obj.versao !== 1 && obj.versao !== 2 && obj.versao !== VERSAO_BACKUP)
+  if (![1, 2, 3, VERSAO_BACKUP].includes(obj.versao))
     return { erro: `Versão de backup não suportada (${obj.versao}).` };
   const d = obj.dados;
   if (!d || typeof d !== 'object') return { erro: 'O backup não tem a secção de dados.' };
   if (d.eventos == null) d.eventos = []; // backups v1 não tinham eventos
   if (d.chama == null) d.chama = { rituais: [], surpresas: [], registos: [], rev: 0 }; // v1 e v2
+  if (d.registos == null) d.registos = []; // até à v3 não havia registo diário
 
   const def = d.definicoes;
   if (!def || typeof def !== 'object' || !ehTexto(def.nomeCrianca ?? '') ||
@@ -152,11 +163,19 @@ export function validarBackup(obj) {
     return { erro: 'Os dados do Calor da chama no backup estão corrompidos.' };
   if (!Number.isInteger(c.rev)) c.rev = 0;
 
+  if (!Array.isArray(d.registos) ||
+      !d.registos.every(g => g && ehTexto(g.id) && ehTexto(g.tipo) &&
+        Number.isInteger(g.inicio) && g.inicio > 0 &&
+        (g.fim == null || (Number.isInteger(g.fim) && g.fim >= g.inicio)) &&
+        (g.tipo !== 'sono' || g.fim > g.inicio)))
+    return { erro: 'O registo diário no backup está corrompido.' };
+
   const resumo = {
     membros: def.membros.length,
     tarefas: d.tarefas.length,
     eventos: d.eventos.length,
     registosChama: c.registos.length,
+    sonos: d.registos.filter(g => g.tipo === 'sono').length,
     diasComRegistos: new Set(Object.values(d.conclusoes).flatMap(Object.keys)).size,
     exportadoEm: obj.exportadoEm || null
   };
@@ -171,6 +190,7 @@ export function aplicarBackup(dados, modo) {
     estado.conclusoes = dados.conclusoes;
     estado.eventos = dados.eventos;
     estado.chama = dados.chama;
+    estado.registos = dados.registos;
   } else {
     // Fundir: união por id (o ficheiro ganha nos conflitos);
     // definições só preenchem o que estiver vazio neste dispositivo.
@@ -199,12 +219,20 @@ export function aplicarBackup(dados, modo) {
         if (i >= 0) estado.chama[chave][i] = item; else estado.chama[chave].push(item);
       }
     }
+    // Os dois pais podem ter registado o mesmo sono, cada um no seu telemóvel e
+    // com ids diferentes. A fusão não apaga nada: quem conta as horas é que não
+    // conta duas vezes o mesmo intervalo (ver uniao() em js/sono.js).
+    for (const g of dados.registos) {
+      const i = estado.registos.findIndex(x => x.id === g.id);
+      if (i >= 0) estado.registos[i] = g; else estado.registos.push(g);
+    }
   }
   guardarDefinicoes();
   guardarTarefas();
   guardarConclusoes();
   guardarEventos();
   guardarChama();
+  guardarRegistos();
 }
 
 // Remove conclusões com mais de `dias` dias (o histórico útil é curto).
@@ -227,4 +255,13 @@ export function podarChama(dias = 730) {
   const antes = estado.chama.registos.length;
   estado.chama.registos = estado.chama.registos.filter(r => r.data >= limite);
   if (estado.chama.registos.length !== antes) guardarChama();
+}
+
+// Remove registos diários com mais de `dias` dias: o guia cobre dois anos, e é
+// esse o histórico que faz sentido guardar.
+export function podarRegistos(dias = 730) {
+  const limite = Date.now() - dias * 86400000;
+  const antes = estado.registos.length;
+  estado.registos = estado.registos.filter(g => (g.fim ?? g.inicio) >= limite);
+  if (estado.registos.length !== antes) guardarRegistos();
 }

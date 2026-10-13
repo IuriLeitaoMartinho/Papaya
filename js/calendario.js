@@ -8,7 +8,7 @@
 
 import { estado, uid, dataLocalISO, guardarEventos } from './armazenamento.js';
 import { capitulos, slug } from './conteudo.js';
-import { $, escaparHtml, abrirFolha, fecharFolha, acoesFolha } from './ui.js';
+import { $, escaparHtml, icone, abrirFolha, fecharFolha, acoesFolha } from './ui.js';
 import { carregarCatalogo, marcosChama, JANELA_ATRAS, JANELA_FRENTE } from './chama.js';
 
 const MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
@@ -172,11 +172,11 @@ const eventosDoDia = iso => estado.eventos
   .filter(e => e.data === iso)
   .sort((a, b) => (a.hora || '99') < (b.hora || '99') ? -1 : 1);
 
-// Pontos coloridos de um dia (máx. 3).
+// Sementes coloridas de um dia: uma por tipo de compromisso (máx. 3).
 function pontos(iso) {
-  const cores = [];
-  for (const m of (marcos[iso] || [])) cores.push(`var(--c-${m.categoria})`);
-  for (const e of eventosDoDia(iso)) { cores.push('var(--c-evento)'); if (cores.length >= 3) break; }
+  const cores = [...new Set((marcos[iso] || []).map(m => `var(--c-${m.categoria})`))];
+  // O lembrete criado à mão tem sempre a sua semente, mesmo num dia cheio.
+  if (eventosDoDia(iso).length) { cores.splice(2); cores.push('var(--c-evento)'); }
   return '<span class="cal-pontos">' +
     cores.slice(0, 3).map(c => `<i style="background:${c}"></i>`).join('') + '</span>';
 }
@@ -186,7 +186,11 @@ function celulaDia(d) {
   const classes = ['cal-dia'];
   if (iso === dataLocalISO()) classes.push('hoje');
   if (iso === diaSel) classes.push('sel');
-  return `<button type="button" class="${classes.join(' ')}" data-dia="${iso}">
+  const n = (marcos[iso] || []).length + eventosDoDia(iso).length;
+  const rotulo = `${d.getDate()} de ${MESES[d.getMonth()]}` + (iso === dataLocalISO() ? ', hoje' : '') +
+    (n ? `, ${n} ${n === 1 ? 'compromisso' : 'compromissos'}` : '');
+  return `<button type="button" class="${classes.join(' ')}" data-dia="${iso}"
+    aria-label="${rotulo}" aria-pressed="${iso === diaSel}">
     <span class="num">${d.getDate()}</span>${pontos(iso)}</button>`;
 }
 
@@ -198,16 +202,17 @@ export async function renderCalendario(container) {
   const sel = deISO(diaSel);
   if (!mesVis) mesVis = { ano: sel.getFullYear(), mes: sel.getMonth() };
 
-  let html = `<div class="cal cartao">
-    <button type="button" class="cal-cab" id="calExpandir" aria-expanded="${expandido}">
-      ${MESES[mesVis.mes]} ${mesVis.ano} <span class="seta">${expandido ? '▴' : '▾'}</span>
-    </button>`;
+  let html = `<div class="cal cartao"><div class="cal-topo">
+    <button type="button" class="cal-cab" id="calExpandir" aria-expanded="${expandido}"
+            aria-label="${MESES[mesVis.mes]} ${mesVis.ano}, ${expandido ? 'recolher para a semana' : 'ver o mês inteiro'}">
+      ${MESES[mesVis.mes][0].toUpperCase() + MESES[mesVis.mes].slice(1)} ${mesVis.ano}${icone('seta-baixo')}
+    </button>
+    ${expandido ? `<div class="cal-nav">
+      <button type="button" id="calAntes" aria-label="Mês anterior">${icone('seta-esq')}</button>
+      <button type="button" id="calDepois" aria-label="Mês seguinte">${icone('seta-dir')}</button>
+    </div>` : ''}</div>`;
 
   if (expandido) {
-    html += `<div class="cal-nav">
-      <button type="button" id="calAntes" aria-label="Mês anterior">‹</button>
-      <button type="button" id="calDepois" aria-label="Mês seguinte">›</button>
-    </div>`;
     html += '<div class="cal-grelha cal-letras">' + LETRAS.map(l => `<span>${l}</span>`).join('') + '</div>';
     const primeiro = new Date(mesVis.ano, mesVis.mes, 1);
     const nDias = new Date(mesVis.ano, mesVis.mes + 1, 0).getDate();
@@ -243,22 +248,22 @@ function renderDia() {
   for (const m of (marcos[diaSel] || [])) {
     const destino = m.capitulo && capitulos.find(c => c.id === m.capitulo)
       ? '#guia/' + m.capitulo + (m.seccao ? '/' + slug(m.seccao) : '') : '';
-    html += `<div class="cal-evento" style="--cor:var(--c-${m.categoria})">
+    html += `<div class="cal-evento">
       <span class="ponto-cor" style="background:var(--c-${m.categoria})"></span>
       <div class="corpo"><div class="titulo">${escaparHtml(m.titulo)}</div>
         <div class="sub">${m.sub ? escaparHtml(m.sub) : (m.categoria === 'vacina' ? 'Vacinas (PNV)' : 'Consulta de vigilância') + ' — data estimada pela idade'}</div></div>
-      ${destino ? `<a href="${destino}" aria-label="Abrir no guia">→</a>` : ''}</div>`;
+      ${destino ? `<a href="${destino}" aria-label="Abrir no guia">${icone('seta-dir')}</a>` : ''}</div>`;
   }
   for (const e of eventosDoDia(diaSel)) {
-    html += `<div class="cal-evento editavel" data-id="${e.id}" role="button" tabindex="0" style="--cor:var(--c-evento)">
+    html += `<div class="cal-evento editavel" data-id="${e.id}" role="button" tabindex="0">
       <span class="ponto-cor" style="background:var(--c-evento)"></span>
       <div class="corpo"><div class="titulo">${e.hora ? `<span class="hora">${e.hora}</span> ` : ''}${escaparHtml(e.titulo)}</div>
         ${e.notas ? `<div class="sub">${escaparHtml(e.notas)}</div>` : ''}</div></div>`;
   }
   if (!(marcos[diaSel] || []).length && !eventosDoDia(diaSel).length) {
-    html += '<div class="cal-vazio">Sem eventos neste dia.</div>';
+    html += '<div class="cal-vazio">Dia livre.</div>';
   }
-  html += `<button type="button" class="cal-novo" id="calNovoEvento">+ Lembrete neste dia</button></div>`;
+  html += `<button type="button" class="cal-novo" id="calNovoEvento">${icone('mais')}Lembrete neste dia</button></div>`;
   return html;
 }
 
@@ -279,7 +284,7 @@ function ligar() {
   raiz.querySelectorAll('.cal-evento.editavel').forEach(el => {
     const abrir = () => folhaEvento(estado.eventos.find(x => x.id === el.dataset.id));
     el.addEventListener('click', abrir);
-    el.addEventListener('keydown', ev => { if (ev.key === 'Enter') abrir(); });
+    el.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); abrir(); } });
   });
   $('#calNovoEvento').onclick = () => folhaEvento(null);
 }
@@ -293,14 +298,14 @@ function mudarMes(n) {
 // Folha de criar/editar evento/lembrete.
 function folhaEvento(e) {
   abrirFolha(`<h2>${e ? 'Editar lembrete' : 'Novo lembrete'}</h2>
-    <label>O quê</label>
-    <input type="text" id="evTitulo" value="${e ? escaparHtml(e.titulo) : ''}" placeholder="ex: Consulta dos 9 meses, comprar fraldas">
-    <label>Dia</label>
+    <label for="evTitulo">O quê</label>
+    <input type="text" id="evTitulo" value="${e ? escaparHtml(e.titulo) : ''}" placeholder="Consulta dos 9 meses, comprar fraldas" autocomplete="off">
+    <label for="evData">Dia</label>
     <input type="date" id="evData" value="${e ? e.data : diaSel}">
-    <label>Hora (opcional)</label>
+    <label for="evHora">Hora (opcional)</label>
     <input type="time" id="evHora" value="${e?.hora || ''}">
-    <label>Notas (opcional)</label>
-    <input type="text" id="evNotas" value="${e?.notas ? escaparHtml(e.notas) : ''}" placeholder="ex: levar o boletim">
+    <label for="evNotas">Notas (opcional)</label>
+    <input type="text" id="evNotas" value="${e?.notas ? escaparHtml(e.notas) : ''}" placeholder="Levar o boletim" autocomplete="off">
     ${acoesFolha(e ? 'Guardar' : 'Criar lembrete')}
     ${e ? '<button type="button" class="botao-apagar" id="evApagar">Apagar lembrete</button>' : ''}`);
 

@@ -3,22 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#D96E34">
+<meta name="theme-color" content="#F4EEE4">
 <meta name="description" content="Papaya — guia de parentalidade dos 0 aos 2 anos: dicas por idade, pesquisa no guia e tarefas da família. Funciona offline, dados só no teu telemóvel.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
+<!-- Tema escolhido à mão (Definições): aplica-se antes do CSS para não piscar. -->
+<script>
+try { var t = localStorage.getItem('papaya.tema'); if (t) document.documentElement.dataset.tema = t; } catch (e) {}
+</script>
 <link rel="stylesheet" href="css/estilo.css">
 <title>Papaya — Guia dos Pais</title>
 </head>
 <body>
 
-<header>
-  <div>
-    <h1 id="cabecalhoNome">Papaya</h1>
-    <div class="idade" id="cabecalhoIdade"></div>
+<!-- Ícones da app: um só traço, usados com <svg class="ic"><use href="#i-nome"/></svg>
+     (ver icone() em js/ui.js). Desenhados numa grelha de 24. -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-livro" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-visto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.2 12.4 2.6 2.6 5-5.4"/></symbol>
+  <symbol id="i-rebento" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="i-chama" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-biberao" viewBox="0 0 24 24"><path d="M10.5 5V3.6a1.5 1.5 0 0 1 3 0V5"/><rect x="8" y="5" width="8" height="3" rx="1"/><path d="M9 8v1.4c0 .9-1 1.3-1 2.6v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-8c0-1.3-1-1.7-1-2.6V8"/><path d="M8 14h3M8 17.5h3"/></symbol>
+  <symbol id="i-ajustes" viewBox="0 0 24 24"><path d="M4 6h8M16 6h4M4 12h2M10 12h10M4 18h10M18 18h2"/><circle cx="14" cy="6" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="18" r="2"/></symbol>
+  <symbol id="i-pesquisa" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></symbol>
+  <symbol id="i-telefone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-seta-dir" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-seta-esq" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="i-seta-baixo" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-seta-cima" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+  <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-pontos" viewBox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01"/></symbol>
+  <symbol id="i-estrela" viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z"/></symbol>
+  <symbol id="i-blocos" viewBox="0 0 24 24"><rect x="4" y="12" width="8" height="8" rx="1.5"/><rect x="12" y="12" width="8" height="8" rx="1.5"/><rect x="8" y="4" width="8" height="8" rx="1.5"/></symbol>
+  <symbol id="i-coracao" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10.3A4.2 4.2 0 0 1 12 7.6a4.2 4.2 0 0 1 7.5 2.6c0 5.7-7.5 10.3-7.5 10.3z"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3 5 6v5.2c0 4.4 2.9 8.2 7 9.8 4.1-1.6 7-5.4 7-9.8V6z"/></symbol>
+  <symbol id="i-papelada" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6"/></symbol>
+  <symbol id="i-saco" viewBox="0 0 24 24"><path d="M6 8h12l1 12.5H5z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+  <symbol id="i-estetoscopio" viewBox="0 0 24 24"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v3a4 4 0 0 0 8 0v-2"/><circle cx="18" cy="12" r="2"/></symbol>
+  <symbol id="i-seringa" viewBox="0 0 24 24"><path d="m17 3 4 4M19 5l-2.5 2.5M13.5 4.5l6 6M15 6l-9 9v3h3l9-9M6 18l-3 3M10 11l2 2"/></symbol>
+  <symbol id="i-alerta" viewBox="0 0 24 24"><path d="M12 4 2.8 20h18.4z"/><path d="M12 10v4.5M12 17.2h.01"/></symbol>
+  <symbol id="i-lua" viewBox="0 0 24 24"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"/></symbol>
+  <symbol id="i-lista" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></symbol>
+</svg>
+
+<header class="topo">
+  <div class="topo-texto">
+    <p class="topo-sobre" id="cabecalhoSobre"></p>
+    <h1 id="cabecalhoTitulo">Papaya</h1>
   </div>
-  <button id="botaoDefinicoes" aria-label="Definições">⚙</button>
+  <button type="button" id="botaoDefinicoes" class="botao-icone" aria-label="Definições">
+    <svg class="ic" aria-hidden="true"><use href="#i-ajustes"/></svg>
+  </button>
 </header>
 
 <!-- Cada separador é uma <section>; a navegação mostra/esconde consoante o hash -->
@@ -28,24 +66,40 @@
   <section id="vista-tarefas" hidden></section>
   <section id="vista-montessori" hidden></section>
   <section id="vista-chama" hidden></section>
+  <!-- O registo do sono não tem lugar na barra: chega-se a ele pelo Hoje. -->
+  <section id="vista-sono" hidden></section>
 </main>
 
-<!-- Navegação: botões flutuantes verticais nas margens (esquerda e direita) -->
-<nav class="nav-flutuante" aria-label="Navegação principal">
-  <div class="nav-cluster nav-esq">
-    <a href="#hoje" data-sep="hoje" class="nav-btn"><span class="icone">☀</span><span class="rot">Hoje</span></a>
-    <button type="button" id="fabMamada" class="nav-btn fab-mamada"><span class="icone">🍼</span><span class="rot">Mamada</span></button>
-    <a href="#chama" data-sep="chama" class="nav-btn"><span class="icone">🔥</span><span class="rot">Chama</span></a>
+<!-- Só nos capítulos do Guia: volta ao índice do capítulo a meio da leitura. -->
+<button type="button" id="botaoIndice" class="pilula-indice" hidden>
+  <svg class="ic" aria-hidden="true"><use href="#i-lista"/></svg>Índice
+</button>
+
+<!-- Navegação: barra fixa em baixo (lateral em ecrãs largos). A faixa da mamada
+     só existe enquanto há um temporizador a contar — ver js/temporizador.js.
+     A do sono só existe enquanto o bebé dorme — ver js/sono.js. -->
+<nav class="barra" aria-label="Navegação principal">
+  <button type="button" id="fabMamada" class="barra-mamada" hidden></button>
+  <div id="faixaSono" class="barra-sono" hidden>
+    <button type="button" id="sonoInfo" class="sono-info">
+      <svg class="ic" aria-hidden="true"><use href="#i-lua"/></svg><span class="rot">A dormir</span><span class="conta"></span>
+    </button>
+    <button type="button" id="sonoAcordou" class="sono-acordar">Acordou</button>
   </div>
-  <div class="nav-cluster nav-dir">
-    <a href="#guia" data-sep="guia" class="nav-btn"><span class="icone">📖</span><span class="rot">Guia</span></a>
-    <a href="#tarefas" data-sep="tarefas" class="nav-btn"><span class="icone">✓</span><span class="rot">Tarefas</span></a>
-    <a href="#montessori" data-sep="montessori" class="nav-btn"><span class="icone">🌱</span><span class="rot">Montessori</span></a>
+  <div class="barra-itens">
+    <a href="#hoje" data-sep="hoje" class="nav-btn"><svg class="ic" aria-hidden="true"><use href="#i-sol"/></svg><span class="rot">Hoje</span></a>
+    <a href="#guia" data-sep="guia" class="nav-btn"><svg class="ic" aria-hidden="true"><use href="#i-livro"/></svg><span class="rot">Guia</span></a>
+    <a href="#tarefas" data-sep="tarefas" class="nav-btn"><svg class="ic" aria-hidden="true"><use href="#i-visto"/></svg><span class="rot">Tarefas</span></a>
+    <a href="#montessori" data-sep="montessori" class="nav-btn"><svg class="ic" aria-hidden="true"><use href="#i-rebento"/></svg><span class="rot">Montessori</span></a>
+    <a href="#chama" data-sep="chama" class="nav-btn"><svg class="ic" aria-hidden="true"><use href="#i-chama"/></svg><span class="rot">Chama</span></a>
   </div>
 </nav>
 
+<!-- Para os leitores de ecrã: o que acabou de acontecer (ex.: "A contar o sono"). -->
+<div id="anuncio" class="so-leitor" aria-live="polite"></div>
+
 <div class="fundo-folha" id="fundoFolha"></div>
-<div class="folha" id="folha" role="dialog" aria-modal="true"></div>
+<div class="folha" id="folha" role="dialog" aria-modal="true" tabindex="-1"></div>
 
 <script type="module" src="js/app.js"></script>
 </body>

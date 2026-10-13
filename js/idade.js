@@ -7,20 +7,22 @@ import { dicaDoDia, cartaoDicaDia } from './montessori.js';
 import { cartoesChama, ligarCartoesChama } from './chama.js';
 import { renderCalendario } from './calendario.js';
 import { renderTarefasHoje } from './tarefas.js';
-import { escaparHtml } from './ui.js';
+import { ligarBotaoMamada } from './temporizador.js';
+import { renderSonoHoje } from './sono.js';
+import { escaparHtml, icone } from './ui.js';
 
 let entradas = null;
 
 const CATEGORIAS = {
-  desenvolvimento: { rotulo: 'O que esperar', cor: 'var(--c-desenvolvimento)', icone: '🌟' },
-  estimulacao:     { rotulo: 'O que trabalhar', cor: 'var(--c-estimulacao)', icone: '🧩' },
-  saude:           { rotulo: 'Saúde', cor: 'var(--c-saude)', icone: '➕' },
-  seguranca:       { rotulo: 'Segurança', cor: 'var(--c-alerta)', icone: '🛡' },
-  burocracia:      { rotulo: 'Papelada', cor: 'var(--c-burocracia)', icone: '📋' },
-  preparacao:      { rotulo: 'Preparar', cor: 'var(--c-preparacao)', icone: '🎒' },
-  consulta:        { rotulo: 'Consulta', cor: 'var(--c-consulta)', icone: '🩺' },
-  vacina:          { rotulo: 'Vacinas', cor: 'var(--c-vacina)', icone: '💉' },
-  alerta:          { rotulo: 'Sinal a vigiar', cor: 'var(--c-alerta)', icone: '⚠' }
+  desenvolvimento: { rotulo: 'O que esperar', cor: 'var(--c-desenvolvimento)', icone: 'estrela' },
+  estimulacao:     { rotulo: 'O que trabalhar', cor: 'var(--c-estimulacao)', icone: 'blocos' },
+  saude:           { rotulo: 'Saúde', cor: 'var(--c-saude)', icone: 'coracao' },
+  seguranca:       { rotulo: 'Segurança', cor: 'var(--c-alerta)', icone: 'escudo' },
+  burocracia:      { rotulo: 'Papelada', cor: 'var(--c-burocracia)', icone: 'papelada' },
+  preparacao:      { rotulo: 'Preparar', cor: 'var(--c-preparacao)', icone: 'saco' },
+  consulta:        { rotulo: 'Consulta', cor: 'var(--c-consulta)', icone: 'estetoscopio' },
+  vacina:          { rotulo: 'Vacinas', cor: 'var(--c-vacina)', icone: 'seringa' },
+  alerta:          { rotulo: 'Sinal a vigiar', cor: 'var(--c-alerta)', icone: 'alerta' }
 };
 
 async function carregarEntradas() {
@@ -64,24 +66,163 @@ export function textoIdade(dataNascimento) {
 
 const rotuloMeses = m => m === 0 ? 'ao nascer' : m === 24 ? 'aos 2 anos' : m === 1 ? 'com 1 mês' : `aos ${m} meses`;
 
-function cartaoDica(e, quando) {
+const ehPontual = e => e.categoria === 'consulta' || e.categoria === 'vacina';
+
+const destinoGuia = e => e.capitulo && capitulos.find(c => c.id === e.capitulo)
+  ? '#guia/' + e.capitulo + (e.seccao ? '/' + slug(e.seccao) : '')
+  : '';
+
+// Uma dica. Sozinha é um cartão; dentro de uma gaveta é uma linha da lista.
+function cartaoDica(e, quando, emLista, comEtiqueta = true) {
   const cat = CATEGORIAS[e.categoria] || CATEGORIAS.saude;
-  let link = '';
-  if (e.capitulo && capitulos.find(c => c.id === e.capitulo)) {
-    const destino = '#guia/' + e.capitulo + (e.seccao ? '/' + slug(e.seccao) : '');
-    link = `<a class="ler-mais" href="${destino}">Ler mais no guia →</a>`;
-  }
-  return `<div class="cartao dica ${quando ? 'pontual' : ''}" style="--cor:${cat.cor}">
-    <span class="etiqueta"><span class="et-icone">${cat.icone}</span>${cat.rotulo}${quando ? ` · <span class="quando">${quando}</span>` : ''}</span>
+  const destino = destinoGuia(e);
+  return `<article class="${emLista ? '' : 'cartao '}dica ${quando ? 'pontual' : ''}" style="--cor:${cat.cor}">
+    ${comEtiqueta ? `<span class="etiqueta">${icone(cat.icone)}${cat.rotulo}${quando ? ` · <span class="quando">${quando}</span>` : ''}</span>` : ''}
     <h3>${escaparHtml(e.titulo)}</h3>
     <p>${escaparHtml(e.texto)}</p>
-    ${link}</div>`;
+    ${destino ? `<a class="ler-mais" href="${destino}">Ler no guia${icone('seta-dir')}</a>` : ''}</article>`;
 }
 
+// ------------------------------------------------------------------ régua ---
+// A régua dos 0 aos 24 meses: o caminho todo que o guia cobre, com a semente
+// na idade de hoje e as consultas e vacinas marcadas ao longo dele.
+
+const DIA = 86400000;
+const deISO = iso => new Date(iso + 'T00:00:00');
+const meiaNoite = () => { const h = new Date(); h.setHours(0, 0, 0, 0); return h; };
+
+function daquiA(data) {
+  const dias = Math.round((data - meiaNoite()) / DIA);
+  if (dias <= 0) return 'hoje';
+  if (dias === 1) return 'amanhã';
+  if (dias < 21) return `em ${dias} dias`;
+  if (dias < 70) return `em ${Math.round(dias / 7)} semanas`;
+  return `em ${Math.round(dias / 30.4)} meses`;
+}
+
+function htmlRegua(nasc, lista) {
+  const n = deISO(nasc);
+  const fim = new Date(n); fim.setMonth(fim.getMonth() + 24);
+  const fracao = Math.min(1, Math.max(0, (Date.now() - n) / (fim - n)));
+  const meses = idadeEmMeses(nasc);
+  const pct = x => (x * 100).toFixed(2) + '%';
+
+  const marcas = [];
+  for (let m = 0; m <= 24; m++) {
+    marcas.push(`<i class="t${m % 6 === 0 ? ' maior' : ''}" style="left:${pct(m / 24)}"></i>`);
+  }
+  // Um ponto por mês com consulta ou vacina (a consulta dá a cor quando há as duas).
+  const porMes = new Map();
+  for (const e of lista.filter(ehPontual)) {
+    if (e.mesesMin < 0 || e.mesesMin > 24) continue;
+    if (!porMes.has(e.mesesMin) || e.categoria === 'consulta') porMes.set(e.mesesMin, e.categoria);
+  }
+  const marcos = [...porMes].map(([m, cat]) =>
+    `<i class="regua-marco${m < meses ? ' passado' : ''}" style="left:${pct(m / 24)};--cor:var(--c-${cat})"></i>`);
+
+  const escala = [[0, '0'], [6, '6 m'], [12, '1 ano'], [18, '18 m'], [24, '2 anos']]
+    .map(([m, r]) => `<span style="left:${pct(m / 24)}">${r}</span>`).join('');
+
+  const descricao = meses < 0 ? 'Ainda por nascer' : `${textoIdade(nasc)}, num caminho de 24 meses`;
+  return `<div class="regua">
+    <div role="img" aria-label="${escaparHtml(descricao)}">
+      <div class="regua-faixa">${marcas.join('')}${marcos.join('')}
+        <i class="regua-cheio" style="width:${pct(fracao)}"></i>
+        <i class="regua-semente" style="left:${pct(fracao)}"></i>
+      </div>
+      <div class="regua-escala" aria-hidden="true">${escala}</div>
+    </div>
+    ${linhaSeguinte(nasc, lista, meses)}
+  </div>`;
+}
+
+// A linha por baixo da régua: o próximo compromisso do caminho.
+function linhaSeguinte(nasc, lista, meses) {
+  if (meses < 0) {
+    return `<div class="regua-seguinte"><span class="titulo"><span class="rotulo">Data prevista:</span>
+      ${deISO(nasc).toLocaleDateString('pt-PT', { day: 'numeric', month: 'long' })}</span>
+      <span class="quando">${daquiA(deISO(nasc))}</span></div>`;
+  }
+  const futuras = lista.filter(e => ehPontual(e) && e.mesesMin > meses)
+    .sort((a, b) => a.mesesMin - b.mesesMin);
+  if (!futuras.length) return '';
+  const doMes = futuras.filter(e => e.mesesMin === futuras[0].mesesMin);
+  const consulta = doMes.find(e => e.categoria === 'consulta');
+  const principal = consulta || doMes[0];
+  const titulo = principal.titulo + (consulta && doMes.length > 1 ? ' e vacinas' : '');
+  const data = deISO(nasc); data.setMonth(data.getMonth() + principal.mesesMin);
+  const destino = destinoGuia(principal);
+  const dentro = `<span class="titulo"><span class="rotulo">A seguir:</span> ${escaparHtml(titulo)}</span>
+    <span class="quando">${daquiA(data)}</span>`;
+  return destino
+    ? `<a class="regua-seguinte" href="${destino}">${dentro}</a>`
+    : `<div class="regua-seguinte">${dentro}</div>`;
+}
+
+// ---------------------------------------------------------------- gavetas ---
+// As dicas da idade vivem em gavetas: o Hoje mostra o que é do dia e deixa o
+// resto a um toque. O que cada pessoa abre ou fecha fica lembrado no dispositivo
+// (fora do backup — é uma preferência de ecrã). As gavetas vão todas na mesma
+// folha (.gavetas), com um fio entre elas.
+
+// As linhas de uma gaveta. O rótulo da categoria só aparece quando muda de uma
+// linha para a seguinte, e nunca numa gaveta de uma só categoria: aí o título
+// da gaveta já o disse.
+function linhasDicas(grupo) {
+  const mista = new Set(grupo.map(e => e.categoria)).size > 1;
+  return grupo.map((e, i) =>
+    cartaoDica(e, null, true, mista && e.categoria !== grupo[i - 1]?.categoria)).join('');
+}
+
+const CHAVE_GAVETAS = 'papaya.gavetas';
+const ABERTAS_POR_OMISSAO = { 'nesta-idade': true, 'sinais': true };
+
+function gavetasGuardadas() {
+  try { return JSON.parse(localStorage.getItem(CHAVE_GAVETAS)) || {}; } catch { return {}; }
+}
+
+function gaveta(id, titulo, itens, html) {
+  if (!itens.length) return '';
+  const aberta = gavetasGuardadas()[id] ?? !!ABERTAS_POR_OMISSAO[id];
+  const previa = itens.map(e => e.titulo).join(' · ');
+  const sinal = id === 'sinais';
+  return `<details class="gaveta${sinal ? ' alerta' : ''}" data-gaveta="${id}" ${aberta ? 'open' : ''}>
+    <summary>${sinal ? icone('alerta') : ''}<span class="g-corpo"><span class="g-titulo">${titulo}</span>
+      <span class="g-previa">${escaparHtml(previa)}</span></span>
+      <span class="g-conta">${itens.length}</span>${icone('seta-baixo')}</summary>
+    <div class="lista">${html}</div>
+  </details>`;
+}
+
+function ligarGavetas(alvo) {
+  alvo.querySelectorAll('.gaveta').forEach(g => g.addEventListener('toggle', () => {
+    const guardadas = gavetasGuardadas(), id = g.dataset.gaveta;
+    // O toggle também dispara ao desenhar uma gaveta já aberta: só se guarda
+    // o que a pessoa mudou, para o estado por omissão poder evoluir.
+    if (g.open === (guardadas[id] ?? !!ABERTAS_POR_OMISSAO[id])) return;
+    guardadas[id] = g.open;
+    try { localStorage.setItem(CHAVE_GAVETAS, JSON.stringify(guardadas)); } catch { /* fica só nesta sessão */ }
+  }));
+}
+
+// ------------------------------------------------------------------- vista --
+
 export async function renderHoje(alvo) {
-  // O Hoje é a visão geral do dia: calendário, tarefas de hoje, dica do dia
-  // e dicas adequadas à idade. Cada bloco vai para o seu contentor.
-  alvo.innerHTML = '<div id="calRaiz"></div><div id="tarefasHoje"></div><div id="hojeCorpo"></div>';
+  // O Hoje é a visão geral do dia: a régua da idade, o calendário, as tarefas
+  // de hoje, a dica do dia e as dicas adequadas à idade. Cada bloco vai para o
+  // seu contentor.
+  alvo.innerHTML = `<div id="hojeRegua"></div>
+    <div class="lista acoes-hoje">
+      <button type="button" class="linha-acao" id="mamadaIniciar" hidden>
+        ${icone('biberao')}<span class="corpo"><span class="titulo">Temporizador de mamada</span>
+          <span class="sub">Avisa na hora da próxima</span></span>${icone('seta-dir')}
+      </button>
+      <div class="sono-linha" id="hojeSono"></div>
+    </div>
+    <div id="calRaiz"></div><div id="tarefasHoje"></div><div id="hojeCorpo"></div>`;
+  ligarBotaoMamada(alvo.querySelector('#mamadaIniciar'));
+  renderSonoHoje(alvo.querySelector('#hojeSono'));
+  const zonaRegua = alvo.querySelector('#hojeRegua');
   await renderCalendario(alvo.querySelector('#calRaiz'));
   renderTarefasHoje(alvo.querySelector('#tarefasHoje'));
   const corpo = alvo.querySelector('#hojeCorpo');
@@ -92,16 +233,22 @@ export async function renderHoje(alvo) {
   const pintar = html => {
     corpo.innerHTML = html;
     ligarCartoesChama(corpo, () => renderHoje(alvo));
+    ligarGavetas(corpo);
   };
 
   const { dataNascimento, nomeCrianca } = estado.definicoes;
   if (!dataNascimento) {
-    pintar(`<div class="vazio">Para veres dicas adequadas à idade,
-      indica a data de nascimento nas definições (⚙ no canto superior direito).</div>` + chama);
+    zonaRegua.innerHTML = `<div class="cartao vazio"><strong>Quando nasceu?</strong>
+      Com a data de nascimento, o Hoje mostra o que esperar em cada idade e marca
+      consultas e vacinas no calendário.
+      <button type="button" class="botao-principal" id="hojePedirData">Indicar a data</button></div>`;
+    zonaRegua.querySelector('#hojePedirData').onclick = () => document.querySelector('#botaoDefinicoes').click();
+    pintar(chama);
     return;
   }
   const lista = await carregarEntradas();
   const meses = idadeEmMeses(dataNascimento);
+  zonaRegua.innerHTML = htmlRegua(dataNascimento, lista);
 
   // Antes do nascimento: mostra o que há a preparar (entradas com meses negativos).
   if (meses < 0) {
@@ -109,7 +256,7 @@ export async function renderHoje(alvo) {
     pintar(
       `<div class="vazio">${escaparHtml(nomeCrianca || 'O bebé')} ainda vem a caminho.
         Aqui fica o que vale a pena adiantar.</div>` +
-      (preparar.length ? '<div class="subtitulo">A preparar</div>' + preparar.map(e => cartaoDica(e)).join('') : '') +
+      (preparar.length ? `<h2 class="subtitulo">A preparar</h2><div class="lista">${linhasDicas(preparar)}</div>` : '') +
       chama);
     return;
   }
@@ -129,27 +276,26 @@ export async function renderHoje(alvo) {
   const proximoMarco = futuras.length ? futuras[0].mesesMin : null;
   const proximas = futuras.filter(e => e.mesesMin === proximoMarco);
 
-  let html = '<div class="subtitulo">Dica do dia</div>' + cartaoDicaDia(await dicaDoDia(meses));
+  // A dica do dia não leva título: a etiqueta do cartão já diz o que é.
+  let html = cartaoDicaDia(await dicaDoDia(meses));
   html += chama;
   if (agora.length) {
-    html += '<div class="subtitulo">É este mês</div>' +
+    html += '<h2 class="subtitulo">É este mês</h2>' +
       agora.map(e => cartaoDica(e, 'agora')).join('');
   }
   const seccoes = [
-    ['Nesta idade', [...porCategoria('desenvolvimento'), ...porCategoria('estimulacao')]],
-    ['Saúde e rotinas', porCategoria('saude')],
-    ['Segurança', porCategoria('seguranca')],
-    ['Papelada e apoios', [...porCategoria('burocracia'), ...porCategoria('preparacao')]],
-    ['Sinais a vigiar', porCategoria('alerta')]
+    ['nesta-idade', 'Nesta idade', [...porCategoria('desenvolvimento'), ...porCategoria('estimulacao')]],
+    ['sinais', 'Sinais a vigiar', porCategoria('alerta')],
+    ['saude', 'Saúde e rotinas', porCategoria('saude')],
+    ['seguranca', 'Segurança', porCategoria('seguranca')],
+    ['papelada', 'Papelada e apoios', [...porCategoria('burocracia'), ...porCategoria('preparacao')]]
   ];
-  for (const [titulo, grupo] of seccoes) {
-    if (grupo.length) html += `<div class="subtitulo">${titulo}</div>` + grupo.map(e => cartaoDica(e)).join('');
+  let gavetas = '';
+  for (const [id, titulo, grupo] of seccoes) {
+    gavetas += gaveta(id, titulo, grupo, linhasDicas(grupo));
   }
-  if (proximas.length) {
-    html += '<div class="subtitulo">A seguir</div>' +
-      proximas.map(e => cartaoDica(e, rotuloMeses(e.mesesMin))).join('');
-  }
+  gavetas += gaveta('a-seguir', 'A seguir', proximas,
+    proximas.map(e => cartaoDica(e, rotuloMeses(e.mesesMin), true)).join(''));
+  if (gavetas) html += `<div class="lista gavetas">${gavetas}</div>`;
   pintar(html || '<div class="vazio">Sem dicas para esta idade — acrescenta entradas em dados/faixas-etarias.json.</div>');
 }
-
-const ehPontual = e => e.categoria === 'consulta' || e.categoria === 'vacina';
