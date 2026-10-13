@@ -1,12 +1,30 @@
 # Fontes, livros e sites recomendados
 
+## Revisão pontual de 13-10-2026
+
+Esta revisão conferiu preparação e conservação de fórmula, sono seguro e evidência do treino de sono, orientação sobre ibuprofeno, linguagem aos 18 meses, leitura partilhada, vacina Pn20, campanha VSR e alguns pontos da licença parental e Creche Feliz. Não certifica todos os conselhos nem todos os valores do guia. Nos capítulos, a data identifica apenas os temas revistos.
+
+- **Sono seguro:** AAP, *My baby has a stuffy nose. How can I help them sleep safely?* (2025), em HealthyChildren.org; Lullaby Trust, *Room temperature* e *Cold weather*, em lullabytrust.org.uk.
+- **Sinais de doença:** Bradford Teaching Hospitals NHS, *Caring for baby*, secções sobre doença grave e chamada de ambulância. Os contactos do guia são os de Portugal.
+- **Horas de sono:** OMS, *Guidelines on physical activity, sedentary behaviour and sleep for children under 5 years of age* (2019).
+- **Treino de sono:** Gradisar e colegas (2016), ensaio com 43 bebés de 6–16 meses, PMID 27221288 — https://pubmed.ncbi.nlm.nih.gov/27221288/ ; Price e colegas (2012), seguimento aos 6 anos, PMID 22966034 — https://pubmed.ncbi.nlm.nih.gov/22966034/ . Não extrapolar os resultados para todos os bebés e métodos.
+- **Ibuprofeno:** NHS, *Medicines for babies and children*; informação do titular de Brufen em Portugal, *Produtos*. Idade, peso, concentração e contraindicações confirmam-se no folheto do produto concreto e com o profissional de saúde.
+- **Fórmula:** NHS, *How to make up baby formula*; CDC, *Preventing Cronobacter in Infants*; OMS/FAO, *Safe preparation, storage and handling of powdered infant formula* (2007). A DGS 018/2013 foi consultada como orientação hospitalar histórica, sem a apresentar como recomendação doméstica atual.
+- **Linguagem:** CDC, *Milestones by 18 Months* — https://www.cdc.gov/act-early/milestones/18-months.html .
+- **Leitura:** AAP, *Literacy Promotion: An Essential Component of Primary Care Pediatric Practice* (2024), DOI 10.1542/peds.2024-069090.
+- **Vacinas:** DGS, Norma 013/2024 (Pn20 aos 2, 4 e 12 meses); Norma 004/2026 e perguntas frequentes da campanha VSR 2026–2027. Consulta o Livro Azul de Vacinas e a campanha do ano em curso em dgs.pt.
+- **Licença parental:** Código do Trabalho consolidado, artigos 40.º–43.º, em diariodarepublica.pt; gov.pt, *Licenças de parentalidade*. Há diferenças de redação sobre os dias facultativos: confirma as datas concretas com o empregador e a Segurança Social.
+- **Creche Feliz:** Garantia para a Infância, *Respostas 1.ª infância*, em garantiainfancia.gov.pt, confirma a migração de serviços para o Portal e a app da Segurança Social.
+
 ## Livros em português
+<!-- chaves: livros pais, Mário Cordeiro, livros bebés -->
 
 - **O Grande Livro do Bebé — O Primeiro Ano de Vida**, Mário Cordeiro (Esfera dos Livros). O clássico português: o pediatra mais conhecido do país cobre alimentação, sono, desenvolvimento, saúde e os momentos críticos do 1.º ano, com casos reais. A referência natural para complementar este guia no contexto português.
 - **O Livro da Criança — Do 1 aos 5 Anos**, Mário Cordeiro. A continuação natural: birras, linguagem, desfralde, creche.
 - **Dormir Tranquilo até de Manhã**, Eduard Estivill — método estruturado de treino de sono (polémico para alguns; lê com espírito crítico) — ou, em alternativa mais suave, **A Encantadora de Bebés** (Tracy Hogg).
 
 ## Livros internacionais (especialmente para pais)
+<!-- chaves: livros pai, Brott, livros parentalidade -->
 
 - **The New Father: A Dad's Guide to the First Year**, Armin A. Brott — o guia para pais mais recomendado, mês a mês: cuidados, sono, alimentação e também o que muda em ti.
 - **Be Prepared: A Practical Handbook for New Dads**, Gary Greenberg & Jeannie Hayden — "manual de sobrevivência" com humor e diagramas passo a passo; perfeito para quem gosta de instruções concretas.
@@ -23,6 +41,7 @@
 - Evidência: *Montessori education's impact on academic and nonacademic outcomes: a systematic review* (Campbell Systematic Reviews, 2023).
 
 ## Sites de confiança (para pesquisar sintomas e dúvidas)
+<!-- chaves: sites saúde, fontes, SNS, NHS, CDC -->
 
 - **SNS 24** — sns24.gov.pt — guias práticos de saúde infantil em português e a linha 808 24 24 24. Primeiro recurso em Portugal.
 - **HealthyChildren.org** — site oficial da Academia Americana de Pediatria (AAP) para pais; baseado em evidência, cobre praticamente tudo (em inglês e espanhol).
@@ -42,6 +61,7 @@
 - **Sociedade Portuguesa de Neuropediatria** — neuropediatria.pt — *Recomendações para a utilização de ecrãs e tecnologia digital em idade pediátrica* (2024): a posição portuguesa sobre ecrãs, e a mais restritiva das três grandes referências.
 
 ## Referências técnicas e oficiais (para confirmar informação)
+<!-- chaves: DGS, OMS, Infarmed, normas, evidência, bibliografia -->
 
 - **Direção-Geral da Saúde (DGS)** — dgs.pt — Programa Nacional de Vacinação e o **Livro Azul de Vacinas** (referencial técnico nacional desde 2025), normas e orientações. É aqui que se confirma o esquema de vacinas atual.
 - **SNS 24** — sns24.gov.pt — informação oficial ao cidadão e linha 808 24 24 24.

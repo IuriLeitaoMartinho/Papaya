@@ -132,7 +132,9 @@ function leitura(media, nDias) {
   const { dataNascimento } = estado.definicoes;
   const guia = capitulos.find(c => c.id === '06-sono')
     ? `<a class="ler-mais" href="#guia/06-sono/${slug(SECCAO_GUIA)}">Ler no guia${icone('seta-dir')}</a>` : '';
-  const frase = t => `<div class="sono-leitura"><p>${t}</p>${guia}</div>`;
+  // O aviso não depende da média: um valor dentro do intervalo não exclui doença.
+  const aviso = '<p>Se não acorda ou não responde, ou tem dificuldade marcada em respirar, liga <a href="tel:112">112</a>. Se está mais sonolento do que o habitual ou mama mal, procura avaliação sem esperar pela média: <a href="tel:808242424">SNS 24 — 808 24 24 24</a>.</p>';
+  const frase = t => `<div class="sono-leitura"><p>${t}</p>${aviso}${guia}</div>`;
 
   if (!dataNascimento) {
     return frase('Com a data de nascimento nas Definições, a média da semana passa a ser comparada com o que o guia indica para a idade.');
@@ -147,15 +149,15 @@ function leitura(media, nDias) {
   const abertura = `Em média ${dur(media)} por dia, nos ${nDias} dias inteiros com registos.`;
   if (media < faixa.min * HORA) {
     return frase(`${abertura} Fica abaixo das ${intervalo}. Basta um sono por registar para a média descer, e o
-      intervalo não é um objetivo: conta mais se o bebé acorda descansado e está bem-disposto de dia. Se andar
-      sempre irritado ou sonolento, leva estes registos à próxima consulta.`);
+      intervalo é uma referência, não uma avaliação de saúde. Se a diferença persistir, leva estes registos
+      à consulta; perante sinais de doença, pede ajuda mais cedo.`);
   }
   if (media > faixa.max * HORA) {
-    return frase(`${abertura} Fica acima das ${intervalo}. Há bebés que dormem mais do que a média. Se for
-      difícil acordá-lo para comer, ou se o achares prostrado, fala com o pediatra ou liga para o SNS 24
-      (808 24 24 24).`);
+    return frase(`${abertura} Fica acima das ${intervalo}. Confirma se as horas ficaram bem registadas.
+      O intervalo é uma referência e os registos não avaliam a saúde do bebé. Se a diferença persistir,
+      leva os registos à consulta.`);
   }
-  return frase(`${abertura} Está dentro das ${intervalo}.`);
+  return frase(`${abertura} Está dentro das ${intervalo}. Isto descreve apenas os sonos registados, não avalia a saúde do bebé.`);
 }
 
 // --------------------------------------------------------------- desenho ----

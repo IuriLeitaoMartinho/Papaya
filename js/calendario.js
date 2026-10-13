@@ -147,8 +147,8 @@ function marcosLicenca(nasc, modalidade) {
       'Pai: começam os 7 dias seguidos obrigatórios. Mãe: dia 1 da licença inicial.'),
     ev(7, 'Prazo: comunicar as licenças ao empregador',
       'Por escrito, até 7 dias após o parto' + (partilhada ? ', com a declaração conjunta de partilha' : '') + '.'),
-    ev(42, 'Dia 42: fim do período obrigatório da mãe',
-      'Também é o limite para o pai gozar os 28 dias obrigatórios e os 7 facultativos.')
+    ev(41, 'Dia 42: fim do período obrigatório da mãe',
+      'Terminam os 42 dias obrigatórios da mãe, contando o nascimento como dia 1. O pai deve completar os 28 dias obrigatórios na janela legal de 42 dias após o nascimento; os 7 facultativos podem ser gozados depois, durante a licença inicial da mãe.')
   ];
   if (partilhada) {
     lista.push(

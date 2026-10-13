@@ -31,6 +31,30 @@ Sem backend, sem contas: os dados vivem só no dispositivo (localStorage), com e
 
 O mesmo conteúdo (`conteudo/*.md`) alimenta também o PDF do guia — ver `gerar_pdf.py` duas pastas acima.
 
+## Revisão de conteúdo e verificações (13-10-2026)
+
+Primeira passagem da fase 2: palavras-chave nos 16 capítulos, correções de sono seguro,
+fórmula, ibuprofeno, linguagem/leitura, Pn20, VSR 2026–2027 e licença do pai. As alterações
+foram propagadas aos cartões do Hoje; estes alimentam também as vacinas do calendário.
+O «dia 42» da mãe usa nascimento +41, contando o nascimento como dia 1.
+
+O registo do sono distingue sinais para 112 de outros motivos para pedir avaliação; o aviso
+aparece mesmo quando a média está dentro do intervalo. Registos não fazem diagnóstico.
+
+Fontes, divergências e limites: `investigacao/revisao-publicacao-2026-10-13.md`.
+Cada aviso de revisão no guia identifica o âmbito realmente conferido. Não atualizar datas
+como se todo o capítulo tivesse sido revisto. Ainda falta a revisão integral de saúde/legislação,
+a limpeza editorial restante e a validação de publicação em dispositivos reais.
+
+Verificação sem dependências adicionais, a partir da pasta da app:
+
+```
+node tests/validar-conteudo.mjs
+```
+
+Exercita o parser e o motor reais: palavras-chave ocultas, destinos das 76 dicas, dez pesquisas
+com linguagem corrente e existência dos recursos offline. Não substitui teste pelos botões.
+
 ## Estrutura
 
 ```

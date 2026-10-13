@@ -1,6 +1,7 @@
 # O recém-nascido (0 aos 3 meses)
 
 ## Os primeiros dias em casa
+<!-- chaves: chegar a casa, primeiras noites, recém nascido -->
 
 - **O bebé perde peso na primeira semana** (até 7–10% do peso de nascimento) — é normal. Deve recuperá-lo até aos 10–15 dias.
 - Vai dormir 16–18 horas por dia, em períodos de 2–4 horas, **sem distinguir dia e noite**.
@@ -8,6 +9,7 @@
 - A **primeira consulta** deve acontecer na primeira semana de vida (centro de saúde ou pediatra), junto com o teste do pezinho (diagnóstico precoce, entre o 3.º e o 6.º dia).
 
 ## Cordão umbilical
+<!-- chaves: umbigo, coto, cordão umbilical, umbigo caiu, umbigo cheira mal -->
 
 - Cai normalmente entre o 5.º e o 15.º dia.
 - Mantém o coto **limpo e seco**. A recomendação atual é lavar com água e secar bem; em Portugal ainda se usa álcool a 70° em compressa — segue a indicação da tua maternidade.
@@ -15,6 +17,7 @@
 - **Sinal de alarme:** vermelhidão da pele à volta, mau cheiro, pus ou sangramento ativo — médico no próprio dia.
 
 ## O banho
+<!-- chaves: dar banho, lavar bebé, água do banho, primeiro banho -->
 
 - Não precisa de ser diário — 2 a 3 vezes por semana chega nos primeiros meses (lavando bem a zona da fralda todos os dias).
 - Água a **36–37 °C** — testa com o cotovelo ou termómetro de banho. Ambiente quente, sem correntes de ar.
@@ -23,6 +26,7 @@
 - Segura a cabeça com o antebraço; usa sabonete neutro, pouco, e só onde é preciso.
 
 ## Fraldas e o que sai delas
+<!-- chaves: cocó, xixi, não faz cocó, fraldas molhadas, mecónio, fezes verdes -->
 
 - Recém-nascido: 6–10 fraldas por dia. **Fraldas molhadas são o melhor sinal de que está a comer o suficiente.**
 - **Mecónio** (primeiros 2–3 dias): fezes pretas e pegajosas — normal.
@@ -32,6 +36,7 @@
 - **Alarme:** fezes brancas/acólicas, pretas (depois do mecónio) ou com sangue — mostrar ao médico (leva foto ou a fralda).
 
 ## O choro e as cólicas
+<!-- chaves: cólicas, gases, chora muito, choro ao fim do dia, acalmar bebé -->
 
 O choro é a única linguagem do bebé. Checklist mental, por ordem:
 
@@ -47,24 +52,28 @@ O choro é a única linguagem do bebé. Checklist mental, por ordem:
 > **Importante:** se o choro te ultrapassar, pousa o bebé em segurança no berço e sai do quarto 5 minutos para respirar. **Nunca abanes o bebé** — pode causar lesões cerebrais graves (síndrome do bebé abanado). Pedir ajuda é de bom pai.
 
 ## Vestir, temperatura e ambiente
+<!-- chaves: roupa, frio, calor, temperatura quarto, mãos frias -->
 
 - Regra prática: o bebé usa **mais uma camada do que tu**.
 - Temperatura do quarto ideal: **18–21 °C**. Sobreaquecer aumenta o risco de morte súbita.
 - Sem fumo em casa, nunca — nem "fumar à janela".
 
 ## A "acne do bebé", crostas e pele
+<!-- chaves: borbulhas, crosta láctea, pele seca, espinhas, acne neonatal -->
 
 - **Acne neonatal** (borbulhas na cara, semanas 2–6): normal, desaparece sozinha, não espremer nem pôr cremes.
 - **Crosta láctea** (placas amareladas no couro cabeludo): amolece com óleo de amêndoas doces ou vaselina, remove suavemente com escova macia na hora do banho. Inofensiva.
 - **Pele a descamar** na primeira semana: normal, sobretudo em bebés que nasceram depois das 40 semanas.
 
 ## Icterícia (pele amarelada)
+<!-- chaves: bebé amarelo, olhos amarelos, pele amarela, bilirrubina -->
 
 - Muito frequente a partir do 2.º–3.º dia; nota-se primeiro na cara e nos olhos.
 - Normalmente desaparece em 1–2 semanas (mais em bebés amamentados).
 - **Vigiar/contactar médico se:** o amarelo desce para a barriga e pernas, o bebé está sonolento demais e mama mal, ou se a icterícia aparece nas **primeiras 24 horas** de vida (isto é sempre urgente).
 
 ## A mãe também precisa de ti
+<!-- chaves: pós-parto, mãe triste, apoio à mãe, recuperação -->
 
 - As primeiras semanas são duras: privação de sono, hormonas, recuperação física do parto.
 - O "baby blues" (choro fácil, irritabilidade) é normal nas primeiras 2 semanas. Se a tristeza persistir, agravar, ou houver desinteresse pelo bebé — pode ser **depressão pós-parto**: incentiva e acompanha-a a procurar ajuda médica. Também existe depressão pós-parto **no pai** (ver capítulo Ser pai).

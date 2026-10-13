@@ -1,8 +1,11 @@
 # Emergências e sinais de alarme
 
+> **Revisão pontual: 13-10-2026** — orientação sobre ibuprofeno. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
+
 > **Números essenciais — grava-os já no telemóvel:** Emergência: **112** | SNS 24: **808 24 24 24** | Centro de Informação Antivenenos (intoxicações): **800 250 250** | Pediatra / Centro de saúde: _(escreve aqui)_ | Farmácia de serviço: _(escreve aqui)_
 
 ## Liga 112 imediatamente se o bebé
+<!-- chaves: não respira, não acorda, não responde, bebé azul, lábios roxos, desmaiou, emergência, ambulância, engasgou -->
 
 - Está **azulado** (lábios, língua) ou muito pálido/acinzentado.
 - **Não responde**, está muito mole ("boneco de trapos") ou impossível de acordar.
@@ -13,6 +16,7 @@
 - Tem **manchas na pele tipo picada de alfinete ou nódoas negras que não desaparecem quando pressionas com um copo de vidro** (suspeita de meningite/sépsis).
 
 ## Vai à urgência pediátrica (sem esperar) se
+<!-- chaves: febre recém-nascido, vómito verde, não mama, fralda seca, desidratação, urgência pediátrica -->
 
 - **Febre num bebé com menos de 3 meses** (≥ 38,0 °C retal). Nesta idade, febre é sempre caso de urgência — não dês medicamentos por iniciativa própria antes da observação.
 - Febre que **não baixa com antipiréticos** e o bebé continua prostrado mesmo sem febre alta.
@@ -27,6 +31,7 @@
 - Suspeita de **ingestão de medicamentos, produtos de limpeza, pilhas ou ímanes** — liga primeiro ao Centro Antivenenos (800 250 250); pilhas de botão são emergência imediata.
 
 ## Pode esperar pelo SNS 24 ou consulta no próprio dia
+<!-- chaves: SNS 24, ligar ao médico, dúvida de saúde, consulta no próprio dia -->
 
 - Febre em bebé com **mais de 3 meses**, bem disposto nos períodos sem febre, a comer e a reagir.
 - Tosse e ranho sem dificuldade respiratória.
@@ -35,10 +40,12 @@
 - Dúvidas de alimentação, sono, obstipação, irritações da pele.
 
 ## A regra mais importante
+<!-- chaves: prostrado, apático, estado geral, muito mole, diferente do habitual -->
 
 Mais do que o número no termómetro, conta o **estado geral**: um bebé que sorri, reage, come e tem períodos em que brinca, raramente está em perigo imediato. Um bebé apático, que não fixa o olhar, não reage a ti, gemido, muito irritável ou "diferente do normal dele" — isso é sinal de alarme, mesmo com febre baixa. **Confia no teu instinto: tu conheces o teu filho melhor do que ninguém.**
 
 ## O que fazer numa convulsão febril
+<!-- chaves: convulsão, ataque, tremores, corpo rígido, olhos revirados -->
 
 1. Mantém a calma — a maioria dura menos de 5 minutos e não deixa sequelas.
 2. Deita o bebé **de lado**, numa superfície segura, longe de objetos.
@@ -48,10 +55,11 @@ Mais do que o número no termómetro, conta o **estado geral**: um bebé que sor
 6. Mesmo que passe rapidamente, o bebé deve ser observado por um médico nesse dia.
 
 ## Kit de farmácia para ter em casa
+<!-- chaves: farmácia, termómetro, medicamentos, ibuprofeno, paracetamol, dose, soro fisiológico -->
 
 - Termómetro digital (retal é o mais fiável em bebés pequenos).
 - Paracetamol em xarope ou supositórios (dose **por peso** — confirma com o pediatra e aponta aqui: _____ ).
-- Ibuprofeno em xarope (habitualmente **a partir dos 6 meses**; a dose é por peso, não por idade: _____ ).
+- Ibuprofeno: confirma se o produto é adequado à idade e ao peso; **antes dos 6 meses, pede orientação médica**. Não dar em caso de desidratação ou varicela, salvo indicação médica. Regista a dose e o intervalo indicados: _____.
 - Soro fisiológico (monodoses) e aspirador nasal.
 - Solução de reidratação oral (saquetas, tipo Redrate/Dioralyte).
 - Compressas esterilizadas, pensos, desinfetante (clorohexidina).

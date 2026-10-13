@@ -1,5 +1,7 @@
 # Ser pai — o lado que ninguém te conta
 
+> **Revisão pontual: 13-10-2026** — leitura partilhada. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
+
 ## As primeiras semanas
 
 - Vais sentir-te inútil às vezes (sobretudo se a mãe amamenta). Não és: **tudo o resto é teu** — fraldas, arrotos, banho, adormecer, casa, comida, visitas, farmácia. O bebé vincula-se a quem cuida dele, não só a quem o alimenta.
@@ -48,7 +50,7 @@ Notas práticas, para isto não virar mais uma fonte de stress:
 
 ## Tempo de qualidade que cabe na vida real
 
-- **Ler todos os dias desde bebé** — 10 minutos chegam; é o melhor preditor de linguagem e o ritual mais fácil de manter à noite.
+- **Partilhar livros desde o nascimento** — aponta, conversa e segue o interesse do bebé. Uns minutos que caibam na rotina são um começo; não há uma dose obrigatória de 5 ou 10 minutos.
 - Rotinas pequenas que são "do pai": o banho, o passeio de sábado de manhã (a mãe dorme), a canção de embalar. Consistência > duração.
 - Brincadeira física (no chão, "lutas", atirar ao ar com juízo) — os estudos associam o "rough and tumble play" típico dos pais a melhor autorregulação e confiança das crianças.
 - Telemóvel longe quando estás com ele. Ele sabe quando estás "presente mas ausente".

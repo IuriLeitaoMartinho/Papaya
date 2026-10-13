@@ -1,5 +1,7 @@
 # Desenvolvimento (0 aos 24 meses)
 
+> **Revisão pontual: 13-10-2026** — marco de linguagem aos 18 meses e leitura partilhada. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
+
 > **Antes de comparar o teu filho com tabelas:** cada bebé tem o seu ritmo, e a margem normal é muito maior do que as tabelas populares sugerem (o "andar sozinho" tem uma janela de nove meses de largura). Os marcos abaixo indicam o que **a maioria** das crianças faz naquela idade. Um marco isolado em atraso raramente é problema; um conjunto de atrasos, ou perder competências que já tinha, justifica falar com o médico. As consultas de vigilância do SNS avaliam exatamente isto, com a Escala de Mary Sheridan Modificada e a lista oficial de sinais de alarme do Programa Nacional de Saúde Infantil e Juvenil (PNSIJ, Norma DGS n.º 010/2013) — a mesma lista que está mais abaixo neste capítulo.
 >
 > **Fontes principais:** PNSIJ/DGS (Norma n.º 010/2013), OMS (diretrizes de atividade física, comportamento sedentário e sono para menores de 5 anos, 2019, e o estudo de desenvolvimento motor), American Academy of Pediatrics, CDC (marcos revistos em 2022) e Sociedade Portuguesa de Neuropediatria (2024, ecrãs). Verificado em setembro de 2026 — ver capítulo Fontes.
@@ -123,7 +125,7 @@ Uma criança que anda aos 9 meses e outra que anda aos 17 estão ambas dentro da
 
 - **Anda sozinho** (a janela normal vai dos 8,2 aos 17,6 meses — ver a tabela acima).
 - Pinça fina perfeita; procura o objeto escondido; dá pelo nome; compreende ordens simples.
-- 5–20 palavras aos 18 meses (o PNSIJ regista 6 a 26 palavras reconhecíveis); compreende muito mais do que diz.
+- Aos 18 meses, os CDC incluem como marco **tentar dizer pelo menos três palavras além de "mamã" e "papá"**. É um sinal para acompanhar o desenvolvimento, não uma média de vocabulário nem um diagnóstico. Se não o observas, se tens outras preocupações ou se perdeu competências, fala com o médico.
 - Aponta para partes do corpo; usa colher (mal, mas usa); bebe por copo.
 - Empilha 2–3 cubos; rabisca; gosta de encaixes simples.
 - Começam as **birras**: o cérebro emocional dispara antes de o racional existir. É desenvolvimento, não malcriação (ver capítulo Ser pai).
@@ -268,7 +270,7 @@ A leitura partilhada é das poucas atividades deste capítulo com evidência de 
 
 Dois achados que contrariam expectativas comuns:
 
-1. **A dose importa.** Doses baixas tiveram impacto mínimo. Ler de vez em quando não produz o efeito; ler com regularidade produz. **Cinco minutos por dia valem mais do que meia hora ao sábado.**
+1. **Faz da leitura um hábito partilhado.** A AAP recomenda começar desde o nascimento e integrar livros e conversa nas rotinas. Cinco ou dez minutos podem ser uma forma prática de começar; não são doses mínimas comprovadas nem garantias de um resultado.
 2. **A escolaridade do cuidador e a idade da criança não mudaram o resultado.** O benefício não depende de seres bom leitor nem de ele já "perceber a história".
 
 **A partir de quando:** aos 6 meses o livro é sobretudo um objeto para manipular e uma desculpa para ouvir a tua voz — e isso já cumpre a função. Aos 18 meses vira várias páginas de cada vez; aos 2 anos vira uma de cada vez, reconhece detalhes e nomeia figuras.
@@ -353,7 +355,7 @@ Tudo o que está neste capítulo cabe num dia normal sem acrescentar **uma únic
 
 1. **O chão é o sítio por defeito.** Entre mamadas, mudas e sestas, o lugar por omissão do bebé acordado é uma superfície firme onde possa mexer-se. Cadeirinhas, ovo e carrinho são para transportar: nunca mais de 1 hora seguida. Para quem ainda não se desloca, parte desse tempo é de barriga para baixo — pelo menos 30 minutos por dia no total.
 2. **Falar é a atividade, não o acompanhamento da atividade.** Fala sobre tudo o que estás a fazer e, sobretudo, **espera pela vez dele**.
-3. **Uma vez por dia, um livro.** Cinco minutos diários valem mais do que meia hora ao sábado.
+3. **Um livro na rotina.** Lê e conversa sobre as imagens enquanto houver interesse, sem uma meta obrigatória de minutos.
 4. **As rotinas de transição são a estrutura do dia.** O ritual de adormecimento deve ser dado por ti e **não depender de elementos externos, como a televisão ou o automóvel**.
 
 **O que não precisa de existir no dia:** ecrãs, andarilhos, brinquedos eletrónicos, sessões de estimulação, música de fundo permanente.

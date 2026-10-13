@@ -3,6 +3,7 @@
 > Os acidentes são a principal causa de morte evitável em crianças. Quase todos se previnem com antecipação: o truque é proteger **antes** de o bebé ganhar a competência seguinte (rolar, gatinhar, trepar) — ele ganha-a sempre no dia em que menos esperas.
 
 ## Transporte no carro
+<!-- chaves: ovo, cadeira auto, cadeirinha, i-Size, carro, contramarcha -->
 
 - **Sempre** em cadeirinha homologada (norma R129/i-Size), mesmo em viagens de 500 metros. No colo, nunca.
 - **Voltado para trás o máximo de tempo possível** — obrigatório até aos 15 meses (R129), recomendado até aos 4 anos. É a medida com maior impacto na segurança.
@@ -11,6 +12,7 @@
 - **Nunca deixar o bebé sozinho no carro** — nem "só 2 minutos"; o golpe de calor mata em minutos. Cria o hábito de pôr o telemóvel/carteira no banco de trás.
 
 ## À prova de bebé, por fase
+<!-- chaves: tomadas, escadas, janelas, pilhas, ímanes, afogamento, casa segura -->
 
 **Antes de rolar (0–4 meses):**
 - Nunca sozinho em superfícies altas (muda-fraldas, cama, sofá) — a primeira queda acontece tipicamente "no dia em que aprendeu a rolar".
@@ -33,10 +35,12 @@
 - Portas de casa de banho fechadas; tampa da sanita travada se necessário.
 
 ## Queimaduras — o que fazer
+<!-- chaves: queimou, escaldão, água quente, queimadura, queimado -->
 
 Água corrente **fria (não gelada) durante 20 minutos** sobre a queimadura, retirar roupa não colada e adornos. **Não** aplicar gelo, manteiga, pasta de dentes nem rebentar bolhas. Cobrir com compressa limpa. **Urgência:** bolhas maiores que uma moeda, queimadura na cara/mãos/genitais/articulações, queimadura elétrica ou química, ou qualquer queimadura num bebé < 12 meses.
 
 ## Engasgamento — manobras (lê isto hoje, treina mentalmente)
+<!-- chaves: engasgou, engasgo, sufocar, objeto garganta, pancadas costas, Heimlich -->
 
 **Se tosse com força, chora ou respira:** não interferir, deixar tossir, vigiar.
 
@@ -52,6 +56,7 @@
 **Não** metas dedos à procura do objeto às cegas — só remove o que vires claramente.
 
 ## Reanimação (SBV pediátrico) — esqueleto para leigos
+<!-- chaves: não respira, inconsciente, reanimar, compressões, SBV, RCP, insuflações -->
 
 1. Verifica resposta (estimula, chama). Sem resposta: grita por ajuda.
 2. Abre a via aérea (inclinação suave da cabeça, posição neutra no bebé) e verifica respiração ≤ 10 s.
@@ -62,12 +67,14 @@
 > **Faz um curso prático de SBV pediátrico e desobstrução** (Cruz Vermelha, hospitais privados e câmaras municipais dão cursos de 3–4 h para pais). É o melhor investimento de segurança que podes fazer — este texto não substitui o treino das mãos.
 
 ## Sol e calor
+<!-- chaves: protetor solar, calor, sol, verão, desidratação -->
 
 - < 6 meses: sol direto, nunca; sombra, chapéu, roupa leve. Protetor solar evitar antes dos 6 meses (zonas pequenas expostas, mineral, se inevitável).
 - > 6 meses: protetor mineral 50+, chapéu, evitar 11h–17h. Hidratação extra no calor.
 - Nunca tapar o carrinho com fralda/manta para "fazer sombra" — transforma-o numa estufa; usar sombrinha/para-sol ventilado.
 
 ## Animais e visitas
+<!-- chaves: cão, gato, visitas, beijos, herpes -->
 
 - Cão/gato: nunca sozinhos com o bebé, por mais confiável que o animal seja; introduções graduais.
 - Visitas: mãos lavadas antes de pegar; ninguém com tosse/herpes labial beija o bebé (herpes neonatal é grave); o direito de dizer "hoje não" é teu.

@@ -3,6 +3,7 @@
 Este guia foi feito para ser **prático**: não é para ler de uma ponta à outra, é para consultar quando precisas.
 
 ## Como encontrar o que procuras
+<!-- chaves: pesquisar, procurar, índice, ajuda, como usar a app -->
 
 - **Tens uma urgência ou dúvida se é grave?** Vai direto ao capítulo **Emergências e sinais de alarme** (capítulo 2). Está no início de propósito.
 - **Estás a preparar a mala da maternidade?** Vai ao capítulo **A mala da maternidade** (capítulo 3), com checklists para a mãe, o bebé, o pai e a casa.
@@ -12,10 +13,11 @@ Este guia foi feito para ser **prático**: não é para ler de uma ponta à outr
 - **No computador ou telemóvel:** usa Ctrl+F (ou a lupa no leitor de PDF) e escreve a palavra — por exemplo "febre", "cólicas", "engasgamento". Todo o texto do PDF é pesquisável.
 
 ## Regras de ouro deste guia
+<!-- chaves: fontes, informação médica, revisão, emergência -->
 
 - Este guia **não substitui médicos**. Serve para saberes o que é normal, o que fazer em casa e, sobretudo, **quando pedir ajuda**.
 - Em Portugal, na dúvida: **SNS 24 — 808 24 24 24**. Em emergência: **112**.
-- A medicina muda. As doses, vacinas e recomendações devem ser confirmadas com o pediatra ou médico de família. As fontes usadas estão no último capítulo — o conteúdo é cruzado com fontes oficiais e técnicas (DGS/SNS 24, OMS, Manuais MSD, Cochrane, Infarmed/CIM). A última verificação de dados sensíveis (esquema de vacinas, doses, prazos legais) foi feita em julho de 2026; confirma sempre o esquema em vigor.
+- A medicina muda. Confirma medicamentos, vacinas e recomendações com quem segue o bebé. As datas de **revisão pontual** identificam os temas efetivamente conferidos; não certificam o guia inteiro. As fontes e o âmbito da revisão estão no capítulo Fontes.
 
 ## Como atualizar este documento
 

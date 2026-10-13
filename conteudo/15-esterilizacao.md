@@ -230,7 +230,7 @@ As diretrizes da OMS/FAO (2007) estabelecem que os utilizadores devem ser inform
 
 **Onde está a bactéria.** É ubíqua no ambiente e sobrevive bem em ambientes secos, o que explica a presença em pós. Já foi recuperada de fórmula em pó já aberta, peças de bombas, superfícies do lava-loiça, chupetas, biberões, utensílios e sacos de aspirador. Em investigações do CDC, **a fórmula em pó já aberta é o veículo mais frequentemente identificado**; a contaminação raramente ocorre em embalagens fechadas ou nas fábricas.
 
-**Consequência prática:** esterilizar o biberão elimina o que está no biberão, não o que vem dentro da lata. Por isso as diretrizes combinam três medidas: **equipamento limpo e desinfetado**, **um passo letal na preparação** (temperatura da água) e **minimizar o tempo entre preparação e consumo**, conservando o leite preparado a 5 graus ou menos.
+**Consequência prática:** esterilizar o biberão elimina o que está no biberão, não o que vem dentro da lata. Por isso as diretrizes combinam três medidas: **equipamento limpo e desinfetado**, **um passo letal na preparação** (temperatura da água) e **minimizar o tempo entre preparação e consumo**, refrigerando rapidamente as tomas que não forem usadas de imediato. Neste guia adota-se o limite conservador de **4 °C ou menos**, por até 24 horas desde a preparação; a OMS indica até 5 °C.
 
 **Para lactentes de maior risco**, a OMS/FAO e a DGS convergem: quando disponível, **usar fórmula líquida estéril pronta a usar**, que elimina o problema na origem.
 
@@ -238,17 +238,17 @@ As diretrizes da OMS/FAO (2007) estabelecem que os utilizadores devem ser inform
 
 <!-- chaves: temperatura da água, 70 graus, água a ferver, preparar biberão, reconstituição, ESPGHAN, OMS -->
 
-**Existe uma divergência institucional genuína e não resolvida entre a OMS e as sociedades científicas europeias, e a DGS reconhece-a expressamente.**
+**As fontes têm datas e âmbitos diferentes.** Para preparar em casa, segue o passo a passo de "Preparar o biberão em segurança", no capítulo Alimentação. O contexto abaixo explica as diferenças documentadas; não estabelece uma alternativa doméstica à orientação OMS/NHS.
 
 **OMS/FAO (2007):** reconstituir a fórmula com água a **não menos de 70 graus**, porque essa temperatura inativa o *Cronobacter* presente no pó — e a redução de risco mantém-se mesmo com tomas prolongadas (até duas horas) e climas quentes. O NHS adotou esta recomendação.
 
-**Posição contrária:** a **ESPGHAN**, num comentário do Comité de Nutrição de 2004, considerou que a água quente pode inativar vitaminas e destruir estirpes probióticas da fórmula. A **AFSSA** francesa recomenda reconstituição a frio, com água engarrafada própria para bebés.
+**Contexto histórico:** a Orientação DGS de 2013 descreve reservas da ESPGHAN quanto ao efeito da água quente na qualidade nutricional e refere a reconstituição a frio recomendada pela antiga AFSSA francesa. Esta leitura indireta e datada não confirma as posições atuais dessas entidades nem da Sociedade Portuguesa de Pediatria.
 
 **Posição da DGS.** A Orientação n.º 018/2013 assume o conflito: escreve que "no que se refere à temperatura da água não há consenso", enumera as posições, nota que **a recomendação dos fabricantes difere de todas elas** e conclui que se deve **seguir a recomendação do fabricante**, exceto em situações de surto. Esta Orientação dirige-se a ambiente hospitalar.
 
 **O que se sabe empiricamente.** Um estudo que contaminou fórmula com níveis baixos de *Salmonella* e *C. sakazakii* observou sobrevivência de ambos a 70 graus, sugerindo que a recomendação pode não ser suficiente em condições reais. Do outro lado, um estudo comunitário britânico encontrou que apenas 14,9% das máquinas de preparação de biberões produziam água a 70 graus ou mais, contra 78,3% de quem usava chaleira — muitas famílias julgam cumprir a recomendação e não a cumprem.
 
-**Como decidir.** É um ponto para discutir com o pediatra ou o enfermeiro, conforme a idade e a saúde do bebé. O que é comum a todas as posições: **preparar na altura, consumir de imediato, não guardar à temperatura ambiente** e, se for mesmo preciso adiantar, arrefecer depressa e conservar no frigorífico a 5 graus ou menos por um máximo de 24 horas, aquecendo uma única vez. **Água engarrafada não é estéril.**
+**Como decidir.** As instruções práticas e os limites de conservação estão no capítulo Alimentação, em "Preparar o biberão em segurança". Para bebés de maior risco ou fórmulas com instruções especiais, combina a preparação com a equipa que segue o bebé. **Água engarrafada não é estéril.**
 
 ## Prematuros e bebés de maior risco
 
@@ -460,9 +460,9 @@ Os tubos, usados corretamente, não contactam com o leite e não precisam de lim
 
 Transparência sobre os limites desta investigação:
 
-- **Não existe orientação da DGS dirigida a pais** sobre esterilização doméstica. O que existe é hospitalar.
+- **Não foi localizada nesta revisão uma orientação da DGS dirigida a pais** sobre esterilização doméstica; a Orientação 018/2013 consultada é hospitalar. Não localizar não prova que não exista.
 - **O estatuto atual da Orientação DGS 018/2013 não foi confirmado.** Tem mais de dez anos e não foi encontrada em listas de documentos revogados, mas também não se confirmou que se mantém em vigor.
-- **A posição atual da ESPGHAN sobre os 70 graus não foi verificada no original** — o comentário citado é de 2004 e chega através da DGS e de fontes secundárias. É o ponto mais frágil e coincide com um dos de maior risco.
+- **A posição atual da ESPGHAN sobre os 70 °C não foi confirmada no original.** O texto histórico é apresentado como tal; a orientação doméstica deste guia é atribuída à OMS/NHS, sem a transformar num consenso de todas as entidades.
 - **Não há dados portugueses de incidência de infeção por Cronobacter** — os números são norte-americanos.
 - **Os esterilizadores UV não foram avaliados** por nenhuma fonte de autoridade primária localizada.
 - **A norma EN 1400** (segurança de chupetas) não foi consultada, por ser paga.

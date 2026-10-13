@@ -1,8 +1,9 @@
 # Burocracia ao nascer (Portugal)
 
-> Tudo o que o Estado precisa de ti nas primeiras semanas, por ordem de urgência. Informação confirmada em julho de 2026 no guia oficial gov.pt ("Ter uma criança"), Segurança Social e Portal das Finanças. **Valores e escalões mudam quase todos os anos** — confirma sempre nos sites oficiais antes de contar com um apoio. A licença parental tem capítulo próprio.
+> Tudo o que o Estado precisa de ti nas primeiras semanas, por ordem de urgência. **Revisão pontual: 13-10-2026**, para os canais da Creche Feliz (fonte: Garantia para a Infância). Os restantes prazos e valores mantêm a revisão anterior, de julho de 2026: confirma-os nos serviços oficiais. A licença parental tem capítulo próprio.
 
 ## Checklist rápida por prazo
+<!-- chaves: papelada bebé, documentos nascimento, prazos, checklist -->
 
 | Quando | O quê | Onde |
 |---|---|---|
@@ -15,6 +16,7 @@
 | Janeiro a março seguinte | Comunicar o agregado familiar | Portal das Finanças |
 
 ## 1. Registo de nascimento (o primeiro de todos)
+<!-- chaves: registar bebé, certidão nascimento, nascer cidadão, 20 dias -->
 
 **Obrigatório, gratuito e até 20 dias** após o nascimento. Duas formas:
 
@@ -24,6 +26,7 @@
 Leva/tem à mão: cartões de cidadão dos pais e o nome escolhido (se forem casados há menos tempo do que a discussão sobre o nome, resolvam isso antes). Se os pais não forem casados, a **filiação paterna** estabelece-se com a presença do pai no ato do registo (ou declaração posterior).
 
 ## 2. Número de utente e centro de saúde
+<!-- chaves: número utente, médico família, centro saúde, nascer utente -->
 
 Com o programa **Nascer Utente**, o bebé recebe **número de utente automaticamente** com o registo — nenhum recém-nascido deve sair da maternidade sem registo e sem número de utente.
 
@@ -32,12 +35,14 @@ Com o programa **Nascer Utente**, o bebé recebe **número de utente automaticam
 - Confirma no centro de saúde na **primeira consulta (1.ª semana)** que está tudo certo — e aproveita para marcar as seguintes.
 
 ## 3. Cartão de Cidadão do bebé
+<!-- chaves: cartão cidadão bebé, NIF, NISS, documento identidade -->
 
 Obrigatório a partir do **20.º dia** de vida e **gratuito até ao primeiro aniversário** (aproveita a janela). Pede-se durante o registo online ou numa Loja de Cidadão / conservatória, com a presença de quem exerce as responsabilidades parentais. Serve também como documento de viagem dentro da UE (para fora, é preciso passaporte).
 
 O Cartão de Cidadão traz o **NIF** (Finanças), o **número de utente** (Saúde) e o **NISS** (Segurança Social) do bebé — não precisas de os pedir separadamente.
 
 ## 4. Segurança Social
+<!-- chaves: abono família, subsídio parental, garantia infância, seis meses -->
 
 Tudo se trata na **Segurança Social Direta** (seg-social.pt). Se ainda não tens acesso, pede a senha — vais precisar dela muitas vezes.
 
@@ -47,6 +52,7 @@ Tudo se trata na **Segurança Social Direta** (seg-social.pt). Se ainda não ten
 - **Garantia para a Infância:** complemento ao abono para crianças em famílias em risco de pobreza (1.º escalão, com limite de rendimento anual). Vale a pena verificar se te aplicas.
 
 ## 5. Finanças
+<!-- chaves: IRS, agregado familiar, e-fatura, NIF bebé, retenção fonte -->
 
 - **Comunicar o agregado familiar:** o bebé entra no teu agregado para efeitos de IRS. A comunicação faz-se no **Portal das Finanças** (IRS → Dados do agregado familiar), no ano seguinte ao nascimento, tipicamente **entre 1 de janeiro e meados de fevereiro/início de março** — confirma a data-limite do ano em causa, porque muda. Sem isto, perdes deduções.
 - **Retenção na fonte:** avisa os recursos humanos de que tens um dependente. As tabelas de retenção têm valores diferentes com dependentes, e cada filho reduz a taxa — é dinheiro que fica no teu salário todos os meses em vez de esperar pelo reembolso.
@@ -54,6 +60,7 @@ Tudo se trata na **Segurança Social Direta** (seg-social.pt). Se ainda não ten
 - Verifica também o **e-fatura** de vez em quando, para classificar despesas pendentes.
 
 ## 6. Creche
+<!-- chaves: creche feliz, creche gratuita, vaga creche, inscrição creche, app segurança social -->
 
 O programa **Creche Feliz** garante creche **gratuita** para crianças **nascidas a partir de 1 de setembro de 2021**, sem condição de rendimentos, na rede social e solidária. A partir dos **4 meses** de idade e até aos 3 anos.
 
@@ -62,6 +69,7 @@ O programa **Creche Feliz** garante creche **gratuita** para crianças **nascida
 - **Inscreve-te muito cedo** — em muitas zonas as vagas esgotam com meses de antecedência. Não é raro inscrever ainda durante a gravidez.
 
 ## 7. Outras coisas que vale a pena tratar
+<!-- chaves: seguro saúde bebé, ADSE, tutela, testamento -->
 
 - **Seguro de saúde:** a maioria das apólices permite incluir o bebé sem período de carência **se o fizeres nos primeiros 30 dias**. Passado esse prazo, entram as carências normais. Liga à seguradora na primeira semana.
 - **ADSE ou subsistemas** (se aplicável): inscrever o filho como beneficiário familiar.
@@ -70,6 +78,7 @@ O programa **Creche Feliz** garante creche **gratuita** para crianças **nascida
 - **Testamento e tutela:** ninguém quer pensar nisto, mas se tens património ou família complicada, é agora que faz sentido falar com um advogado ou notário.
 
 ## Erros que custam dinheiro (ou tempo)
+<!-- chaves: prazo abono, prazo seguro, documentos digitais -->
 
 - **Falhar o prazo do abono de família** (6 meses) — o apoio não é retroativo, começa no mês seguinte ao pedido.
 - **Não comunicar o agregado às Finanças** no ano seguinte — perdes deduções de despesas do bebé.

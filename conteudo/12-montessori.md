@@ -3,6 +3,7 @@
 > Montessori não é uma escola cara nem brinquedos de madeira bonitos: é uma forma de olhar para a criança. A frase que resume tudo é do próprio método: **"ajuda-me a fazer sozinho"**. Este capítulo explica os princípios e dá aplicações concretas, idade a idade, para fazer em casa com o que já tens.
 
 ## O que é (e o que não é)
+<!-- chaves: Montessori, pedagogia, método, autonomia -->
 
 Maria Montessori (1870–1952) foi das primeiras médicas italianas e construiu o método a partir da **observação científica de crianças**. As ideias centrais para os 0–2 anos:
 
@@ -15,6 +16,7 @@ O que Montessori **não** é: não é deixar a criança fazer tudo (há liberdad
 **E a evidência?** Uma revisão sistemática de 2023 (Campbell Collaboration, 32 estudos) encontrou efeitos positivos modestos a moderados da educação Montessori em resultados académicos e não académicos (funções executivas, criatividade, competências sociais). A investigação é sobre escolas; para casa, o que está bem estabelecido é o que o método recomenda de qualquer forma: linguagem rica, autonomia apoiada, menos ecrãs, mais mãos na massa.
 
 ## Os seis princípios para usar em casa
+<!-- chaves: princípios Montessori, observar bebé, respeitar ritmo -->
 
 1. **Respeito:** trata o bebé como uma pessoa, não como um objeto de cuidados. Avisa antes de pegar ("vou pegar-te ao colo"), fala durante o banho e a muda da fralda, espera a resposta dele. Parece estranho com 2 meses; aos 18 meses percebes que ele sempre esteve a ouvir.
 2. **Observação:** antes de intervir, observa 10 segundos. O que está ele a tentar fazer? Consegue quase? A regra prática: **nunca interrompas concentração** — se está absorto a estudar as mãos ou a encher e despejar um copo, esse é o "trabalho" dele.
@@ -24,6 +26,7 @@ O que Montessori **não** é: não é deixar a criança fazer tudo (há liberdad
 6. **Movimento livre:** máximo tempo no chão, mínimo em "contentores" (espreguiçadeira, baloiço, parque fechado). A regra oficial da OMS dá-te o teto: **nunca mais de 1 hora seguida** em carrinho, ovo, cadeira de papa ou qualquer equipamento que restrinja o movimento (ver capítulo Desenvolvimento). Não coloques o bebé em posições que ele ainda não alcança sozinho — sentado com almofadas, em pé pelas mãos. Ele chega lá pela ordem certa dele. (Aqui Montessori é mais estrito do que o programa da DGS, que aos 6 meses admite "sentá-lo com apoio" em períodos curtos e vigiados, para ele participar no que se passa à volta. A divergência é pequena e o critério é o mesmo: períodos curtos, nunca horas numa cadeira.)
 
 ## O ambiente preparado, divisão a divisão
+<!-- chaves: quarto Montessori, cama chão, espelho, prateleira, organizar casa -->
 
 A pergunta-guia: **ajoelha-te à altura dele e olha em volta** — o que é que ele vê e alcança?
 
@@ -36,6 +39,7 @@ A pergunta-guia: **ajoelha-te à altura dele e olha em volta** — o que é que 
 > **Espaço "sim":** pelo menos uma zona da casa onde a resposta a tudo o que ele quiser explorar é "sim" — sem tomadas, fios, objetos frágeis ou pequenos. Poupa-te mil "nãos" e dá-lhe soberania real (segurança: ver capítulo Segurança).
 
 ## O que fazer em cada idade
+<!-- chaves: atividades Montessori, brincadeiras idade, brinquedos, cesto tesouros -->
 
 ### 0–3 meses
 
@@ -72,6 +76,7 @@ A pergunta-guia: **ajoelha-te à altura dele e olha em volta** — o que é que 
 - Arrumar faz parte de brincar: cada coisa volta ao seu lugar, de preferência a cantar e sem drama.
 
 ## Como falar "à Montessori"
+<!-- chaves: elogiar, comunicação, autonomia, limites -->
 
 - **Linguagem real e rica desde o dia zero:** sem "linguagem de bebé" nas palavras (a entoação carinhosa pode e deve ficar). É "água", não "auinha"; é "cão", não "au-au".
 - **Nomeia emoções e ações:** "estás frustrado porque a torre caiu", "estou a apertar-te o casaco, primeiro um braço".
@@ -80,6 +85,7 @@ A pergunta-guia: **ajoelha-te à altura dele e olha em volta** — o que é que 
 - **Diz o que ele PODE fazer:** "a comida fica na mesa; podes atirar a bola" funciona melhor que "não atires!".
 
 ## Erros comuns (e mitos)
+<!-- chaves: mitos Montessori, brinquedos madeira, limites -->
 
 - **"Preciso de comprar materiais Montessori."** Não. A colher de pau, o jarro pequeno, a gaveta baixa e o teu tempo valem mais que qualquer caixa cara com etiqueta "Montessori" (a palavra não tem dono e vende-se muito lixo com ela).
 - **"Montessori é não dar limites."** É o contrário: limites poucos, claros e inegociáveis — e liberdade genuína dentro deles.

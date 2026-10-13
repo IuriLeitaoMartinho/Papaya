@@ -3,6 +3,7 @@
 > **Tem tudo pronto até às 35–36 semanas.** O parto pode acontecer a partir das 37 semanas (ou antes), e ninguém quer estar a fazer malas com contrações. Deixa a mala (ou malas) num sítio combinado e à mão, e diz ao pai/acompanhante onde está.
 
 ## Estratégia: duas malas
+<!-- chaves: mala para o hospital, saco maternidade, preparar mala -->
 
 A forma mais prática, recomendada pelas maternidades portuguesas, é dividir em duas:
 
@@ -14,6 +15,7 @@ A forma mais prática, recomendada pelas maternidades portuguesas, é dividir em
 > **Confirma sempre com a tua maternidade:** muitas fornecem fraldas, resguardos, produtos de higiene do bebé e até roupa hospitalar nos primeiros dias — e algumas têm lista própria do que pedem. O que está abaixo é uma lista completa "de segurança"; risca o que o teu hospital já dá.
 
 ## Documentos (a primeira coisa a meter) 
+<!-- chaves: boletim grávida, documentos hospital, cartão cidadão -->
 
 Mete num envelope/bolsa próprio, no topo da mala:
 
@@ -26,6 +28,7 @@ Mete num envelope/bolsa próprio, no topo da mala:
 - [ ] Contactos importantes escritos em papel (não só no telemóvel, que pode ficar sem bateria)
 
 ## Para a MÃE
+<!-- chaves: roupa mãe, pós-parto, cuecas, pensos, amamentação -->
 
 **Bloco de partos:**
 - [ ] 1 camisa de dormir velha/confortável (que não importe sujar) ou a que a maternidade indicar
@@ -47,6 +50,7 @@ Mete num envelope/bolsa próprio, no topo da mala:
 - [ ] **Roupa de saída** confortável e larga (a barriga não desaparece logo — roupa de ~6 meses de gravidez)
 
 ## Para o BEBÉ
+<!-- chaves: primeira roupa, babygrow, fraldas, saída maternidade -->
 
 > Lava a roupa toda do bebé antes, com detergente neutro/sem perfume. Etiqueta/organiza por dia em sacos separados — ajuda muito no caos. Tudo em algodão e com etiquetas/costuras viradas para fora.
 
@@ -65,6 +69,7 @@ Mete num envelope/bolsa próprio, no topo da mala:
 - [ ] **Cadeira auto homologada (grupo 0/0+ , o "ovo"), virada para trás** — sem ela não sais com o bebé de carro. Instala-a e testa **antes** do dia (ver capítulo Segurança).
 
 ## Para o PAI / acompanhante (não te esqueças de ti)
+<!-- chaves: acompanhante, carregador, comida hospital, mala pai -->
 
 Vais passar lá muitas horas — e talvez a noite. Prepara a tua própria mala:
 
@@ -79,6 +84,7 @@ Vais passar lá muitas horas — e talvez a noite. Prepara a tua própria mala:
 - [ ] Saber o caminho e onde estacionar; depósito de combustível cheio; rota alternativa
 
 ## Para deixar pronto em casa (para quando voltam)
+<!-- chaves: preparar casa, regresso maternidade, compras antes nascimento -->
 
 - [ ] Berço/alcofa montado, com sono seguro garantido (colchão firme, sem fofos)
 - [ ] Cadeira auto instalada no carro
