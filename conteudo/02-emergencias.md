@@ -1,6 +1,6 @@
 # Emergências e sinais de alarme
 
-> **Revisão pontual: 13-10-2026** — orientação sobre ibuprofeno. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
+> **Revisão pontual: 13-10-2026** — sinais para ligar 112, febre por idade, convulsão febril, ibuprofeno e contactos. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
 
 > **Números essenciais — grava-os já no telemóvel:** Emergência: **112** | SNS 24: **808 24 24 24** | Centro de Informação Antivenenos (intoxicações): **800 250 250** | Pediatra / Centro de saúde: _(escreve aqui)_ | Farmácia de serviço: _(escreve aqui)_
 
@@ -14,6 +14,7 @@
 - Tem uma **convulsão** (corpo rígido, abanões, olhos revirados) — vê abaixo o que fazer.
 - Teve uma **queda grave** e perdeu os sentidos, vomita repetidamente ou está estranho.
 - Tem **manchas na pele tipo picada de alfinete ou nódoas negras que não desaparecem quando pressionas com um copo de vidro** (suspeita de meningite/sépsis).
+- Tem febre com **pescoço rígido** ou a **luz a incomodá-lo muito**, ou mãos e pés anormalmente frios com a pele pálida, acinzentada ou às manchas.
 
 ## Vai à urgência pediátrica (sem esperar) se
 <!-- chaves: febre recém-nascido, vómito verde, não mama, fralda seca, desidratação, urgência pediátrica -->
@@ -33,7 +34,7 @@
 ## Pode esperar pelo SNS 24 ou consulta no próprio dia
 <!-- chaves: SNS 24, ligar ao médico, dúvida de saúde, consulta no próprio dia -->
 
-- Febre em bebé com **mais de 3 meses**, bem disposto nos períodos sem febre, a comer e a reagir.
+- Febre em bebé com **mais de 3 meses**, bem disposto nos períodos sem febre, a comer e a reagir. **Entre os 3 e os 6 meses, com 39 °C ou mais, liga ao SNS 24 no próprio dia** mesmo que pareça bem; o mesmo para uma febre que dure 5 dias ou mais, em qualquer idade.
 - Tosse e ranho sem dificuldade respiratória.
 - Diarreia ou vómitos ocasionais, mas a tolerar líquidos e com fraldas molhadas.
 - Manchas na pele **que desaparecem à pressão**, sem febre alta nem prostração.
@@ -47,12 +48,13 @@ Mais do que o número no termómetro, conta o **estado geral**: um bebé que sor
 ## O que fazer numa convulsão febril
 <!-- chaves: convulsão, ataque, tremores, corpo rígido, olhos revirados -->
 
-1. Mantém a calma — a maioria dura menos de 5 minutos e não deixa sequelas.
-2. Deita o bebé **de lado**, numa superfície segura, longe de objetos.
-3. **Não** metas nada na boca, não tentes segurar os movimentos.
+1. Mantém a calma — a maioria dura 2 a 3 minutos e não deixa sequelas.
+2. Pousa o bebé numa **superfície segura** (chão ou cama), afasta objetos duros e protege-lhe a cabeça. Se tiver saliva ou vómito na boca, vira-lhe a cabeça de lado.
+3. **Não** metas nada na boca, não tentes segurar os movimentos e não o arrefeças com água fria.
 4. Cronometra a duração e, se conseguires, filma — ajuda o médico.
-5. Liga **112** se durar mais de 5 minutos, se for a primeira vez, se tiver dificuldade em respirar ou não recuperar a consciência.
-6. Mesmo que passe rapidamente, o bebé deve ser observado por um médico nesse dia.
+5. Quando os abalos pararem, deita-o **de lado** (posição lateral de segurança) e fica com ele.
+6. Liga **112** se durar mais de 5 minutos, se for a primeira vez, se tiver dificuldade em respirar, se os abalos forem só de um lado do corpo, se houver mais de uma convulsão em 24 horas, ou se não recuperar a consciência ou continuar anormalmente sonolento uma hora depois.
+7. Mesmo que passe rapidamente, o bebé deve ser observado por um médico nesse dia.
 
 ## Kit de farmácia para ter em casa
 <!-- chaves: farmácia, termómetro, medicamentos, ibuprofeno, paracetamol, dose, soro fisiológico -->

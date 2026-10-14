@@ -1,6 +1,6 @@
 # Sintomas e problemas de A a Z
 
-> **Revisão pontual: 13-10-2026** — sono durante constipações, ibuprofeno e referência à campanha VSR. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
+> **Revisão pontual: 13-10-2026** — febre por idade, sono durante constipações, ibuprofeno e referência à campanha VSR. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
 
 > Capítulo de consulta rápida, por ordem alfabética. Para cada entrada: o que é, o que fazer em casa e **quando procurar ajuda**. Em dúvida, SNS 24: 808 24 24 24. Febre em bebé com menos de 3 meses é **sempre** urgência.
 
@@ -67,8 +67,9 @@ Ver manobras passo a passo no capítulo **Segurança** — lê-as ANTES de preci
 Febre = temperatura **retal ≥ 38,0 °C** (axilar ≥ 37,6 °C). É uma defesa do corpo, não uma doença — o objetivo de tratar é o **conforto**, não o número.
 
 - **< 3 meses: urgência imediata, sempre.** Não medicar antes da observação.
+- **3 a 6 meses com 39 °C ou mais:** liga ao SNS 24 no próprio dia, mesmo que pareça bem.
 - O que fazer (a partir dos 3 meses): oferecer líquidos e evitar agasalhar em excesso. Se estiver desconfortável, confirma com o médico ou farmacêutico o medicamento, a dose pelo **peso atual**, a concentração e o intervalo entre tomas. **Ibuprofeno: a idade e o peso mínimos dependem do produto; antes dos 6 meses, pede orientação médica. Não dar se estiver desidratado ou com varicela, salvo indicação médica.** Não alternar paracetamol e ibuprofeno por rotina. Não usar banhos frios nem álcool na pele.
-- **Urgência:** < 3 meses; manchas que não desaparecem à pressão; prostração mesmo sem febre; gemido; dificuldade respiratória; convulsão; sinais de desidratação; febre > 40 °C pouco responsiva; febre > 3–5 dias sem foco.
+- **Urgência:** < 3 meses; manchas que não desaparecem à pressão; pescoço rígido ou a luz a incomodá-lo muito; prostração mesmo sem febre; gemido; dificuldade respiratória; convulsão; sinais de desidratação; febre > 40 °C pouco responsiva; febre > 3–5 dias sem foco.
 - O que conta é o estado geral entre picos: se brinca e come razoavelmente quando a febre baixa, é bom sinal.
 
 ## Icterícia

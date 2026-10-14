@@ -2,7 +2,7 @@
 
 ## Revisão pontual de 13-10-2026
 
-Esta revisão conferiu preparação e conservação de fórmula, sono seguro e evidência do treino de sono, orientação sobre ibuprofeno, linguagem aos 18 meses, leitura partilhada, vacina Pn20, campanha VSR e alguns pontos da licença parental e Creche Feliz. Não certifica todos os conselhos nem todos os valores do guia. Nos capítulos, a data identifica apenas os temas revistos.
+A primeira passagem conferiu preparação e conservação de fórmula, sono seguro e evidência do treino de sono, orientação sobre ibuprofeno, linguagem aos 18 meses, leitura partilhada, vacina Pn20, campanha VSR e alguns pontos da licença parental e Creche Feliz. Não certifica todos os conselhos nem todos os valores do guia. Nos capítulos, a data identifica apenas os temas revistos.
 
 - **Sono seguro:** AAP, *My baby has a stuffy nose. How can I help them sleep safely?* (2025), em HealthyChildren.org; Lullaby Trust, *Room temperature* e *Cold weather*, em lullabytrust.org.uk.
 - **Sinais de doença:** Bradford Teaching Hospitals NHS, *Caring for baby*, secções sobre doença grave e chamada de ambulância. Os contactos do guia são os de Portugal.
@@ -15,6 +15,20 @@ Esta revisão conferiu preparação e conservação de fórmula, sono seguro e e
 - **Vacinas:** DGS, Norma 013/2024 (Pn20 aos 2, 4 e 12 meses); Norma 004/2026 e perguntas frequentes da campanha VSR 2026–2027. Consulta o Livro Azul de Vacinas e a campanha do ano em curso em dgs.pt.
 - **Licença parental:** Código do Trabalho consolidado, artigos 40.º–43.º, em diariodarepublica.pt; gov.pt, *Licenças de parentalidade*. Há diferenças de redação sobre os dias facultativos: confirma as datas concretas com o empregador e a Segurança Social.
 - **Creche Feliz:** Garantia para a Infância, *Respostas 1.ª infância*, em garantiainfancia.gov.pt, confirma a migração de serviços para o Portal e a app da Segurança Social.
+
+Uma segunda passagem, no mesmo dia, conferiu os primeiros socorros e a triagem, o esquema de vacinas e de consultas, e mais alguns pontos de sono seguro, segurança e burocracia:
+
+- **Engasgamento e reanimação:** Resuscitation Council UK, *Paediatric Life Support Guidelines 2025* e algoritmo *Paediatric choking* (2025), que seguem as recomendações de 2025 do Conselho Europeu de Ressuscitação (ERC): dois polegares nas compressões do bebé, 5 insuflações iniciais, 30:2 para quem não tem formação pediátrica, 112 em alta voz desde o início. NHS, *How to stop a child from choking* (2024), para a observação médica depois do episódio. O texto do guia não substitui um curso prático.
+- **Febre e sinais para ligar 112:** NHS, *High temperature (fever) in children* (revista em janeiro de 2024). Os contactos do guia são os de Portugal: onde o NHS manda ligar 111, o guia indica o SNS 24.
+- **Convulsão febril:** NHS, *Febrile seizures* (revista em junho de 2023); AAP, *Febrile Seizures* (2025), em HealthyChildren.org.
+- **Vacinas e consultas:** SNS 24, *Programa Nacional de Vacinação* (atualizado a 15-04-2025), para o esquema dos 0 aos 18 meses; DGS, Norma 005/2025 (MenACWY aos 12 meses); nota do Governo sobre a campanha sazonal 2026–2027 (gripe e VSR), em portugal.gov.pt; DGS, Norma 010/2013 (Programa Nacional de Saúde Infantil e Juvenil), para as idades das consultas e a vitamina D.
+- **Cadeira auto:** Regulamento n.º 129 da UNECE (i-Size), para os 15 meses; DGS, Norma 010/2013, para a recomendação de viajar de costas até aos 3 ou 4 anos.
+- **Sono seguro:** guia da AAP para pais sobre sono seguro (atualizado em setembro de 2026), em HealthyChildren.org, para quando deixar de embrulhar e para as situações de maior risco na partilha da cama.
+- **Andarilhos:** AAP, *Baby Walkers: A Dangerous Choice* (2022), em HealthyChildren.org.
+- **IRS:** Portal das Finanças, *Deduções, benefícios fiscais e taxas para rendimentos de 2025*.
+- **Contactos:** o número do SNS 24 foi confirmado em sns24.gov.pt; o do Centro de Informação Antivenenos (800 250 250, gratuito desde 2019) em notícias com origem no INEM.
+
+Ficaram por conferir na fonte, porque as páginas não abriram ou porque não há fonte portuguesa dirigida a pais: os limiares do traumatismo craniano, as quantidades de reidratação oral, os prazos do abono de família e do Cartão de Cidadão, os valores do abono e a comparticipação das fórmulas para alergia. Estão no guia como estavam na revisão anterior.
 
 ## Livros em português
 <!-- chaves: livros pais, Mário Cordeiro, livros bebés -->

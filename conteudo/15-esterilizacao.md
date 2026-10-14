@@ -1,10 +1,41 @@
 # Esterilização e higiene do material do bebé
 
-> **Âmbito:** biberões e tetinas, chupetas, esterilizadores, secagem e bombas tira-leite. Contexto português (DGS, SNS, legislação PT/UE), com fontes internacionais assinaladas. Verificado em agosto de 2026. Informativo — não substitui o médico de família, o pediatra ou o enfermeiro de saúde infantil.
+> **Âmbito:** biberões e tetinas, chupetas, esterilizadores, secagem e bombas tira-leite. Onde as autoridades divergem, o capítulo diz quem recomenda o quê em vez de escolher por ti. Revisto em agosto de 2026; páginas do NHS e do CDC reconfirmadas a 13-10-2026. Informativo — não substitui o médico de família, o pediatra ou o enfermeiro de saúde infantil.
+
+## A rotina em dois minutos
+
+<!-- chaves: resumo, rotina, passo a passo, como esterilizar, como lavar biberões, o que fazer todos os dias, guia rápido -->
+
+Se só leres uma secção, lê esta. O resto do capítulo explica o porquê de cada passo e onde as fontes divergem.
+
+**Depois de cada utilização:**
+
+1. Lava as mãos com água e sabão.
+2. Desmonta tudo (biberão, tetina, rosca, tampa, válvulas) e passa por água corrente.
+3. Lava com água quente e detergente, num alguidar e com um escovilhão que sejam só do bebé. Não pouses as peças no fundo do lava-loiça.
+4. Enxagua em água corrente.
+5. Deixa secar ao ar **por completo**, sobre um pano limpo ainda não usado ou papel de cozinha. Não esfregues com o pano.
+6. Monta e guarda só depois de seco, com as mãos lavadas, num sítio fechado e limpo.
+
+**Desinfetar, além de lavar:**
+
+- **Sempre** antes da primeira utilização de qualquer biberão, tetina, chupeta ou peça de bomba.
+- **Pelo menos uma vez por dia** se o bebé tem menos de 2 meses, nasceu prematuro ou tem as defesas comprometidas.
+- Depois disso as autoridades divergem: o NHS mantém a desinfeção até aos 12 meses; o CDC aceita a lavagem cuidada num bebé mais velho e saudável. Decide com quem segue o bebé.
+
+| Método | Quanto tempo | Atenção |
+|---|---|---|
+| Esterilizador a vapor | O que o manual do aparelho indicar | Aberturas para baixo; a quantidade exata de água |
+| Fervura | 10 minutos, tudo submerso e sem bolhas de ar | Põe um temporizador; as tetinas gastam-se mais depressa |
+| Solução a frio (pastilhas) | Pelo menos 30 minutos; solução nova a cada 24 horas | Não misturar com outros produtos |
+
+**O que pesa mais do que o esterilizador:** a forma como se prepara e conserva a fórmula (ver "Preparar o biberão em segurança", no capítulo Alimentação) e nunca montar nem guardar peças ainda húmidas.
+
+**Febre num bebé com menos de 3 meses é sempre urgência**, seja qual for a causa suspeita. Os outros sinais estão em "Sinais de alerta e quando procurar ajuda", mais abaixo.
 
 ## O essencial em três correções
 
-<!-- chaves: esterilizar, higienizar, desinfetar, o que é mais importante, risco real, resumo -->
+<!-- chaves: esterilizar, higienizar, desinfetar, o que é mais importante, risco real -->
 
 A pergunta "como esterilizar corretamente" pressupõe que o esterilizador é o ponto crítico da segurança. Não é. Três correções atravessam todo o capítulo:
 
@@ -373,13 +404,11 @@ Outras regras aplicáveis por analogia: o leite deve ser consumido nas 24 horas 
 
 <!-- chaves: esterilizador UV, ultravioleta, luz UV, biberões, chupetas, funciona -->
 
-**Não foi possível verificar.** Esta secção existe para registar uma lacuna, não para dar uma resposta.
+**Nenhuma das autoridades consultadas (NHS, CDC, OMS, DGS) inclui a luz ultravioleta entre os métodos que recomenda.** As listas ficam-se pelo vapor, pela fervura, pela solução a frio e pela máquina de lavar loiça com ciclo quente.
 
-Não foi localizada qualquer posição do NHS, do CDC, da DGS, da OMS ou de uma sociedade científica pediátrica sobre esterilizadores domésticos por radiação ultravioleta aplicados a biberões, tetinas ou chupetas. As listas de métodos aceites por estas entidades incluem consistentemente **vapor, fervura, solução química a frio e máquina de lavar loiça com ciclo quente** — e não mencionam UV, o que é em si um dado, embora ambíguo.
+Também não foi encontrada uma avaliação independente destes aparelhos aplicados a biberões, tetinas ou chupetas, em duas pesquisas (agosto e outubro de 2026). Sem ela, não há base para os preferir aos métodos que as autoridades descrevem — o que não é o mesmo que estar provado que não funcionam.
 
-Circulam duas objeções técnicas em fontes de divulgação: que a luz UV só atua na superfície diretamente irradiada, não alcançando zonas em sombra — problemático em objetos com reentrâncias, roscas e interiores estreitos; e que a exposição a UV pode degradar látex e silicone. **Não foi possível chegar a uma fonte primária** que sustente qualquer delas.
-
-**Nota de aplicação:** se usares um aparelho UV, o passo de lavagem prévia continua obrigatório e é provavelmente onde reside a maior parte do efeito real.
+**Se usares um aparelho UV:** a lavagem prévia continua obrigatória, e é provavelmente onde está a maior parte do efeito real. Confirma no manual do biberão e da tetina que o material tolera a exposição.
 
 ## Sinais de alerta e quando procurar ajuda
 
@@ -454,27 +483,11 @@ Os tubos, usados corretamente, não contactam com o leite e não precisam de lim
 
 **Deixar os biberões molhados dentro do esterilizador fechado é melhor do que tirá-los e pô-los a secar na bancada.** Parece errado — água parada, ambiente húmido. Mas o NHS recomenda deixá-los dentro do aparelho ou da panela tapada até serem precisos, e a água que fica é estéril porque o interior fechado também está desinfetado. A humidade só é problema quando o objeto sai para o ambiente da cozinha, e sobretudo quando é **montado** ainda húmido — o cenário documentado no caso fatal do MMWR de 2023.
 
-## O que ficou por confirmar
-
-<!-- chaves: lacunas, incertezas, por confirmar, limitações, o que pode mudar -->
-
-Transparência sobre os limites desta investigação:
-
-- **Não foi localizada nesta revisão uma orientação da DGS dirigida a pais** sobre esterilização doméstica; a Orientação 018/2013 consultada é hospitalar. Não localizar não prova que não exista.
-- **O estatuto atual da Orientação DGS 018/2013 não foi confirmado.** Tem mais de dez anos e não foi encontrada em listas de documentos revogados, mas também não se confirmou que se mantém em vigor.
-- **A posição atual da ESPGHAN sobre os 70 °C não foi confirmada no original.** O texto histórico é apresentado como tal; a orientação doméstica deste guia é atribuída à OMS/NHS, sem a transformar num consenso de todas as entidades.
-- **Não há dados portugueses de incidência de infeção por Cronobacter** — os números são norte-americanos.
-- **Os esterilizadores UV não foram avaliados** por nenhuma fonte de autoridade primária localizada.
-- **A norma EN 1400** (segurança de chupetas) não foi consultada, por ser paga.
-- **Especificações de fabricantes** (tempos de ciclo, descalcificação, validade de 24 horas) mudam entre modelos: confirmar sempre no manual do aparelho concreto.
-
-**O que é mais provável mudar:** a divergência sobre os 70 graus (há investigação ativa e pressão regulatória no Reino Unido sobre as máquinas de preparação de biberões), a revisão da página do NHS sobre esterilização, e os dados de incidência de *Cronobacter* nos EUA, que passou a ser de notificação obrigatória em 2024.
-
 ## Fontes deste capítulo
 
 <!-- chaves: fontes, bibliografia, referências, NHS, CDC, OMS, DGS, MMWR -->
 
-**Autoridade primária:** OMS/FAO, *Safe preparation, storage and handling of powdered infant formula* (2007); Codex Alimentarius CAC/RCP 66-2008; DGS, *Orientação n.º 018/2013* (leite materno, fórmulas e circuito de biberões em ambiente hospitalar); NHS, *Sterilising baby bottles* (rev. 2023); CDC, *How to Clean, Sanitize, and Store Infant Feeding Items* (rev. 2024) e *How to Clean and Sanitize Breast Pumps* (rev. 2024); American Academy of Pediatrics (HealthyChildren.org).
+**Autoridade primária:** OMS/FAO, *Safe preparation, storage and handling of powdered infant formula* (2007); Codex Alimentarius CAC/RCP 66-2008; DGS, *Orientação n.º 018/2013* (leite materno, fórmulas e circuito de biberões em ambiente hospitalar); NHS, *Sterilising baby bottles* (revista em fevereiro de 2023); CDC, *How to Clean, Sanitize, and Store Infant Feeding Items* (página de março de 2025) e *How to Clean and Sanitize Breast Pumps*; American Academy of Pediatrics (HealthyChildren.org).
 
 **Evidência secundária:** Haston JC et al., *Cronobacter sakazakii Infections in Two Infants Linked to Powdered Infant Formula and Breast Pump Equipment*, MMWR 2023;72(9):223–226; Hesselmar B et al., *Pacifier cleaning practices and risk of allergy development*, Pediatrics 2013;131(6):e1829-37, e a correspondência crítica na mesma revista; Strysko J et al., *Food safety and invasive Cronobacter infections during early infancy*, Emerg Infect Dis 2020; Losio MN et al. (sobrevivência de patogénicos a 70 graus); estudo comunitário britânico sobre temperaturas reais de máquinas de preparação.
 

@@ -1,12 +1,14 @@
 # Segurança e primeiros socorros
 
+> **Revisão pontual: 13-10-2026** — manobras de engasgamento e reanimação (recomendações europeias de 2025), cadeira auto e queimaduras. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
+
 > Os acidentes são a principal causa de morte evitável em crianças. Quase todos se previnem com antecipação: o truque é proteger **antes** de o bebé ganhar a competência seguinte (rolar, gatinhar, trepar) — ele ganha-a sempre no dia em que menos esperas.
 
 ## Transporte no carro
 <!-- chaves: ovo, cadeira auto, cadeirinha, i-Size, carro, contramarcha -->
 
 - **Sempre** em cadeirinha homologada (norma R129/i-Size), mesmo em viagens de 500 metros. No colo, nunca.
-- **Voltado para trás o máximo de tempo possível** — obrigatório até aos 15 meses (R129), recomendado até aos 4 anos. É a medida com maior impacto na segurança.
+- **Voltado para trás o máximo de tempo possível.** Nas cadeiras i-Size (R129) é obrigatório até aos 15 meses; o Programa Nacional de Saúde Infantil e Juvenil (DGS) recomenda manter até aos **3 ou 4 anos**. É a medida com maior impacto na segurança.
 - Banco de trás. **Nunca** cadeirinha voltada para trás no banco da frente com airbag ativo.
 - Arnês justo (não passa mais de um dedo entre o arnês e o peito); sem casacos almofadados por baixo do cinto no inverno.
 - **Nunca deixar o bebé sozinho no carro** — nem "só 2 minutos"; o golpe de calor mata em minutos. Cria o hábito de pôr o telemóvel/carteira no banco de trás.
@@ -45,24 +47,27 @@
 **Se tosse com força, chora ou respira:** não interferir, deixar tossir, vigiar.
 
 **Se NÃO consegue tossir/chorar/respirar (obstrução grave) — bebé < 12 meses:**
-1. Senta-te, apoia o bebé de barriga para baixo no teu antebraço/coxa, cabeça mais baixa que o tronco, segura a cabeça pelo queixo.
-2. **5 pancadas firmes nas costas** com a base da mão, entre as omoplatas.
-3. Vira-o de barriga para cima e dá **5 compressões no peito** (2 dedos no centro do esterno, logo abaixo da linha dos mamilos).
-4. Alterna 5 pancadas / 5 compressões até o objeto sair ou ele ficar inconsciente. Grita por ajuda; alguém liga 112.
-5. **Se ficar inconsciente:** inicia reanimação (abaixo) — 112 em alta voz.
+1. Grita por ajuda e liga **112 em alta voz** (ou pede a alguém que ligue) enquanto começas.
+2. Senta-te, apoia o bebé de barriga para baixo no teu antebraço, com o antebraço pousado na coxa, cabeça mais baixa que o tronco, segura a cabeça pelo queixo.
+3. **Até 5 pancadas firmes nas costas** com a base da mão, entre as omoplatas.
+4. Se não saiu, vira-o de barriga para cima sobre os teus joelhos e dá **até 5 compressões no peito**: as tuas mãos abraçam o tórax e os **dois polegares, lado a lado, carregam na metade inferior do esterno** — a mesma posição das compressões da reanimação, mas mais secas e espaçadas.
+5. Alterna 5 pancadas / 5 compressões até o objeto sair. Pára assim que ele tossir, chorar ou respirar.
+6. **Se ficar inconsciente:** inicia a reanimação (abaixo), a começar pelas 5 insuflações.
 
-**Criança > 12 meses:** 5 pancadas nas costas alternadas com 5 compressões abdominais (manobra de Heimlich, punho acima do umbigo, puxar para dentro e para cima).
+**Criança > 12 meses:** 5 pancadas nas costas alternadas com 5 compressões abdominais (manobra de Heimlich: de pé ou de joelhos atrás dela, inclinada para a frente, punho entre o umbigo e a ponta do esterno, puxar para dentro e para cima). **Nunca compressões abdominais num bebé com menos de 1 ano.**
 
 **Não** metas dedos à procura do objeto às cegas — só remove o que vires claramente.
+
+> **O que mudou em 2025:** as recomendações europeias de reanimação passaram a indicar os **dois polegares** (com as mãos a abraçar o tórax) nas compressões do bebé, em vez dos dois dedos que se ensinavam antes. Se fizeste um curso há mais tempo, é esta a diferença, e ainda vais encontrar os dois dedos em folhetos e páginas anteriores. **Mesmo que o objeto saia, o bebé deve ser visto por um médico**: pode ter ficado um fragmento, ou ter-se magoado com as manobras.
 
 ## Reanimação (SBV pediátrico) — esqueleto para leigos
 <!-- chaves: não respira, inconsciente, reanimar, compressões, SBV, RCP, insuflações -->
 
-1. Verifica resposta (estimula, chama). Sem resposta: grita por ajuda.
+1. Verifica resposta (estimula, chama). Sem resposta: grita por ajuda e liga **112 de imediato, em alta voz**, com o telemóvel pousado ao lado. Só se estiveres sozinho e sem telemóvel é que fazes 1 minuto de reanimação antes de ir pedir ajuda.
 2. Abre a via aérea (inclinação suave da cabeça, posição neutra no bebé) e verifica respiração ≤ 10 s.
 3. Se não respira normalmente: **5 insuflações de resgate** (no bebé, a tua boca cobre boca + nariz).
-4. **30 compressões : 2 insuflações** (bebé: 2 dedos no esterno, ~4 cm de profundidade, ritmo 100–120/min) — se estás sozinho, faz 1 minuto de reanimação antes de parar para ligar 112 (em alta voz desde o início, se possível).
-5. Continua até ajuda chegar ou o bebé reagir.
+4. **30 compressões : 2 insuflações** (15 : 2 se tiveres formação em suporte básico de vida pediátrico). No bebé: mãos a abraçar o tórax e os **dois polegares na metade inferior do esterno**, a afundar um terço da espessura do peito (cerca de 4 cm), ritmo 100–120/min, deixando o peito voltar acima entre compressões.
+5. Continua até ajuda chegar ou o bebé reagir. O operador do 112 orienta-te pelo telefone.
 
 > **Faz um curso prático de SBV pediátrico e desobstrução** (Cruz Vermelha, hospitais privados e câmaras municipais dão cursos de 3–4 h para pais). É o melhor investimento de segurança que podes fazer — este texto não substitui o treino das mãos.
 

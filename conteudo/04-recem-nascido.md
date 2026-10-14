@@ -55,7 +55,7 @@ O choro é a única linguagem do bebé. Checklist mental, por ordem:
 <!-- chaves: roupa, frio, calor, temperatura quarto, mãos frias -->
 
 - Regra prática: o bebé usa **mais uma camada do que tu**.
-- Temperatura do quarto ideal: **18–21 °C**. Sobreaquecer aumenta o risco de morte súbita.
+- Temperatura do quarto: a Lullaby Trust usa **16–20 °C** como referência (ver capítulo Sono). Sobreaquecer aumenta o risco de morte súbita; mais do que o número, verifica o peito ou a nuca do bebé.
 - Sem fumo em casa, nunca — nem "fumar à janela".
 
 ## A "acne do bebé", crostas e pele

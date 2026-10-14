@@ -3,14 +3,15 @@
 > **Revisão pontual: 13-10-2026** — sono seguro, intervalos por idade e limites da evidência sobre treino. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
 
 ## Sono seguro — reduzir o risco de morte súbita
-<!-- chaves: morte súbita, SMSL, barriga para cima, berço, colchão, almofada, ninho, cunha, dormir constipado -->
+<!-- chaves: morte súbita, SMSL, barriga para cima, berço, colchão, almofada, ninho, cunha, dormir constipado, embrulhar, swaddle, enfaixar, dormir na cama dos pais, cama partilhada -->
 
 Regras consensuais (AAP, DGS, Lullaby Trust) para reduzir o risco de Síndrome de Morte Súbita do Lactente (SMSL):
 
 - **Sempre de barriga para cima** para dormir, em todas as sestas, até aos 12 meses. (Quando o bebé já rola sozinho para os dois lados, pode ficar como se põe — mas deita-se sempre de costas.)
-- **Colchão firme e plano**, lençol bem esticado. **Nada dentro do berço**: sem almofadas, fofos, peluches, protetores laterais ("ninhos" e redutores incluídos), mantas soltas. Usa saco de dormir de bebé em vez de mantas.
+- **Colchão firme e plano**, lençol bem esticado. **Nada dentro do berço**: sem almofadas, fofos, peluches, protetores laterais ("ninhos" e redutores incluídos), mantas soltas. Usa saco de dormir de bebé em vez de mantas. Nada de mantas, sacos ou embrulhos **com peso**.
 - O bebé dorme **no quarto dos pais, mas na sua própria cama** (berço ou alcofa), pelo menos durante os primeiros 6 meses.
-- **Não dormir no sofá ou poltrona com o bebé.** O lugar mais seguro é o berço próprio, firme, plano e vazio. Se adormeceres enquanto o alimentas na cama, volta a colocá-lo no berço assim que acordares; afasta previamente almofadas, lençóis e mantas da zona do bebé. Isto não torna a partilha da cama isenta de risco (AAP).
+- **Não dormir no sofá ou poltrona com o bebé.** O lugar mais seguro é o berço próprio, firme, plano e vazio. Se adormeceres enquanto o alimentas na cama, volta a colocá-lo no berço assim que acordares; afasta previamente almofadas, lençóis e mantas da zona do bebé. Isto não torna a partilha da cama isenta de risco (AAP). O risco é muito maior no **sofá ou poltrona**, se o adulto bebeu álcool, tomou medicação que dá sono, fuma ou está exausto, e com bebés de **menos de 4 meses**, prematuros ou de baixo peso.
+- **Se o embrulhas (swaddle), pára quando ele der sinais de se tentar virar** — costuma ser pelos 3–4 meses, mas pode ser antes. Embrulhar não reduz o risco de morte súbita, e um bebé embrulhado que se vira de barriga para baixo fica em perigo.
 - **Evita o sobreaquecimento.** A Lullaby Trust usa 16–20 °C como referência para o quarto; ajusta a roupa à temperatura e verifica o peito ou a nuca. Não uses gorro dentro de casa nem botijas de água quente no berço.
 - **Ambiente 100% sem fumo** (gravidez incluída).
 - A **chupeta** na hora de dormir tem efeito protetor (se amamentado, introduzir após a amamentação estar estabelecida, ~3–4 semanas). Se cair durante o sono, não é preciso repor.

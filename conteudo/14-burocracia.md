@@ -1,6 +1,6 @@
 # Burocracia ao nascer (Portugal)
 
-> Tudo o que o Estado precisa de ti nas primeiras semanas, por ordem de urgência. **Revisão pontual: 13-10-2026**, para os canais da Creche Feliz (fonte: Garantia para a Infância). Os restantes prazos e valores mantêm a revisão anterior, de julho de 2026: confirma-os nos serviços oficiais. A licença parental tem capítulo próprio.
+> Tudo o que o Estado precisa de ti nas primeiras semanas, por ordem de urgência. **Revisão pontual: 13-10-2026**, para a Creche Feliz (fonte: Garantia para a Infância) e as deduções de IRS por dependente (fonte: Portal das Finanças). Os restantes prazos e valores mantêm a revisão anterior, de julho de 2026: confirma-os nos serviços oficiais. A licença parental tem capítulo próprio.
 
 ## Checklist rápida por prazo
 <!-- chaves: papelada bebé, documentos nascimento, prazos, checklist -->
@@ -55,6 +55,7 @@ Tudo se trata na **Segurança Social Direta** (seg-social.pt). Se ainda não ten
 <!-- chaves: IRS, agregado familiar, e-fatura, NIF bebé, retenção fonte -->
 
 - **Comunicar o agregado familiar:** o bebé entra no teu agregado para efeitos de IRS. A comunicação faz-se no **Portal das Finanças** (IRS → Dados do agregado familiar), no ano seguinte ao nascimento, tipicamente **entre 1 de janeiro e meados de fevereiro/início de março** — confirma a data-limite do ano em causa, porque muda. Sem isto, perdes deduções.
+- **Quanto vale a dedução por dependente** (rendimentos de 2025, declarados em 2026): **600 EUR** por dependente, **726 EUR** se tiver 3 anos ou menos, e **900 EUR** a partir do segundo dependente enquanto tiver 6 anos ou menos. Com tributação separada de um casal, cada um deduz metade. Os valores mudam com o Orçamento do Estado: confirma os do ano em causa no Portal das Finanças.
 - **Retenção na fonte:** avisa os recursos humanos de que tens um dependente. As tabelas de retenção têm valores diferentes com dependentes, e cada filho reduz a taxa — é dinheiro que fica no teu salário todos os meses em vez de esperar pelo reembolso.
 - **Faturas com o NIF do bebé:** despesas de saúde, creche e afins devem ser pedidas com o **NIF da criança** (vem no Cartão de Cidadão) para entrarem nas deduções corretas. Cria o hábito desde a primeira farmácia.
 - Verifica também o **e-fatura** de vez em quando, para classificar despesas pendentes.
@@ -62,10 +63,10 @@ Tudo se trata na **Segurança Social Direta** (seg-social.pt). Se ainda não ten
 ## 6. Creche
 <!-- chaves: creche feliz, creche gratuita, vaga creche, inscrição creche, app segurança social -->
 
-O programa **Creche Feliz** garante creche **gratuita** para crianças **nascidas a partir de 1 de setembro de 2021**, sem condição de rendimentos, na rede social e solidária. A partir dos **4 meses** de idade e até aos 3 anos.
+O programa **Creche Feliz** garante creche **gratuita** para crianças **nascidas a partir de 1 de setembro de 2021**, sem condição de rendimentos: nas creches e creches familiares da rede social e solidária, nas amas da Segurança Social e, quando não há vaga nessa rede, nas creches privadas que aderiram à Bolsa de Creches. A gratuitidade dura os anos em que a criança frequentar a creche.
 
-- Os pedidos fazem-se **online, no Portal ou na app da Segurança Social** (a antiga app Creche Feliz foi descontinuada em maio de 2026). Dá para pesquisar vagas, escolher até 3 creches e acompanhar o estado da candidatura.
-- Há **ordem de prioridades** definida por portaria (crianças já na creche, vulnerabilidade social, irmãos na mesma creche, beneficiários da Garantia para a Infância/escalões baixos).
+- Os pedidos fazem-se **online, no Portal ou na app da Segurança Social** (a antiga app Creche Feliz foi descontinuada em maio de 2026). É lá que se pesquisam vagas e se fazem os pedidos.
+- Há **ordem de prioridades** definida por portaria (crianças já na creche, deficiência, irmãos na mesma creche, beneficiários da Garantia para a Infância ou dos primeiros escalões do abono, famílias monoparentais ou numerosas, morar ou trabalhar na zona).
 - **Inscreve-te muito cedo** — em muitas zonas as vagas esgotam com meses de antecedência. Não é raro inscrever ainda durante a gravidez.
 
 ## 7. Outras coisas que vale a pena tratar

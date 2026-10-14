@@ -1,6 +1,6 @@
 # Vacinas e consultas de vigilância
 
-> **Revisão pontual: 13-10-2026** — Pn20 e campanha VSR 2026–2027. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
+> **Revisão pontual: 13-10-2026** — esquema do PNV dos 0 aos 18 meses, idades das consultas, Pn20, MenACWY e campanhas VSR e gripe 2026–2027. Fontes identificadas no capítulo Fontes; esta data não significa revisão integral do capítulo.
 
 ## Consultas de saúde infantil (DGS / SNS)
 <!-- chaves: consulta bebé, pediatra, centro saúde, boletim saúde -->
@@ -30,19 +30,19 @@ O PNV é **gratuito** e administrado nos centros de saúde. Esquema em vigor (co
 | Idade | Vacinas |
 |---|---|
 | Nascimento | Hepatite B (1.ª); BCG só para grupos de risco |
-| 2 meses | Hexavalente DTPa-VIP-Hib-VHB (difteria, tétano, tosse convulsa, pólio, Hib, hepatite B); Pneumocócica 20 (Pn20); Meningococo B (1.ª) |
-| 4 meses | Hexavalente (2.ª); Pneumocócica 20 (2.ª); Meningococo B (2.ª) |
-| 6 meses | Hexavalente (3.ª) |
+| 2 meses | Hexavalente DTPa-Hib-VIP-VHB (difteria, tétano, tosse convulsa, Hib, pólio e a 2.ª dose de hepatite B); Pneumocócica 20 (Pn20, 1.ª); Meningococo B (1.ª) |
+| 4 meses | Pentavalente DTPa-Hib-VIP (2.ª dose; sem hepatite B); Pneumocócica 20 (2.ª); Meningococo B (2.ª) |
+| 6 meses | Hexavalente (3.ª dose, incluindo a 3.ª de hepatite B) |
 | 12 meses | Pneumocócica 20 (3.ª); **Meningococo ACWY** (1.ª); Meningococo B (3.ª); VASPR (sarampo, papeira, rubéola — 1.ª) |
-| 18 meses | Pentavalente DTPaHib-VIP (reforço) |
+| 18 meses | Pentavalente DTPa-Hib-VIP (4.ª dose, reforço) |
 
 > **Pneumocócica:** a Norma DGS 013/2024 substituiu a Pn13 pela **Pn20 aos 2, 4 e 12 meses**. Quem iniciou o esquema antigo deve confirmar a transição com o enfermeiro.
 
-> **Atualização importante (2025):** desde março de 2025, o PNV substituiu a vacina Meningococo C pela **Meningococo ACWY** aos 12 meses, alargando a proteção a quatro serogrupos (A, C, W, Y). Se o teu filho foi vacinado antes desta alteração, o enfermeiro confirma o que se aplica.
+> **Atualização importante (2025):** a Norma DGS 005/2025, de 14 de março de 2025, substituiu a vacina Meningococo C pela **Meningococo ACWY** aos 12 meses, alargando a proteção a quatro serogrupos (A, C, W, Y); a aplicação começou em abril de 2025. Algumas páginas oficiais ainda mostram o esquema anterior. Se o teu filho foi vacinado antes desta alteração, o enfermeiro confirma o que se aplica.
 
 - **VSR/bronquiolite (nirsevimab):** é um anticorpo, não uma vacina. A campanha **2026–2027** decorre de **16 de setembro de 2026 a 31 de março de 2027**. Inclui todas as crianças nascidas entre **1 de abril de 2026 e 31 de março de 2027**, além de grupos específicos de prematuridade e risco definidos pela DGS. Confirma a elegibilidade e a marcação na maternidade ou centro de saúde; as regras são sazonais (Norma 004/2026 e perguntas frequentes da DGS).
 - Além do PNV, o pediatra pode recomendar vacinas extra-plano pagas (rotavírus para a maioria — no PNV só é dada a grupos de risco —, varicela...). Vale a pena a conversa.
-- **Gripe:** recomendada e **gratuita** dos 6 aos 59 meses na época gripal (confirma o esquema do ano em curso).
+- **Gripe:** na campanha **2026–2027**, que começou a 30 de setembro de 2026, a vacina é **gratuita dos 6 meses aos 4 anos** (o alargamento aos 2–4 anos é a novidade deste ano; Normas DGS 006/2026 e 007/2026). As regras são sazonais: confirma as do ano em curso.
 - Reações normais às vacinas: febre baixa, irritabilidade e dor/inchaço local nas 24–48 h. Pode dar-se paracetamol se desconfortável (não por rotina preventiva). **Médico se:** febre alta persistente, choro inconsolável > 3 horas, reação alérgica.
 - Constipação ligeira sem febre **não** é motivo para adiar vacinas.
 
