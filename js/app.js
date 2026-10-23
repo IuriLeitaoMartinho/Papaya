@@ -6,8 +6,8 @@
 // botão/gesto de retroceder do telemóvel funcionar sem código extra.
 
 import {
-  estado, uid, guardarDefinicoes, podarConclusoes, podarChama, podarRegistos,
-  exportarBackup, validarBackup, aplicarBackup
+  estado, uid, guardarDefinicoes, guardarTarefas, podarConclusoes, podarChama, podarRegistos,
+  exportarBackup, validarBackup, aplicarBackup, quandoFalharGravacao
 } from './armazenamento.js';
 import { carregarGuia, capitulos, grupos, htmlCapitulo, seccoesDoCapitulo } from './conteudo.js';
 import { construirIndice, ligarPesquisa } from './pesquisa.js';
@@ -198,6 +198,13 @@ function aplicarTema(tema) {
 function pintarBarraDoSistema() {
   const cor = getComputedStyle(document.documentElement).getPropertyValue('--musselina').trim();
   if (cor) document.querySelector('meta[name="theme-color"]').content = cor;
+  // Na app das lojas a página fica por trás da barra: os ícones (relógio, bateria)
+  // seguem o tema da app, que pode não ser o do telemóvel. DARK = ícones claros.
+  const barras = window.Capacitor?.Plugins?.SystemBars;
+  if (!barras) return;
+  const escuro = temaAtual() === 'escuro' ||
+    (!temaAtual() && matchMedia('(prefers-color-scheme: dark)').matches);
+  barras.setStyle({ style: escuro ? 'DARK' : 'LIGHT' }).catch(() => {});
 }
 
 // ------------------------------------------------------------- definições ---
@@ -268,9 +275,9 @@ function renderMembros() {
   const membros = estado.definicoes.membros;
   alvo.innerHTML = membros.length ? membros.map(m =>
     `<div class="membro-linha">
-      <span class="ponto-cor" style="background:${m.cor}"></span>
+      <span class="ponto-cor" style="background:${escaparHtml(m.cor)}"></span>
       <span class="nome">${escaparHtml(m.nome)}</span>
-      <button type="button" data-id="${m.id}" aria-label="Remover ${escaparHtml(m.nome)}">${icone('fechar')}</button>
+      <button type="button" data-id="${escaparHtml(m.id)}" aria-label="Remover ${escaparHtml(m.nome)}">${icone('fechar')}</button>
     </div>`).join('')
     : '<p class="folha-nota">Ainda sem membros. Servem para dizer de quem é cada tarefa.</p>';
   alvo.querySelectorAll('button').forEach(b => b.onclick = () => {
@@ -278,6 +285,7 @@ function renderMembros() {
     estado.definicoes.membros = membros.filter(m => m.id !== b.dataset.id);
     for (const t of estado.tarefas) if (t.membroId === b.dataset.id) t.membroId = null;
     guardarDefinicoes();
+    guardarTarefas();
     renderMembros();
   });
 }
@@ -318,7 +326,10 @@ function escolherFicheiroImport() {
     const f = inp.files[0];
     if (!f) return;
     let obj = null;
-    try { obj = JSON.parse(await f.text()); } catch { /* validarBackup trata */ }
+    // Dois anos de registos ficam muito abaixo de 5 MB; acima disso não é um backup nosso.
+    if (f.size <= 5 * 1024 * 1024) {
+      try { obj = JSON.parse(await f.text()); } catch { /* validarBackup trata */ }
+    }
     const r = validarBackup(obj);
     if (r.erro) {
       abrirFolha(`<h2>Importar dados</h2>
@@ -349,7 +360,13 @@ function escolherFicheiroImport() {
 }
 
 function aplicarEImportar(dados, modo) {
-  aplicarBackup(dados, modo);
+  if (!aplicarBackup(dados, modo)) {
+    abrirFolha(`<h2>Importar dados</h2>
+      <div class="aviso-import">Não foi possível guardar o backup neste dispositivo: o armazenamento do navegador está cheio ou bloqueado. Nada foi alterado.</div>
+      <button type="button" class="botao-principal" id="impFechar">Fechar</button>`);
+    $('#impFechar').onclick = folhaDefinicoes;
+    return;
+  }
   fecharFolha();
   renderCabecalho();
   rota();
@@ -358,6 +375,10 @@ function aplicarEImportar(dados, modo) {
 // -------------------------------------------------------------- arranque ----
 
 async function iniciar() {
+  // Avisa uma vez por falha seguida; uma escrita que corra bem rearma o aviso.
+  quandoFalharGravacao(() => alert('Não foi possível guardar neste dispositivo: o armazenamento ' +
+    'do navegador está cheio ou bloqueado. O que mudaste fica só até fechares a app. ' +
+    'Exporta os dados nas Definições para não os perderes.'));
   podarConclusoes();
   podarChama();
   podarRegistos();
@@ -382,7 +403,23 @@ async function iniciar() {
   // Primeira utilização: pedir logo a data de nascimento.
   if (!estado.definicoes.dataNascimento && !estado.tarefas.length) folhaDefinicoes();
 
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  // Na app das lojas (Capacitor) os ficheiros já vêm no pacote: sem service worker.
+  if (APP_NATIVA) ligarVoltarAndroid();
+  else if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+const APP_NATIVA = !!window.Capacitor?.isNativePlatform?.();
+
+// Botão de voltar do Android: fecha a folha aberta, senão recua no histórico;
+// no primeiro ecrã sai da app. Sem o plugin App (iOS, web) não faz nada.
+function ligarVoltarAndroid() {
+  const App = window.Capacitor.Plugins?.App;
+  if (!App) return;
+  App.addListener('backButton', ({ canGoBack }) => {
+    if ($('#folha').classList.contains('aberta')) fecharFolha();
+    else if (canGoBack) history.back();
+    else App.exitApp();
+  });
 }
 
 iniciar();

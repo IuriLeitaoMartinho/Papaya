@@ -107,6 +107,13 @@ body {
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
 }
+/* Tela por trás da barra de estado. Na app das lojas (Android 15+, iPhone) a página
+   desenha-se por baixo dela: sem isto o texto rolado passa por baixo do relógio.
+   No browser a área segura é 0 e isto não ocupa nada. Fica abaixo do fundo das folhas. */
+body::before {
+  content: ''; position: fixed; top: 0; left: 0; right: 0; z-index: 7;
+  height: env(safe-area-inset-top); background: var(--musselina);
+}
 body.com-mamada { --mamada-alt: 44px; }
 body.com-sono { --sono-alt: 56px; }
 html.folha-aberta { overflow: hidden; }
@@ -751,7 +758,7 @@ main { padding: 8px 16px; max-width: 720px; margin: 0 auto; }
 
 /* ---------- Guia ---------- */
 .caixa-pesquisa {
-  position: sticky; top: 0; z-index: 2;
+  position: sticky; top: env(safe-area-inset-top); z-index: 2;
   padding: 8px 0 12px; background: var(--musselina);
 }
 .caixa-pesquisa .ic {
@@ -881,7 +888,7 @@ article.capitulo .indice li { margin: 0; border-top: 1px solid var(--fio); }
 
 /* a régua da leitura: quanto do capítulo já passou */
 .progresso-leitura {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 5; height: 3px;
+  position: fixed; top: env(safe-area-inset-top); left: 0; right: 0; z-index: 5; height: 3px;
   transform-origin: left; transform: scaleX(var(--lido, 0));
   background: var(--polpa); pointer-events: none;
 }

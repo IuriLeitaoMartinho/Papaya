@@ -11,6 +11,7 @@
 // a faixa fica em alerta e avisa com vibração e (se autorizada) uma notificação.
 
 import { $, icone, abrirFolha, fecharFolha } from './ui.js';
+import { escrever } from './armazenamento.js';
 
 const CHAVE = 'papaya.temporizador';
 
@@ -18,10 +19,7 @@ const CHAVE = 'papaya.temporizador';
 function carregar() {
   try { return JSON.parse(localStorage.getItem(CHAVE)); } catch { return null; }
 }
-function guardar(t) {
-  if (t) localStorage.setItem(CHAVE, JSON.stringify(t));
-  else localStorage.removeItem(CHAVE);
-}
+const guardar = t => escrever(CHAVE, t ? JSON.stringify(t) : null);
 
 let temporizador = carregar();
 let intervalo = null;

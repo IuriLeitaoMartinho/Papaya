@@ -1,0 +1,12 @@
+# Dependências e pacote gerado (npm run preparar refaz a www/)
+node_modules/
+www/
+
+# Assinaturas: nunca no repositório
+*.jks
+*.keystore
+keystore.properties
+
+# Sistema
+.DS_Store
+Thumbs.db

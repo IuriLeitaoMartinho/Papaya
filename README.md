@@ -81,8 +81,14 @@ Papaya/
 │   ├── faixas-etarias.json  dicas do ecrã Hoje, por idade
 │   ├── montessori.json   dicas diárias, princípios e atividades Montessori
 │   └── chama.json        surpresas e rituais do Calor da chama
-├── sw.js                 service worker (offline)
-└── manifest.webmanifest  manifest da PWA
+├── sw.js                 service worker (offline); a lista ASSETS é também a do pacote nativo
+├── manifest.webmanifest  manifest da PWA
+├── package.json          Capacitor fixado em versões exatas (só para as apps das lojas)
+├── capacitor.config.json appId pt.papayabebe.app, nome "Papaya", webDir www
+├── scripts/preparar-www.mjs  copia para www/ os ficheiros do ASSETS
+├── android/              projeto Android gerado pelo Capacitor
+├── ios/                  projeto iOS (gerado no Mac)
+└── _config.yml           o GitHub Pages não publica android/, ios/, scripts/...
 ```
 
 ## Como adicionar ou editar conteúdo (sem tocar em código)
@@ -202,6 +208,43 @@ O backup vai na **versão 4**, que acrescentou o registo diário (os sonos). A v
 **Sonos registados nos dois telemóveis.** Se os dois pais registarem o mesmo sono, cada um no seu telemóvel, a fusão fica com os dois registos — não apaga nada. As contas não o contam a dobrar e a lista mostra só um (dois registos com início e fim a menos de dez minutos um do outro são o mesmo sono); corrigir ou apagar esse leva o outro atrás. Um sono apagado num telemóvel volta se depois se fundir um ficheiro antigo do outro: é o mesmo limite que os lembretes do calendário já têm.
 
 ⚠ **Privacidade.** As surpresas do casal — incluindo as que forem escritas de raiz — viajam dentro do JSON exportado. É o que se quer (é assim que os dois pais partilham a mesma lista), mas o ficheiro costuma passar por email ou WhatsApp, onde fica guardado noutro sítio qualquer. Vale a pena ter isso presente antes de o enviar, e apagar a mensagem depois de importar do outro lado.
+
+## Apps das lojas (Android e iOS)
+
+A mesma app web vai dentro de uma app nativa feita com **Capacitor 8.5.3** (versões exatas em `package.json`). Nada disto é preciso para o site: o GitHub Pages continua a servir a PWA da raiz.
+
+- **O que vai no pacote:** só os ficheiros da lista `ASSETS` do `sw.js`, copiados para `www/` por `npm run preparar`. Um ficheiro novo da app entra no `ASSETS` e passa a ir para o offline do browser **e** para as apps. `node tests/validar-pacote.mjs` confirma que a `www/` bate certo com a lista.
+- **Diferenças na app nativa** (`APP_NATIVA` em `js/app.js`): não regista o service worker (os ficheiros já estão no telemóvel); no Android o botão de voltar fecha a folha aberta, senão recua, e no primeiro ecrã sai da app.
+- **Os dados são de cada instalação.** A app da loja não vê o `localStorage` do browser: para passar os dados, exporta-se na PWA e importa-se na app (a exportação e importação nativas ainda estão por fazer, tarefa C4 do tracker).
+- **Ainda por fazer:** exportar/importar ficheiros e notificações nativas, ícones e ecrã de arranque definitivos, assinatura das versões, anúncios. Ver `docs/STORE_LAUNCH_TRACKER.md`.
+
+### Android (Windows ou Mac)
+
+Precisa de Node 22 ou mais recente, do Android Studio 2025.2.1 ou mais recente (traz o SDK) e de um **JDK 21**. O Java que vem com as versões recentes do Android Studio é o 25, e o Gradle 8.14 do projeto não corre nele (`Unsupported class file major version 69`). Instalado o JDK 21 (por exemplo `winget install EclipseAdoptium.Temurin.21.JDK`), escolhe-o no Android Studio em *Settings → Build, Execution, Deployment → Build Tools → Gradle → Gradle JDK*, ou aponta-lhe o `JAVA_HOME` na linha de comandos.
+
+```
+npm ci
+npm run sync              # prepara a www/ e copia-a para android/
+npx cap open android      # abre no Android Studio; Run para o emulador ou um telemóvel ligado
+```
+
+Sem abrir o Android Studio: `cd android` e `gradlew assembleDebug` (com `JAVA_HOME` no JDK 21 e `ANDROID_HOME` no SDK); o APK fica em `android/app/build/outputs/apk/debug/`.
+
+### iOS (só no Mac)
+
+Precisa de Xcode 26 ou mais recente (aberto uma vez, para aceitar a licença e instalar a plataforma iOS) e Node 22 ou mais recente.
+
+```
+npm ci
+npm run preparar
+npx cap add ios           # só da primeira vez; depois a pasta ios/ fica no repositório
+npx cap sync ios
+npx cap open ios
+```
+
+No Xcode: alvo **App** → *Signing & Capabilities* → escolhe a tua *Team* (o Apple ID pessoal chega para o simulador e para o teu iPhone; a inscrição paga só é precisa para o TestFlight e a loja). Escolhe um simulador de iPhone ou o iPhone ligado e carrega em **Run**.
+
+**O que confirmar em cada plataforma:** arranca em modo de avião; os capítulos abrem e a pesquisa encontra; um sono registado continua lá depois de fechar a app à força e abrir de novo; os números 112 e SNS 24 abrem o telefone; a barra de baixo não fica por baixo da barra de gestos nem do recorte do ecrã; no Android, o botão de voltar faz o descrito acima.
 
 # Testar localmente
 

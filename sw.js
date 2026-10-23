@@ -3,7 +3,7 @@
 // IMPORTANTE: sempre que alterares conteúdo (.md), dados (.json) ou código,
 // incrementa a VERSAO abaixo. É isso que faz os telemóveis que já têm a app
 // instalada irem buscar a versão nova.
-const VERSAO = 'papaya-v21';
+const VERSAO = 'papaya-v24';
 
 const ASSETS = [
   './',
@@ -47,15 +47,19 @@ const ASSETS = [
   './conteudo/16-fontes.md'
 ];
 
+// Os mesmos recursos como URLs completos, para comparar com o pedido.
+const RECURSOS = new Set(ASSETS.map(a => new URL(a, self.location).href));
+
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSAO).then(c => c.addAll(ASSETS)));
   self.skipWaiting();
 });
 
+// Apaga só as versões antigas da própria app; caches de outros (ex.: um SDK) ficam.
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(chaves =>
-      Promise.all(chaves.filter(k => k !== VERSAO).map(k => caches.delete(k)))
+      Promise.all(chaves.filter(k => k.startsWith('papaya-') && k !== VERSAO).map(k => caches.delete(k)))
     )
   );
   self.clients.claim();
@@ -63,15 +67,31 @@ self.addEventListener('activate', e => {
 
 // Network-first com fallback ao cache: online recebe sempre a versão mais
 // recente; offline serve o que está pré-armazenado.
+// Só os pedidos da própria app passam por aqui: anúncios, consentimento e
+// outros domínios seguem direto para a rede, sem tocar na cache. E só uma
+// resposta 200 de um recurso da lista entra na cache — um 404 ou 500 do
+// servidor nunca substitui a cópia boa; nesse caso serve-se a cópia.
 self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
-  e.respondWith(
-    fetch(e.request)
-      .then(res => {
-        const copia = res.clone();
-        caches.open(VERSAO).then(c => c.put(e.request, copia));
-        return res;
-      })
-      .catch(() => caches.match(e.request, { ignoreSearch: true }))
-  );
+  const pedido = e.request;
+  if (pedido.method !== 'GET') return;
+  const url = new URL(pedido.url);
+  if (url.origin !== self.location.origin) return;
+  url.search = '';
+  url.hash = '';
+  const daCache = () => caches.match(pedido, { ignoreSearch: true });
+  e.respondWith((async () => {
+    let res;
+    try {
+      res = await fetch(pedido);
+    } catch {
+      return (await daCache()) || Response.error();
+    }
+    if (res.status === 200 && !res.redirected && RECURSOS.has(url.href)) {
+      const copia = res.clone();
+      e.waitUntil(caches.open(VERSAO).then(c => c.put(url.href, copia)));
+    } else if (!res.ok) {
+      return (await daCache()) || res;
+    }
+    return res;
+  })());
 });

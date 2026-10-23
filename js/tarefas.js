@@ -28,7 +28,7 @@ function linhaTarefa(t) {
     <input type="checkbox" ${ok ? 'checked' : ''} aria-label="Concluir ${escaparHtml(t.titulo)}">
     <div class="corpo">
       <div class="titulo">${escaparHtml(t.titulo)}</div>
-      <div class="membro">${m ? `<span class="ponto-cor" style="background:${m.cor}"></span>${escaparHtml(m.nome)}` : 'Família'}</div>
+      <div class="membro">${m ? `<span class="ponto-cor" style="background:${escaparHtml(m.cor)}"></span>${escaparHtml(m.nome)}` : 'Família'}</div>
     </div>
   </div>`;
 }

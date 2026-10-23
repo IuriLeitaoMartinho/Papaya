@@ -1,0 +1,24 @@
+{
+  "name": "papaya",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Papaya: guia e registos do bebé dos 0 aos 2 anos (PWA e apps Android/iOS via Capacitor)",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "preparar": "node scripts/preparar-www.mjs",
+    "sync": "node scripts/preparar-www.mjs && cap sync",
+    "testes": "node tests/validar-conteudo.mjs && node tests/validar-backup.mjs && node tests/validar-sw.mjs && node tests/validar-pacote.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.3",
+    "@capacitor/app": "8.1.2",
+    "@capacitor/core": "8.5.3",
+    "@capacitor/ios": "8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3"
+  }
+}

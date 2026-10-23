@@ -16,7 +16,7 @@
 // como o temporizador da mamada). Só ao acordar passa a ser um registo, em
 // estado.registos, e é esse que viaja no ficheiro exportado.
 
-import { estado, uid, dataLocalISO, guardarRegistos } from './armazenamento.js';
+import { estado, uid, dataLocalISO, guardarRegistos, escrever } from './armazenamento.js';
 import { capitulos, slug } from './conteudo.js';
 import { idadeEmMeses } from './idade.js';
 import { $, icone, abrirFolha, fecharFolha, acoesFolha } from './ui.js';
@@ -31,10 +31,7 @@ function carregar() {
     return v && Number.isInteger(v.inicio) ? v : null;
   } catch { return null; }
 }
-function guardarEmCurso() {
-  if (emCurso) localStorage.setItem(CHAVE, JSON.stringify(emCurso));
-  else localStorage.removeItem(CHAVE);
-}
+const guardarEmCurso = () => escrever(CHAVE, emCurso ? JSON.stringify(emCurso) : null);
 
 let emCurso = carregar();
 

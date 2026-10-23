@@ -16,9 +16,27 @@ function carregar(chave, defeito) {
   }
 }
 
-function guardar(chave, valor) {
-  localStorage.setItem(PREFIXO + chave, JSON.stringify(valor));
+// Uma escrita pode falhar (memória cheia, modo privado, armazenamento bloqueado).
+// Nunca rebenta com quem a chamou: devolve false e avisa uma vez, até uma
+// escrita voltar a correr bem. Quem avisa é a interface (quandoFalharGravacao).
+let avisarFalha = () => {};
+let falhou = false;
+export const quandoFalharGravacao = fn => { avisarFalha = fn; };
+
+// Escreve (ou apaga, com texto null) uma chave crua do localStorage.
+export function escrever(chave, texto) {
+  try {
+    if (texto == null) localStorage.removeItem(chave);
+    else localStorage.setItem(chave, texto);
+    falhou = false;
+    return true;
+  } catch {
+    if (!falhou) { falhou = true; avisarFalha(); }
+    return false;
+  }
 }
+
+const guardar = (chave, valor) => escrever(PREFIXO + chave, JSON.stringify(valor));
 
 // Estado partilhado por toda a app. Mutar e chamar o guardar* respetivo.
 export const estado = {
@@ -97,8 +115,29 @@ export function exportarBackup() {
 
 // ---------------------------------------------------------------- import ----
 
-const ehTexto = v => typeof v === 'string';
-const ehData = v => ehTexto(v) && /^\d{4}-\d{2}-\d{2}$/.test(v);
+// O ficheiro vem de fora (email, WhatsApp): tudo o que a app depois mete em HTML
+// ou usa em contas tem de ter a forma que a própria app escreveria.
+const MAX_TITULO = 500, MAX_NOTA = 10000, MAX_ITENS = 50000;
+const LICENCAS = ['', '120', '150', '120+30', '150+30'];
+const ehTexto = (v, max = MAX_TITULO) => typeof v === 'string' && v.length <= max;
+const ehNota = v => v == null || ehTexto(v, MAX_NOTA);
+// uid() dá base 36; o catálogo da chama dá 'cat:<slug>'; os rituais têm nomes fixos.
+const ehId = v => typeof v === 'string' && /^[A-Za-z0-9:_-]{1,80}$/.test(v);
+const ehCor = v => typeof v === 'string' && /^#[0-9A-Fa-f]{6}$/.test(v);
+const ehHora = v => typeof v === 'string' && /^([01]\d|2[0-3]):[0-5]\d$/.test(v);
+// Um dia que existe no calendário: 2026-02-30 e 2026-99-99 têm a forma mas não existem.
+function ehData(v) {
+  if (typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
+  const [a, m, d] = v.split('-').map(Number);
+  const dt = new Date(a, m - 1, d);
+  return a >= 1900 && a <= 2200 &&
+    dt.getFullYear() === a && dt.getMonth() === m - 1 && dt.getDate() === d;
+}
+// Instantes do registo diário: depois de 2000 e não mais de um dia à frente
+// deste relógio (o outro telemóvel pode estar ligeiramente adiantado).
+const ehInstante = v => Number.isInteger(v) && v >= 946684800000 && v <= Date.now() + 86400000;
+const lista = v => Array.isArray(v) && v.length <= MAX_ITENS;
+const semRepetidos = l => new Set(l.map(x => x.id)).size === l.length;
 
 // Valida a estrutura de um backup. Devolve { erro } ou { dados, resumo }.
 export function validarBackup(obj) {
@@ -115,58 +154,59 @@ export function validarBackup(obj) {
   const def = d.definicoes;
   if (!def || typeof def !== 'object' || !ehTexto(def.nomeCrianca ?? '') ||
       (def.dataNascimento !== '' && def.dataNascimento != null && !ehData(def.dataNascimento)) ||
-      !Array.isArray(def.membros) ||
-      !def.membros.every(m => m && ehTexto(m.id) && ehTexto(m.nome) && ehTexto(m.cor)))
+      (def.licenca != null && !LICENCAS.includes(def.licenca)) ||
+      !lista(def.membros) || !semRepetidos(def.membros) ||
+      !def.membros.every(m => m && ehId(m.id) && ehTexto(m.nome) && ehCor(m.cor)))
     return { erro: 'As definições no backup estão corrompidas.' };
 
-  if (!Array.isArray(d.tarefas) ||
-      !d.tarefas.every(t => t && ehTexto(t.id) && ehTexto(t.titulo) &&
-        (t.membroId == null || ehTexto(t.membroId)) &&
-        Array.isArray(t.dias) && t.dias.every(x => Number.isInteger(x) && x >= 0 && x <= 6) &&
+  if (!lista(d.tarefas) || !semRepetidos(d.tarefas) ||
+      !d.tarefas.every(t => t && ehId(t.id) && ehTexto(t.titulo) &&
+        (t.membroId == null || ehId(t.membroId)) &&
+        Array.isArray(t.dias) && t.dias.length <= 7 &&
+        t.dias.every(x => Number.isInteger(x) && x >= 0 && x <= 6) &&
         typeof t.ativa === 'boolean'))
     return { erro: 'As tarefas no backup estão corrompidas.' };
 
-  if (!d.conclusoes || typeof d.conclusoes !== 'object' ||
-      !Object.values(d.conclusoes).every(porDia =>
-        porDia && typeof porDia === 'object' &&
-        Object.keys(porDia).every(ehData)))
+  if (!d.conclusoes || typeof d.conclusoes !== 'object' || Array.isArray(d.conclusoes) ||
+      Object.keys(d.conclusoes).length > MAX_ITENS ||
+      !Object.entries(d.conclusoes).every(([tarefaId, porDia]) =>
+        ehId(tarefaId) && porDia && typeof porDia === 'object' &&
+        Object.entries(porDia).every(([dia, feito]) => ehData(dia) && feito === true)))
     return { erro: 'O histórico de conclusões no backup está corrompido.' };
 
-  if (!Array.isArray(d.eventos) ||
-      !d.eventos.every(e => e && ehTexto(e.id) && ehTexto(e.titulo) && ehData(e.data) &&
-        (e.hora == null || (ehTexto(e.hora) && /^\d{2}:\d{2}$/.test(e.hora))) &&
-        (e.notas == null || ehTexto(e.notas))))
+  if (!lista(d.eventos) || !semRepetidos(d.eventos) ||
+      !d.eventos.every(e => e && ehId(e.id) && ehTexto(e.titulo) && ehData(e.data) &&
+        (e.hora == null || ehHora(e.hora)) && ehNota(e.notas)))
     return { erro: 'Os eventos do calendário no backup estão corrompidos.' };
 
   const c = d.chama;
   if (!c || typeof c !== 'object' ||
-      !Array.isArray(c.rituais) || !Array.isArray(c.surpresas) || !Array.isArray(c.registos) ||
-      !c.rituais.every(r => r && ehTexto(r.id) && typeof r.ativo === 'boolean' &&
+      !lista(c.rituais) || !lista(c.surpresas) || !lista(c.registos) ||
+      !semRepetidos(c.rituais) || !semRepetidos(c.surpresas) || !semRepetidos(c.registos) ||
+      !c.rituais.every(r => r && ehId(r.id) && typeof r.ativo === 'boolean' &&
         (r.diaSemana == null || (Number.isInteger(r.diaSemana) && r.diaSemana >= 0 && r.diaSemana <= 6)) &&
-        (r.semanas == null || (Array.isArray(r.semanas) &&
+        (r.semanas == null || (Array.isArray(r.semanas) && r.semanas.length <= 5 &&
           r.semanas.every(x => Number.isInteger(x) && x >= 1 && x <= 5))) &&
         (r.mes == null || (Number.isInteger(r.mes) && r.mes >= 1 && r.mes <= 12)) &&
-        (r.hora == null || (ehTexto(r.hora) && /^\d{2}:\d{2}$/.test(r.hora))) &&
+        (r.hora == null || ehHora(r.hora)) &&
         (r.pausadoAte == null || ehData(r.pausadoAte)) &&
         (r.adiadoAte == null || ehData(r.adiadoAte))) ||
-      !c.surpresas.every(x => x && ehTexto(x.id) && ehTexto(x.titulo) &&
-        (x.texto == null || ehTexto(x.texto)) &&
+      !c.surpresas.every(x => x && ehId(x.id) && ehTexto(x.titulo) && ehNota(x.texto) &&
         (x.minha == null || typeof x.minha === 'boolean') &&
         (x.favorita == null || typeof x.favorita === 'boolean') &&
-        (x.vezes == null || Number.isInteger(x.vezes)) &&
+        (x.vezes == null || (Number.isInteger(x.vezes) && x.vezes >= 0)) &&
         (x.ultimaVez == null || ehData(x.ultimaVez))) ||
-      !c.registos.every(g => g && ehTexto(g.id) && ehData(g.data) &&
-        (g.ritualId == null || ehTexto(g.ritualId)) &&
-        (g.surpresaId == null || ehTexto(g.surpresaId)) &&
-        (g.nota == null || ehTexto(g.nota)) &&
+      !c.registos.every(g => g && ehId(g.id) && ehData(g.data) &&
+        (g.ritualId == null || ehId(g.ritualId)) &&
+        (g.surpresaId == null || ehId(g.surpresaId)) &&
+        ehNota(g.nota) &&
         (g.correu == null || (Number.isInteger(g.correu) && g.correu >= 1 && g.correu <= 3))))
     return { erro: 'Os dados do Calor da chama no backup estão corrompidos.' };
   if (!Number.isInteger(c.rev)) c.rev = 0;
 
-  if (!Array.isArray(d.registos) ||
-      !d.registos.every(g => g && ehTexto(g.id) && ehTexto(g.tipo) &&
-        Number.isInteger(g.inicio) && g.inicio > 0 &&
-        (g.fim == null || (Number.isInteger(g.fim) && g.fim >= g.inicio)) &&
+  if (!lista(d.registos) || !semRepetidos(d.registos) ||
+      !d.registos.every(g => g && ehId(g.id) && ehId(g.tipo) && ehInstante(g.inicio) &&
+        (g.fim == null || (ehInstante(g.fim) && g.fim >= g.inicio)) &&
         (g.tipo !== 'sono' || g.fim > g.inicio)))
     return { erro: 'O registo diário no backup está corrompido.' };
 
@@ -182,57 +222,67 @@ export function validarBackup(obj) {
   return { dados: d, resumo };
 }
 
+const CHAVES_BACKUP = ['definicoes', 'tarefas', 'conclusoes', 'eventos', 'chama', 'registos'];
+
+// Fundir: união por id (o ficheiro ganha nos conflitos);
+// definições só preenchem o que estiver vazio neste dispositivo.
+function fundir(atual, dados) {
+  const def = atual.definicoes;
+  if (!def.nomeCrianca) def.nomeCrianca = dados.definicoes.nomeCrianca;
+  if (!def.dataNascimento) def.dataNascimento = dados.definicoes.dataNascimento;
+  if (!def.licenca) def.licenca = dados.definicoes.licenca || '';
+  const unir = (lista, novos) => {
+    for (const item of novos) {
+      const i = lista.findIndex(x => x.id === item.id);
+      if (i >= 0) lista[i] = item; else lista.push(item);
+    }
+  };
+  unir(def.membros, dados.definicoes.membros);
+  unir(atual.tarefas, dados.tarefas);
+  for (const [tarefaId, porDia] of Object.entries(dados.conclusoes)) {
+    atual.conclusoes[tarefaId] = { ...(atual.conclusoes[tarefaId] || {}), ...porDia };
+  }
+  unir(atual.eventos, dados.eventos);
+  for (const chave of ['rituais', 'surpresas', 'registos']) unir(atual.chama[chave], dados.chama[chave]);
+  // Os dois pais podem ter registado o mesmo sono, cada um no seu telemóvel e
+  // com ids diferentes. A fusão não apaga nada: quem conta as horas é que não
+  // conta duas vezes o mesmo intervalo (ver uniao() em js/sono.js).
+  unir(atual.registos, dados.registos);
+  return atual;
+}
+
 // Aplica um backup já validado. modo: 'substituir' | 'fundir'.
+// Tudo ou nada: o estado novo monta-se à parte e escrevem-se as seis chaves; se
+// uma falhar a meio, repõem-se as que já tinham sido escritas e o estado em
+// memória fica como estava. Devolve false quando nada mudou.
 export function aplicarBackup(dados, modo) {
-  if (modo === 'substituir') {
-    estado.definicoes = dados.definicoes;
-    estado.tarefas = dados.tarefas;
-    estado.conclusoes = dados.conclusoes;
-    estado.eventos = dados.eventos;
-    estado.chama = dados.chama;
-    estado.registos = dados.registos;
-  } else {
-    // Fundir: união por id (o ficheiro ganha nos conflitos);
-    // definições só preenchem o que estiver vazio neste dispositivo.
-    const def = estado.definicoes;
-    if (!def.nomeCrianca) def.nomeCrianca = dados.definicoes.nomeCrianca;
-    if (!def.dataNascimento) def.dataNascimento = dados.definicoes.dataNascimento;
-    if (!def.licenca) def.licenca = dados.definicoes.licenca || '';
-    for (const m of dados.definicoes.membros) {
-      const i = def.membros.findIndex(x => x.id === m.id);
-      if (i >= 0) def.membros[i] = m; else def.membros.push(m);
-    }
-    for (const t of dados.tarefas) {
-      const i = estado.tarefas.findIndex(x => x.id === t.id);
-      if (i >= 0) estado.tarefas[i] = t; else estado.tarefas.push(t);
-    }
-    for (const [tarefaId, porDia] of Object.entries(dados.conclusoes)) {
-      estado.conclusoes[tarefaId] = { ...(estado.conclusoes[tarefaId] || {}), ...porDia };
-    }
-    for (const e of dados.eventos) {
-      const i = estado.eventos.findIndex(x => x.id === e.id);
-      if (i >= 0) estado.eventos[i] = e; else estado.eventos.push(e);
-    }
-    for (const chave of ['rituais', 'surpresas', 'registos']) {
-      for (const item of dados.chama[chave]) {
-        const i = estado.chama[chave].findIndex(x => x.id === item.id);
-        if (i >= 0) estado.chama[chave][i] = item; else estado.chama[chave].push(item);
+  const atual = Object.fromEntries(CHAVES_BACKUP.map(k => [k, estado[k]]));
+  const novo = modo === 'substituir' ? structuredClone(dados) : fundir(structuredClone(atual), dados);
+  // O rev só pode subir: é ele que invalida a cache dos marcos do calendário.
+  novo.chama.rev = Math.max(estado.chama.rev || 0, novo.chama.rev || 0) + 1;
+
+  let antes;
+  try {
+    antes = CHAVES_BACKUP.map(k => localStorage.getItem(PREFIXO + k));
+  } catch {
+    return false; // armazenamento bloqueado: nem dá para ler
+  }
+  for (let i = 0; i < CHAVES_BACKUP.length; i++) {
+    try {
+      localStorage.setItem(PREFIXO + CHAVES_BACKUP[i], JSON.stringify(novo[CHAVES_BACKUP[i]]));
+    } catch {
+      // Repor o que estava. Repor ocupa no máximo o espaço que já ocupava.
+      for (let j = 0; j < i; j++) {
+        try {
+          if (antes[j] == null) localStorage.removeItem(PREFIXO + CHAVES_BACKUP[j]);
+          else localStorage.setItem(PREFIXO + CHAVES_BACKUP[j], antes[j]);
+        } catch { /* sem mais nada a tentar */ }
       }
-    }
-    // Os dois pais podem ter registado o mesmo sono, cada um no seu telemóvel e
-    // com ids diferentes. A fusão não apaga nada: quem conta as horas é que não
-    // conta duas vezes o mesmo intervalo (ver uniao() em js/sono.js).
-    for (const g of dados.registos) {
-      const i = estado.registos.findIndex(x => x.id === g.id);
-      if (i >= 0) estado.registos[i] = g; else estado.registos.push(g);
+      return false;
     }
   }
-  guardarDefinicoes();
-  guardarTarefas();
-  guardarConclusoes();
-  guardarEventos();
-  guardarChama();
-  guardarRegistos();
+  for (const k of CHAVES_BACKUP) estado[k] = novo[k];
+  return true;
 }
 
 // Remove conclusões com mais de `dias` dias (o histórico útil é curto).

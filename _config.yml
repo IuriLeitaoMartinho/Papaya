@@ -1,0 +1,11 @@
+# GitHub Pages: o site é a PWA. O que serve só para compilar as apps das lojas
+# não é publicado.
+exclude:
+  - android
+  - ios
+  - node_modules
+  - www
+  - scripts
+  - package.json
+  - package-lock.json
+  - capacitor.config.json
