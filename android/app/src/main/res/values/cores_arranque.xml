@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fundo do ecrã de arranque: a cor musselina do css/estilo.css. -->
+    <color name="fundo_arranque">#F4EEE4</color>
+</resources>

@@ -86,6 +86,7 @@ Papaya/
 ├── package.json          Capacitor fixado em versões exatas (só para as apps das lojas)
 ├── capacitor.config.json appId pt.papayabebe.app, nome "Papaya", webDir www
 ├── scripts/preparar-www.mjs  copia para www/ os ficheiros do ASSETS
+├── scripts/gerar-icones-android.py  ícones e ecrã de arranque Android (provisórios)
 ├── android/              projeto Android gerado pelo Capacitor
 ├── ios/                  projeto iOS (gerado no Mac)
 └── _config.yml           o GitHub Pages não publica android/, ios/, scripts/...
@@ -216,7 +217,7 @@ A mesma app web vai dentro de uma app nativa feita com **Capacitor 8.5.3** (vers
 - **O que vai no pacote:** só os ficheiros da lista `ASSETS` do `sw.js`, copiados para `www/` por `npm run preparar`. Um ficheiro novo da app entra no `ASSETS` e passa a ir para o offline do browser **e** para as apps. `node tests/validar-pacote.mjs` confirma que a `www/` bate certo com a lista.
 - **Diferenças na app nativa** (`APP_NATIVA` em `js/app.js`): não regista o service worker (os ficheiros já estão no telemóvel); no Android o botão de voltar fecha a folha aberta, senão recua, e no primeiro ecrã sai da app.
 - **Os dados são de cada instalação.** A app da loja não vê o `localStorage` do browser: para passar os dados, exporta-se na PWA e importa-se na app (a exportação e importação nativas ainda estão por fazer, tarefa C4 do tracker).
-- **Ainda por fazer:** exportar/importar ficheiros e notificações nativas, ícones e ecrã de arranque definitivos, assinatura das versões, anúncios. Ver `docs/STORE_LAUNCH_TRACKER.md`.
+- **Ainda por fazer:** exportar/importar ficheiros e notificações nativas, ícones e ecrã de arranque definitivos (os atuais são provisórios), assinatura das versões, anúncios. Ver `docs/STORE_LAUNCH_TRACKER.md`.
 
 ### Android (Windows ou Mac)
 
@@ -229,6 +230,8 @@ npx cap open android      # abre no Android Studio; Run para o emulador ou um te
 ```
 
 Sem abrir o Android Studio: `cd android` e `gradlew assembleDebug` (com `JAVA_HOME` no JDK 21 e `ANDROID_HOME` no SDK); o APK fica em `android/app/build/outputs/apk/debug/`.
+
+**Ícones e ecrã de arranque (provisórios):** saem do `icon-512.png` com `python scripts/gerar-icones-android.py` (precisa do Pillow). O ícone adaptativo e o ecrã de arranque são vetoriais, desenhados com a geometria medida no PNG; se o desenho do ícone mudar, muda a geometria no topo do script. O fundo do arranque é a cor `--musselina` (`values/cores_arranque.xml` e `values-night/`).
 
 ### iOS (só no Mac)
 

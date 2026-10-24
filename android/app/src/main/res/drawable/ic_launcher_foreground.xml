@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gerado por scripts/gerar-icones-android.py: não editar à mão. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#FAF6F0" android:pathData="M67.149,67.994 A20.25,20.25 0 1,1 49.57,32.834 A20.25,20.25 0 0,0 67.149,67.994 Z"/>
+    <path android:fillColor="#E09E3E" android:pathData="M62.578,66.234 A3.656,3.656 0 1,1 69.891,66.234 A3.656,3.656 0 1,1 62.578,66.234 Z"/>
+</vector>
